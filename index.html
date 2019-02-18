@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!---File: index.html
+This file contains the basic connection to the JSON database.
+
+Version 0.5
+Authors: Petra Jaaskelainen, .... 
+
+Requires the following files:
+database.js
+db.json
+-->
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Database connection</title>
+	<!--- Adding jQuery -->    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!--- Script for retreiving data from the database -->
+    <script src="database.js"></script>	
+</head>
+
+<body>
+<div class="wrapper">
+<div class="menulist">
+   <table id= "userdata" border="1">
+  <thead>
+            <th>Product Name</th>
+            <th>Price (incl. VAT)</th>
+            <th>Category</th>
+            <th>Country of Origin</th>
+            <th>Producer</th>
+            <th>Alcohol %</th>
+            <th>Organic</th>
+        </thead>
+      <tbody>
+
+       </tbody>
+   </table>
+
+</div>
+</div>
+
+</body>
+	
+	
+</html>
+
+<!--- END of file index.html -->
