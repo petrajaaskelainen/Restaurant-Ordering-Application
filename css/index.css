@@ -2,7 +2,7 @@ body{
 	color: #2B2B2B;
 	font-size: 12px;
 	font-family: "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	background-color: aqua;
+    background-color: #FFFFFF;
 	text-align: center;
 	margin: 0;
     width: 800px;
@@ -14,7 +14,7 @@ body{
 }
 
 header {
-    background-color: aqua;
+    background-color: #FFFFFF;
 	height: 150px;
 	padding-top: 25px;
 }
@@ -24,43 +24,14 @@ nav{
 	padding: 10px;
 	padding-right: 45px;
 	padding-top: 25px;
-    background-color: aqua;
+    background-color: #FFFFFF;
 	text-align: right;
-}
-
-
-
-/* Menu categories */
-.menucategories button {
-	background-color: inherit;
-	border: none;
-	outline: none;
-	transition: 0.3s;
-	border-radius: 25%;
-	width:100px;
-    height:100px;
-}
-
-.menulabel {
-	font-size: 11px;
-	font-weight: bold;
-	background-color: aqua;
-	color: #000000;
-	margin-top: 75px;
-	padding-top: 5px;
-	height: 20px;
-	width: inherit;
-	opacity: 0.7;
-	position: inherit;
-}
-
-.tabcontent {
 }
 
 /* Menu filtering */
 
 
-#div1, #div2, #div3 {
+#div1, #div2 {
   float: left;
   width: inherit;
   height: 135px;
@@ -110,12 +81,6 @@ a {
 	border-radius: 25px;
 	color: #000000;
 }
-
-.menucategories {
-	float:left;
-}
-
-
 .menulist {
 	padding: 5px;
 	float:right;
@@ -126,23 +91,6 @@ a {
 	font-size: 14px;
 	padding: 5px;
 	text-align: left;
-}
-
-.name {
-	float: left;
-}
-
-.price {
-	float: right;
-}
-		
-.filter {
-	overflow: hidden;
-	font-size: 10px;
-	text-align: left;
-	font-style: italic;
-	float: left;
-	padding-bottom: 10px;
 }
 
 button {
@@ -160,7 +108,6 @@ footer {
     float: bottom;
 }
 
-
 @media only screen and (max-width: 700px) {
     .divz {
         width: 49.99999%;
@@ -172,7 +119,6 @@ footer {
     .divz {
         width: 100%;
     }
-	
 }
 
 .clearfix:after {
