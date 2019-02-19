@@ -1,47 +1,67 @@
-<!---
-File: index.html
-
-This file contains the basic HTML structure and implements multiple languages support.
+<!DOCTYPE html>
+<!---File: index.html
+This file contains the index page of the system. 
 
 Version 0.5
-Authors: Hafiz Areeb Asad, .... 
+Authors: Petra Jaaskelainen, Hafiz Areeb Asad, .... 
 
 Requires the following files:
-
+database.js
+db.json
 language.js
 index.css
-
 -->
-
-<!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Multiple Language Support</title>
-    
+    <title>The Flying Dutchman</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
-
-    <link href="index.css" rel="stylesheet">
-    <script src="./js/language.js"></script>
-
+	<!--- Connecting stylesheet -->	
+    <link href="css/index.css" rel="stylesheet">
+	<!--- Script for multilanguage -->	
+    <script src="/js/language.js"></script>
 </head>
-<body>
-
-<!---
-Select to choose language
--->
-<select id="languageOptionSelector">
-    <option value="en" selected>English</option>
-    <option value="ur">اردو</option>
-</select>
-
-<!---
-Divs to show text
--->
-<div id="div1"></div>
-<div id="div2"></div>
-
+<body style="width:100%">
+	<!--- Language selector panel on the top-->	
+	<nav style="width:100%">
+		<select id="languageOptionSelector">
+    		<option value="en" selected>English</option>
+    		<option value="ur">اردو</option>
+		</select>
+    </nav>
+	
+	<!--- Header with the logo -->	
+    <header>
+        <img src="img/logo.png" width="100" height="100">
+    </header>
+	
+	<!--- Left side section of the page -->	
+	<section id="container" style="width:100%">
+        <div class="content">
+			<div class= "menu" style="width:50%"> 
+				<div class= "menulist" style="width:70%">
+				<!---Table to show the menu list-->
+				<div class="wrapper">
+				<!---BRING INTO THIS DIV THE MENU-->
+				<div class="menulist">
+				</div>
+				</div>
+				</div>
+			</div>		
+		</div>
+	<!--- Right side section of the page -->	
+		<div class= "cart" style="width:30%"> 
+			<div class= "checkout" style="width:95%">
+				<button class="button">Checkout</button>
+			</div>
+		</div>
+    </section>
+	
+	<!---Divs to show language selector text-->
+	<div id="div1"></div>
+	<div id="div2"></div>
+	
+    <footer>&copy; Petra Jaaskelainen, Ridhi Agrawal, Kamil Iqbal and Areeb Asad</footer>
 </body>
 </html>
 
