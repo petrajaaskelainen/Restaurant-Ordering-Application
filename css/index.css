@@ -2,14 +2,11 @@ body{
 	color: #2B2B2B;
 	font-size: 12px;
 	font-family: "Helvetica Neue", Helvetica, Arial, "sans-serif";
-    background-color: aqua;
+    background-color: #FFFFFF;
 	text-align: center;
 	margin: 0;
     width: 800px;
     height: 800px;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 header {
@@ -27,13 +24,45 @@ nav{
 	text-align: right;
 }
 
+#progress {
+	height: 90px;
+	padding-top: 30px;
+	float: center;
+}
+
+.progresspoint {
+	height: 50px;
+	width: 50px;
+	display: inline-block;
+	text-align: center;
+}
+
 #div1, #div2 {
-  float: left;
-  width: inherit;
-  height: 135px;
+  height: 20px;
   margin: 10px;
   padding: 10px;
-  border: 1px solid black;
+	font-size: 10px;
+	color: #2B2B2B;
+}
+
+#menulist {
+    padding: 10px;
+	float: center;
+}
+#login {
+    padding: 10px;
+	float: center;
+	display: none;
+}
+#confirmpurchase {
+    padding: 10px;
+	float: center;
+	display: none;
+}
+#orderplaced {
+    padding: 10px;
+	float: center;
+	display: none;
 }
 
 a {
@@ -44,42 +73,36 @@ a {
     color: #FFF;
 }
 
-.indexcontent{
-	font-size: 34px;
-	width: 100%;
-	padding-top: 125px;
+#container{
+	margin-bottom: 125px;
 }
-.content{
+#content{
 	font-size: 34px;
 	width: 100%;
 	padding-top: 5px;
 }
 
-.menu {
-	background-color: white;
+#menu {
+    background-color: #E7E7E7;
 	height: auto;
     float:left;
-	margin-top: 50px;
-	margin-left: 100px;
+	margin-top: 80px;
+	margin-left: 150px;
 	padding: 10px;
 	border-radius: 25px;
-	color: #000000;
-	
+	color: #2B2B2B;
+	font-size: 14px;
 }
 
-.cart {
-	background-color: #FFF;
-	height: auto;
+#cart {
+    background-color: #E7E7E7;
+	height: 500px;
 	float: right;
-	margin-top: 50px;
-	margin-right: 100px;
+	margin-top: 80px;
+	margin-right: 150px;
 	padding: 10px;
 	border-radius: 25px;
 	color: #000000;
-}
-.menulist {
-	padding: 5px;
-	float:right;
 }
 
 .item {
@@ -89,33 +112,58 @@ a {
 	text-align: left;
 }
 
-button {
-  cursor: pointer;
+.button {
+	cursor: pointer;
+    background-color: darkturquoise;	
+	color: #FFFFFF;
+	font-weight: 500;
+	font-size: 14px;	
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 25px;
+	
 }
+
 
 footer {
     text-align: center;
-    color: #FFF;
+	background-color: white;
     font-size: 8px;
     width: 100%;
     position: absolute;
     bottom: 0;
     padding-bottom: 15px;
+    padding-top: 15px;	
     float: bottom;
+	display: none;
 }
 
 @media only screen and (max-width: 700px) {
-    .divz {
-        width: 49.99999%;
-        margin: 6px 0;
-    }
+
+	#menu {
+    background-color: aqua;
+	height: auto;
+	width: 100%;
+	margin-top: 80px;
+	margin-left: 15px;
+	padding: 10px;
+	border-radius: 25px;
+	color: #2B2B2B;
+	font-size: 14px;
+}
+	#cart {
+	float: bottom;
+    background-color: #E7E7E7;
+	height: auto;
+	width: 300px;
+	margin-top: 80px;
+	margin-right: 15px;
+	padding: 10px;
+	border-radius: 25px;
+}
 }
 
-@media only screen and (max-width: 500px) {
-    .divz {
-        width: 100%;
-    }
-}
 
 .clearfix:after {
     content: "";
