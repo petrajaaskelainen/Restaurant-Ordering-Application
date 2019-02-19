@@ -2,13 +2,12 @@ body{
 	color: #2B2B2B;
 	font-size: 12px;
 	font-family: "Helvetica Neue", Helvetica, Arial, "sans-serif";
-    background-color: #FFFFFF;
+    background-color: aqua;
 	text-align: center;
 	margin: 0;
     width: 800px;
     height: 800px;
     background-size: 100% 100%;
-    background-image: url(/img/bg1.jpeg);
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -27,9 +26,6 @@ nav{
     background-color: #FFFFFF;
 	text-align: right;
 }
-
-/* Menu filtering */
-
 
 #div1, #div2 {
   float: left;
