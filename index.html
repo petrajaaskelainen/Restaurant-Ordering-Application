@@ -21,7 +21,9 @@ index.css
 	<!--- Script for multilanguage -->	
     <script src="/js/language.js"></script>
 	<!--- Script for database -->	
-    <script src="/js/db.js"></script>
+    <script src="/js/database.js"></script>
+	<!--- Script for checkout process -->	
+    <script src="/js/tabchanger.js"></script>
 </head>
 <body style="width:100%">
 	<!--- Language selector panel on the top-->	
@@ -37,23 +39,48 @@ index.css
         <img src="img/logo.png" width="100" height="100">
     </header>
 	
+	<!--- Progress bar -->
+	<div id="progress"><p>Steps in check-out process</p><br>
+		<div class="progresspoint"><img src="img/oneactive.png" width="40" height="40"><p>Select products</p></div>
+		<div class="progresspoint"></div>
+		<div class="progresspoint"><img src="img/two.png" width="40" height="40"><p>Confirm payment</p></div>
+		<div class="progresspoint"></div>		
+		<div class="progresspoint"><img src="img/three.png" width="40" height="40"><p>Order placed</p></div>
+	</div>
+	
+
 	<!--- Left side section of the page -->	
 	<section id="container" style="width:100%">
-        <div class="content">
-			<div class= "menu" style="width:50%"> 
+        <div id="content">
+			<div id= "menu" style="width:45%"> 
 				<!---BRING INTO THIS DIV THE MENU DATABASE-->
-				<div class= "menulist" style="width:80%">
+				<div id= "menulist" style="width:100%">
 					<!---Example divs to show language selector text-->
 					<div id="div1"></div>
 					<div id="div2"></div>
+				</div>
+				<!--- Hidden as default, visible in check-out process-->
+				<div id= "login" style="width:100%">
+					<!--- Add here login form which opens confirmpurchase div-->
+				</div>
+				<!--- Hidden as default, visible in check-out process-->
+				<div id= "confirmpurchase" style="width:100%">
+					<p>Put here price and credits, etc.</p>
+					<button class="button">Confirm purchase</button>
+				</div>
+				<!--- Hidden as default, visible in check-out process-->
+				<div id= "orderplaced" style="width:100%">
+					<img src="img/check.png" width="100" height="100">
+					<p>Order placed!</p>
+					<button class="button">Back to menu</button>
 				</div>
 			</div>
 		</div>
 
 	<!--- Right side section of the page -->	
-		<div class= "cart" style="width:30%"> 
-			<div class= "checkout" style="width:95%">
-				<button class="button">Checkout</button>
+		<div id= "cart" style="width:30%"> 
+			<div id= "checkout" style="width:95%">
+				<button id="checkoutbtn">Checkout</button>				
 			</div>
 		</div>
     </section>
