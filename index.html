@@ -57,19 +57,56 @@ index.css
 	</div>
 	
 
-	<!--- Left side section of the page -->	
+	<!--- the main content of the page -->	
 	<section id="container" style="width:100%">
-        <div id="content">
-			<div id= "menu" style="width:45%"> 
-				<!---BRING INTO THIS DIV THE MENU DATABASE-->
-				<div id= "menulist" style="width:100%">
-					<!---Example divs to show language selector text-->
-					<div id="div1"></div>
-					<div id="div2"></div>
+		<!--- Left side section of the page -->	
+        <div class="content">
+			<div id= "menu"> 
+				<div id="filter">
+					<div id="filtertitle">Sort by:</div>
+					<div class="filtercategory">
+						<div>Name</div>
+						<select id="nameSelector">
+    						<option value="" selected>A</option>
+    						<option value="">Z</option>
+						</select>
+					</div>
+					<div class="filtercategory">
+						<div>Alcohol %</div>
+						<select id="alcoholStrengthSelector">
+    						<option value="" selected>Low</option>
+    						<option value="">Medium</option>
+							<option value="">Strong</option>
+						</select>
+					</div>
+					<div class="filtercategory">
+						<div>Price</div>
+						<select id="priceSelector">
+    						<option value="" selected>Low</option>
+    						<option value="">High</option>
+						</select>
+					</div>
+					<div class="filtercategory">
+						<div>Country of Origin</div>
+						<select id="countrySelector">
+    						<option value="" selected>A</option>
+    						<option value="">Z</option>
+						</select>
+					</div>
+					<div class="filtercategory">
+						<div>In Stock</div>
+						<select id="stockBalance">
+    						<option value="" selected>Lowest</option>
+    						<option value="">Highest</option>
+						</select>
+					</div>
 				</div>
+				<!---BRING INTO THIS DIV THE MENU DATABASE-->
+				<div id= "menulist" style="width:100%"></div>
 				<!--- Hidden as default, visible in check-out process-->
 				<div id= "login" style="width:100%">
 					<!--- Add here login form which opens confirmpurchase div-->
+					<button class="button">Login</button>
 				</div>
 				<!--- Hidden as default, visible in check-out process-->
 				<div id= "confirmpurchase" style="width:100%">
@@ -84,18 +121,17 @@ index.css
 				</div>
 			</div>
 		</div>
-
-	<!--- Right side section of the page -->	
-		<div id= "cart" style="width:30%" > 
-			
+	<!--- Right side section of the page -->
+		<div class="content">
+		<div id= "cart" style="width:100%"> 
 			<div id= "checkout" style="width:95%">	
-				<!--- This div below contains the dropable items list -->			
-				<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)" style="width:90%">
-				Drop here
-				</div>
-				<div id="checkoutTotal" > </div>
-				<button id="checkoutbtn">Checkout</button>				
+				<!--- This div below contains the droppable items list -->			
+				<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)">
+				Drop here</div>
+				<div id="checkoutTotal">Add here total amount</div>
+				<button class="button" id= "checkoutbtn">Checkout</button>
 			</div>
+		</div>
 		</div>
     </section>
 	
@@ -103,6 +139,4 @@ index.css
 </body>
 </html>
 
-<!---
-END of file index.html
--->
+<!--- END of file index.html -->
