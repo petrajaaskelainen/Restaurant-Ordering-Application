@@ -1,32 +1,25 @@
-var beverges = allBeverages();
+//============================================================================
+// Name        : language.js
+// Author      : Hafiz Areeb Asad, Petra Jaaskelainen,...
+// Version     : 1.0
+// Copyright   : (c) Reserved
+// Date Created: 17th Febraury, 2019
+// Last updated: 
+// Description : Creates Menu Items List on index.html page.  
+// Requires loader.js, Beverges.js and  index.html
+//=============================================================================
+
+
+var beverges = allBeverages().slice(1,20);
 //console.log(beverges.slice(1,20));
 
 console.log(beverges[5].name);
 
-/*Taken from
-https://stackoverflow.com/questions/11128700/create-a-ul-and-fill-it-based-on-a-passed-array */
-function makeUL(array) {
-    // Create the list element:
-    var list = document.createElement('ul');
-
-    for(var i = 0; i < array.length; i++) {
-        // Create the list item:
-        var item = document.createElement('li');
-
-        // Set its contents:
-        item.appendChild(document.createTextNode(array[i].name));
-
-        // Add it to the list:
-        list.appendChild(item);
-    }
-    // Finally, return the constructed list:
-    return list;
-}
 
 // ===================================================================================================================
-// The function returns all food strings (created as divs) of a certain type (given as argument).
+// The function returns all menu drinks strings (created as divs) of a certain type (given as argument).
 //
-function getFoods(type, arr) {
+function getDrinks(type, arr) {
 
     // The collection variable
     //
@@ -40,7 +33,9 @@ function getFoods(type, arr) {
         // Otherwise we skip to the next item.
         //
         //if (arr[i].type == type) {
-        out += '<div id="' + "menuitem" + i + '" draggable="true" ondragstart="drag(event)">' + arr[i].name + ' <span class="price">' + arr[i].price + '</span></div>';
+        out += '<div id="' + "menuitem" + i + '" class="menuItemList"  draggable="true" ondragstart="drag(event)"' 
+                + 'data-cart-listing-price="' + arr[i].price  + '" >' + arr[i].name 
+                + ' <span class="price">' + arr[i].price + '</span></div>';
         //}
     }
     // Once we are finished we return the resulting HTML string containing all the menu items for the desired menu.
@@ -48,5 +43,18 @@ function getFoods(type, arr) {
     return out;
 }
 
-$(getFoods(beverges[0].category, beverges)).appendTo("#div4");
+$(document).ready(function(){
+
+$(getDrinks(beverges[0].category, beverges)).appendTo("#menulist");
 //document.getElementById('div4').appendChild(makeUL(beverges));
+
+function sort(){
+    var divList = $(".menuItemList");
+    divList.sort(function(a, b){ return $(a).data("cart-listing-price")-$(b).data("cart-listing-price")});
+
+    $("#menulist").html(divList);
+}
+
+sort();
+
+});

@@ -1,5 +1,5 @@
 /**
- * Created by LOe on 01/12/15.
+ * 
  */
 //
 // A standard function. If you don't want any "extras", just use this
@@ -16,6 +16,8 @@ function allowDrop(ev) {
 function drag(ev) {
     ev.dataTransfer.setData("id", ev.target.id);
 }
+
+
 
 // The drop function determines what happens when you drop the source item
 // on the target. You can define any kind of action that you want to
@@ -42,68 +44,45 @@ function drop(ev) {
     //
     var nodeCopy = document.getElementById(data).cloneNode(true);
 
-    nodeCopy.id = "newId";  // We cannot use the same ID. Ideally we should generate the new ID with a
+    nodeCopy.id = "cartItem" + data.substr(data.length - 1);  // We cannot use the same ID. Ideally we should generate the new ID with a
                             // random or incremental number. This is left as an exercise...
                             //
 
     nodeCopy.draggable = "false"; // The new element is set as being not draggable.
-
+    
+    //nodeCopy.ondragstart = "function() { return false; }"; 
+    console.log(nodeCopy);
     ev.target.appendChild(nodeCopy);
+    //$("#" + nodeCopy.id).on('dragstart', function(event) { event.preventDefault(); });        
+    $("#" + nodeCopy.id).addClass("cartItemsList");
+    document.getElementById(nodeCopy.id).ondragstart = function() { return false; };
+
 
     // Get the ID of the target (the order).
     //
     var tempid = "#" + ev.target.id;
-
-    // Get the HTML content of the order.
-    //
-    order = $(tempid).html();
-
-    // Get the prices from the order.
-    //
-    prices = getPrices(order);
-
-    // Make a total sum of all the prices.
-    //
-    sum = sumTotal(prices);
-    console.log(sum);
-    // Replace the content of the order with the new sum
-    //
-    //$(orderTable(tempid) + " .tsum").text(sum + " kr.");
-   //$("#divPrice").text(sum + " kr.");
-    $("#divA").text(sum + " kr.");
+    
+    sumCartTotal();
+    
+   // $("#divA").text(sum + " kr.");
 
 }
 
-// Get the list of prices from all the currentorders.
-//
-function getPrices (htmlString) {
 
-    // We create a new jQuery object and put the HTML string into it.
-    //
-    var el = $( '<div></div>' );
-    el.html(htmlString);
+function sumCartTotal(){
 
-    // Then we can use jQuery to find all elements in this string.
-    //
-    return $('.price', el); // All the price elements
-}
-
-// Sum up all the prices in the order. Note that the data is still stored in an HTML string.
-//
-function sumTotal(data) {
-
-    // reset the total sum;
-    //
     var sum = 0;
-
-    // Go through the elements and collect the internal texts.
-    // Each string is parsed to an integer.
-    //
-    for (i = 0; i < data.length; i++) {
-        sum += parseInt(data[i].innerText);
-    }
-    return sum;
+    var cartList = $(".cartItemsList");
+    
+    $(".cartItemsList").each(function(){
+        var val = parseInt($(this).data('cart-listing-price'));
+           sum += val;
+       });
+    
+     console.log("sum = " + sum);
 }
+
+
 // ===================================================================================================================
 // END OF FILE
 // ===================================================================================================================

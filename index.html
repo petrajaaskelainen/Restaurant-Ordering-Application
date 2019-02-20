@@ -19,10 +19,20 @@ index.css
 <link href="css/index.css" rel="stylesheet">
 <!--- Script for multilanguage -->
 <script src="js/language.js"></script>
+<!--- Database file, contains information of drinks -->
+<script src="database/Beverges.js"></script>
+<!--- Database file, contains information of users -->
+<script src="database/DBLoaded.js"></script>
 <!--- Script for database -->
-<script src="js/database.js"></script>
+<!-- <script src="js/database.js"></script> -->
+<!--- Script for loading the database -->
+<script src="js/loader.js"></script>
+<!--- Script for populating menu items list -->
+<script src="js/menuitem.js"></script>
+<!--- Script for dragndrop of menu items list or cart list-->
+<script src="js/drop.js"></script>
 <!--- Script for checkout process -->
-<script src="js/tabchanger.js"></script>
+<!-- <script src="js/tabchanger.js"></script> -->
 <body style="width:100%">
 	<!--- Language selector panel on the top-->	
 	<nav style="width:100%">
@@ -76,8 +86,12 @@ index.css
 		</div>
 
 	<!--- Right side section of the page -->	
-		<div id= "cart" style="width:30%"> 
-			<div id= "checkout" style="width:95%">
+		<div id= "cart" style="width:30%" > 
+			
+			<div id= "checkout" style="width:95%">				
+				<div id="checkout-cart" ondrop="drop(event)" ondragover="allowDrop(event)" style="width:90%">
+				Drop here
+				</div>
 				<button id="checkoutbtn">Checkout</button>				
 			</div>
 		</div>
