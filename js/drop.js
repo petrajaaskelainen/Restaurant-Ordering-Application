@@ -50,15 +50,48 @@ function drop(ev) {
 
     nodeCopy.draggable = "false"; // The new element is set as being not draggable.
     
-    //console.log(nodeCopy);
-    ev.target.appendChild(nodeCopy);
+    var nodeID = "#" + nodeCopy.id;
 
-    $("#" + nodeCopy.id).addClass("cartItemsList");
-    document.getElementById(nodeCopy.id).ondragstart = function() { return false; };
+    if($(nodeID).length == 0) {
+        //if this doesn't exist then add
+        ev.target.appendChild(nodeCopy);
+        document.getElementById(nodeCopy.id).ondragstart = function() { return false; };
+        
+        
 
+        $(nodeID).addClass("cartItemsList");
+        //$(nodeID + "span .category").remove();
+        //$(nodeID + "span alcoholStrength").remove();
+        $(nodeID).find('.alcoholStrength').remove();
+        $(nodeID).data("quantity", 1);
+        $(nodeID).append("<span class='quantity'>"+ 1 +'</span>');
+        $(nodeID).append("<span class='cartRemoveSpan'>"+ "<button class='cartItemsRemoveButton'>"+ "Remove"+'</button>' +'</span>');
+
+        //console.log( $(nodeID).data("quantity"));
+    }
+    else {
+
+        var itemQuantity = $(nodeID).data("quantity") + 1;
+        var itemPrice = parseInt($(nodeID).data("cart-listing-price"));
+        var totalPrice = itemPrice * itemQuantity;
+        
+        $(nodeID).data("quantity", itemQuantity);           // set and save new value
+        $(nodeID).find(".quantity").text(itemQuantity);     // set value for view
+        $(nodeID).find(".price").text( totalPrice );        // set value for view
+
+    } 
+
+    $('.cartItemsRemoveButton').on('click', function(){
+        var parent_id = $(this).parent().parent().attr('id');
+        console.log(parent_id);
+        
+        $("#" + parent_id).remove();
+        
+        var sum = sumCartTotal();
+        $("#checkoutTotal").text("Total: " + sum + " kr.");
+    })
 
     // Get the ID of the target (the order).
-    //
     var tempid = "#" + ev.target.id;
     
     var sum = sumCartTotal();
@@ -74,7 +107,7 @@ function sumCartTotal(){
     var cartList = $(".cartItemsList");
     
     $(".cartItemsList").each(function(){
-        var val = parseInt($(this).data('cart-listing-price'));
+        var val = parseInt($(this).data('cart-listing-price')) * parseInt($(this).data('quantity'));
            sum += val;
        });
     
