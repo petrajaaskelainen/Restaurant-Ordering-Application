@@ -88,10 +88,12 @@ index.css
 	<!--- Right side section of the page -->	
 		<div id= "cart" style="width:30%" > 
 			
-			<div id= "checkout" style="width:95%">				
-				<div id="checkout-cart" ondrop="drop(event)" ondragover="allowDrop(event)" style="width:90%">
+			<div id= "checkout" style="width:95%">	
+				<!--- This div below contains the dropable items list -->			
+				<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)" style="width:90%">
 				Drop here
 				</div>
+				<div id="checkoutTotal" > </div>
 				<button id="checkoutbtn">Checkout</button>				
 			</div>
 		</div>

@@ -1,5 +1,5 @@
 // =====================================================================================================
-// SOme sample API functions for the Flying Dutchman data base.
+// Some sample API functions for the Flying Dutchman data base.
 // =====================================================================================================
 // Author: Lars Oestreicher, 2018
 // 

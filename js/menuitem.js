@@ -48,6 +48,8 @@ $(document).ready(function(){
 $(getDrinks(beverges[0].category, beverges)).appendTo("#menulist");
 //document.getElementById('div4').appendChild(makeUL(beverges));
 
+$("#checkoutTotal").text("Total: " + 0 + "kr.");
+
 function sort(){
     var divList = $(".menuItemList");
     divList.sort(function(a, b){ return $(a).data("cart-listing-price")-$(b).data("cart-listing-price")});

@@ -50,10 +50,9 @@ function drop(ev) {
 
     nodeCopy.draggable = "false"; // The new element is set as being not draggable.
     
-    //nodeCopy.ondragstart = "function() { return false; }"; 
-    console.log(nodeCopy);
+    //console.log(nodeCopy);
     ev.target.appendChild(nodeCopy);
-    //$("#" + nodeCopy.id).on('dragstart', function(event) { event.preventDefault(); });        
+
     $("#" + nodeCopy.id).addClass("cartItemsList");
     document.getElementById(nodeCopy.id).ondragstart = function() { return false; };
 
@@ -62,9 +61,9 @@ function drop(ev) {
     //
     var tempid = "#" + ev.target.id;
     
-    sumCartTotal();
+    var sum = sumCartTotal();
     
-   // $("#divA").text(sum + " kr.");
+    $("#checkoutTotal").text("Total: " + sum + " kr.");
 
 }
 
@@ -79,7 +78,8 @@ function sumCartTotal(){
            sum += val;
        });
     
-     console.log("sum = " + sum);
+     //console.log("sum = " + sum);
+     return sum;
 }
 
 
