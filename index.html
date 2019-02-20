@@ -36,7 +36,7 @@ index.css
 <body style="width:100%">
 	<!--- Language selector panel on the top-->	
 	<nav style="width:100%">
-		<select id="languageOptionSelector">
+		<select class="dropdwn" id="languageOptionSelector">
     		<option value="en" selected>English</option>
     		<option value="ur">اردو</option>
 		</select>
@@ -63,42 +63,43 @@ index.css
         <div class="content">
 			<div id= "menu"> 
 				<div id="filter">
-					<div id="filtertitle">Sort by:</div>
+					<div id="sortBy">Sort by:</div>
+					<div id="filtercolumn">
 					<div class="filtercategory">
-						<div>Name</div>
-						<select id="nameSelector">
+						<div class="filterTitle">Name</div>
+						<select class="dropdwn" id="nameSelector">
     						<option value="" selected>A</option>
     						<option value="">Z</option>
 						</select>
 					</div>
 					<div class="filtercategory">
-						<div>Alcohol %</div>
-						<select id="alcoholStrengthSelector">
+						<div class="filterTitle">Alcohol %</div>
+						<select class="dropdwn" id="alcoholStrengthSelector">
     						<option value="" selected>Low</option>
-    						<option value="">Medium</option>
-							<option value="">Strong</option>
+							<option value="">High</option>
 						</select>
 					</div>
 					<div class="filtercategory">
-						<div>Price</div>
-						<select id="priceSelector">
+						<div class="filterTitle">Price</div>
+						<select class="dropdwn" id="priceSelector">
     						<option value="" selected>Low</option>
     						<option value="">High</option>
 						</select>
 					</div>
 					<div class="filtercategory">
-						<div>Country of Origin</div>
-						<select id="countrySelector">
+						<div class="filterTitle">Country of Origin</div>
+						<select class="dropdwn" id="countrySelector">
     						<option value="" selected>A</option>
     						<option value="">Z</option>
 						</select>
 					</div>
 					<div class="filtercategory">
-						<div>In Stock</div>
-						<select id="stockBalance">
-    						<option value="" selected>Lowest</option>
-    						<option value="">Highest</option>
+						<div class="filterTitle">In Stock</div>
+						<select class="dropdwn" id="stockBalance">
+    						<option value="" selected>Low</option>
+    						<option value="">High</option>
 						</select>
+					</div>
 					</div>
 				</div>
 				<!---BRING INTO THIS DIV THE MENU DATABASE-->
