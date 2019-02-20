@@ -12,6 +12,7 @@ language.js
 index.css
 -->
 <html lang="en">
+<head>
 <meta charset="UTF-8">
 <title>The Flying Dutchman</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -23,8 +24,6 @@ index.css
 <script src="database/Beverges.js"></script>
 <!--- Database file, contains information of users -->
 <script src="database/DBLoaded.js"></script>
-<!--- Script for database -->
-<!-- <script src="js/database.js"></script> -->
 <!--- Script for loading the database -->
 <script src="js/loader.js"></script>
 <!--- Script for populating menu items list -->
@@ -32,10 +31,12 @@ index.css
 <!--- Script for dragndrop of menu items list or cart list-->
 <script src="js/drop.js"></script>
 <!--- Script for checkout process -->
-<!-- <script src="js/tabchanger.js"></script> -->
-<body style="width:100%">
+<script src="js/tabchanger.js"></script>
+</head>
+	
+<body>
 	<!--- Language selector panel on the top-->	
-	<nav style="width:100%">
+	<nav>
 		<select class="dropdwn" id="languageOptionSelector">
     		<option value="en" selected>English</option>
     		<option value="ur">اردو</option>
@@ -44,58 +45,54 @@ index.css
 	
 	<!--- Header with the logo -->	
     <header>
-        <img src="img/logo.png" width="100" height="100">
+        <img src="img/logo.png" alt="logo" width="100" height="100">
     </header>
 	
 	<!--- Progress bar -->
 	<div id="progress"><p>Steps in check-out process</p><br>
-		<div class="progresspoint"><img src="img/oneactive.png" width="40" height="40"><p>Select products</p></div>
+		<div class="progresspoint"><img src="img/oneactive.png" alt="1" width="40" height="40"><p>Select products</p></div>
 		<div class="progresspoint"></div>
-		<div class="progresspoint"><img src="img/two.png" width="40" height="40"><p>Confirm payment</p></div>
+		<div class="progresspoint"><img src="img/two.png" alt="2" width="40" height="40"><p>Confirm payment</p></div>
 		<div class="progresspoint"></div>		
-		<div class="progresspoint"><img src="img/three.png" width="40" height="40"><p>Order placed</p></div>
+		<div class="progresspoint"><img src="img/three.png" alt="3" width="40" height="40"><p>Order placed</p></div>
 	</div>
 	
-
 	<!--- the main content of the page -->	
-	<section id="container" style="width:100%">
+	<section id="container">
+		<div class="contentside"></div>
 		<!--- Left side section of the page -->	
         <div class="content">
 			<div id= "menu"> 
 				<div id="filter">
-					<div id="sortBy">Sort by:</div>
-					<div id="filtercolumn">
-					<div class="filtercategory">
-						<div class="filterTitle">Name</div>
+					<div id="filterColumn">
+					<div class="filterCategory" id="nameCategory">
 						<select class="dropdwn" id="nameSelector">
     						<option value="" selected>A</option>
     						<option value="">Z</option>
 						</select>
 					</div>
-					<div class="filtercategory">
-						<div class="filterTitle">Alcohol %</div>
+					<div class="filterCategory">
 						<select class="dropdwn" id="alcoholStrengthSelector">
-    						<option value="" selected>Low</option>
-							<option value="">High</option>
+							<option value="1" selected>Alcohol %</option>
+    						<option value="2" selected>Low</option>
+							<option value="3">High</option>
 						</select>
 					</div>
-					<div class="filtercategory">
-						<div class="filterTitle">Price</div>
-						<select class="dropdwn" id="priceSelector">
-    						<option value="" selected>Low</option>
-    						<option value="">High</option>
-						</select>
-					</div>
-					<div class="filtercategory">
-						<div class="filterTitle">Country of Origin</div>
+					<div class="filterCategory">
 						<select class="dropdwn" id="countrySelector">
+							<option value="" selected>Origin</option>
     						<option value="" selected>A</option>
     						<option value="">Z</option>
 						</select>
 					</div>
-					<div class="filtercategory">
-						<div class="filterTitle">In Stock</div>
+					<div class="filterCategory">
 						<select class="dropdwn" id="stockBalance">
+    						<option value="" selected>Low</option>
+    						<option value="">High</option>
+						</select>
+					</div>
+					<div class="filterCategory">
+						<select class="dropdwn" id="priceSelector">
     						<option value="" selected>Low</option>
     						<option value="">High</option>
 						</select>
@@ -103,20 +100,21 @@ index.css
 					</div>
 				</div>
 				<!---BRING INTO THIS DIV THE MENU DATABASE-->
-				<div id= "menulist" style="width:100%"></div>
+				<div id= "menulist">
+				</div>
 				<!--- Hidden as default, visible in check-out process-->
-				<div id= "login" style="width:100%">
+				<div id= "login">
 					<!--- Add here login form which opens confirmpurchase div-->
-					<button class="button">Login</button>
+					<button class="button" onclick="confirm()">Login</button>
 				</div>
 				<!--- Hidden as default, visible in check-out process-->
-				<div id= "confirmpurchase" style="width:100%">
+				<div id= "confirmPurchase">
 					<p>Put here price and credits, etc.</p>
-					<button class="button">Confirm purchase</button>
+					<button class="button" onclick="done()">Confirm purchase</button>
 				</div>
 				<!--- Hidden as default, visible in check-out process-->
-				<div id= "orderplaced" style="width:100%">
-					<img src="img/check.png" width="100" height="100">
+				<div id= "orderPlaced">
+					<img src="img/check.png" alt="checkmark" width="100" height="100">
 					<p>Order placed!</p>
 					<button class="button">Back to menu</button>
 				</div>
@@ -124,16 +122,20 @@ index.css
 		</div>
 	<!--- Right side section of the page -->
 		<div class="content">
-		<div id= "cart" style="width:100%"> 
-			<div id= "checkout" style="width:95%">	
+		<div id= "cart"> 
+			<div id= "checkout">	
 				<!--- This div below contains the droppable items list -->			
-				<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)">
-				Drop here</div>
+				<div class="tooltip">
+					<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)">
+  					xxx<span class="tooltiptext">Drag items to cart from the left side menu</span>
+					</div>
+				</div>
 				<div id="checkoutTotal">Add here total amount</div>
-				<button class="button" id= "checkoutbtn">Checkout</button>
+				<button class="button" id= "checkoutbtn" onclick="login()">Checkout</button>
 			</div>
 		</div>
 		</div>
+		<div class="contentside"></div>
     </section>
 	
     <footer>&copy; Petra Jaaskelainen, Ridhi Agrawal, Kamil Iqbal and Areeb Asad</footer>

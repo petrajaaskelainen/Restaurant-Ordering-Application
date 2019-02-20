@@ -3,7 +3,7 @@
 // Author      : Hafiz Areeb Asad, Petra Jaaskelainen,...
 // Version     : 1.0
 // Copyright   : (c) Reserved
-// Date Created: 19th Febraury, 2019
+// Date Created: 17th Febraury, 2019
 // Last updated: 
 // Description : Creates Menu Items List on index.html page.  
 // Requires loader.js, Beverges.js and  index.html
@@ -35,11 +35,9 @@ function getDrinks(type, arr) {
         //if (arr[i].type == type) {
         out += '<div id="' + "menuitem" + i + '" class="menuItemList"  draggable="true" ondragstart="drag(event)"' 
                 + 'data-cart-listing-price="' + arr[i].price  + '" >' 
-                + ' <span  class="name">' + arr[i].name + '</span>'
-                + ' <span  class="alcohol">' + arr[i].alcohol + '</span>'
-                + ' <span  class="category">' + arr[i].category + '</span>'
-                + ' <span  class="price">' + arr[i].price + '</span>' 
-                + '</div>';
+                + ' <span class="name">' + arr[i].name + '</span>'
+                + ' <span class="price">' + arr[i].price + '</span>' 
+                + ' <span class="alcoholStrength">' + arr[i].alcohol + '</span>' + '</div>';
         //}
     }
     // Once we are finished we return the resulting HTML string containing all the menu items for the desired menu.

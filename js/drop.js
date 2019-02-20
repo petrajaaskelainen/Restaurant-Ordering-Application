@@ -55,8 +55,6 @@ function drop(ev) {
 
     $("#" + nodeCopy.id).addClass("cartItemsList");
     document.getElementById(nodeCopy.id).ondragstart = function() { return false; };
-    document.getElementById(nodeCopy.id).ondrop = function() { return false; };
-    
 
 
     // Get the ID of the target (the order).
