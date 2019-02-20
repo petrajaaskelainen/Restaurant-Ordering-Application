@@ -36,50 +36,6 @@ nav{
 	text-align: center;
 }
 
-#filter{
-	height: 70px;
-	font-size: 10px;
-}
-
-#filtertitle{
-	height: 20px;
-	padding-top: 7px;
-}
-
-.filtercategory {
-	display: inline-block;
-	margin: 5px;
-}
-
-.menuItemList {
-	margin-right: 30px;
-	margin-left: 20px;
-	padding: 5px;
-}
-
-#menuItem {
-}
-
-#menulist {
-    padding: 10px;
-	float: center;
-}
-#login {
-    padding: 10px;
-	float: center;
-	display: none;
-}
-#confirmpurchase {
-    padding: 10px;
-	float: center;
-	display: none;
-}
-#orderplaced {
-    padding: 10px;
-	float: center;
-	display: none;
-}
-
 a {
 	text-decoration: none;
     font-family: Helvetica, sans-serif;
@@ -92,26 +48,80 @@ a {
 	margin-bottom: 125px;
 }
 
+#filter{
+	height: 70px;
+	font-size: 10px;
+}
+
+#filtertitle{
+	height: 20px;
+	padding-top: 10px;
+}
+
+.filtercategory {
+	display: inline-block;
+	margin: 5px;
+	float: left;
+}
+
+.filterTitle {
+	padding-bottom: 7px;
+	float: left;
+	
+}
+
 .content {
 	height: 500px;
 	width: 500px;
 	display: inline-block;
 	margin: 25px;
 	margin-top: 100px;
+	background-color: #E7E7E7;
+	border-radius: 25px;
 }
 
 #menu {
-    background-color: #E7E7E7;
+	background-color: #E7E7E7;
+	align-content: center;
 	width: inherit;
-	height: inherit;
+	height: auto;
     float: left;
 	border-radius: 25px;
-	color: #2B2B2B;
-	font-size: 14px;
+}
+
+.price {
+	float: right;	
+}
+
+.menuItemList {
+	width: 470px;
+	background-color: #FFFFFF;
+	margin: 2px;
+	margin-right: 12px;
+	margin-left: 10px;
+	padding: 5px;
+	border-radius: 12px;
+	float: right;
+}
+
+#menulist {
+	float: center;
+}
+#login {
+	float: center;
+	display: none;
+}
+#confirmpurchase {
+	float: center;
+	display: none;
+}
+#orderplaced {
+	float: center;
+	display: none;
 }
 
 #cart {
-    background-color: #E7E7E7;
+	align-content: center;
 	width: inherit;
 	height: inherit;
 	float: right;
@@ -126,24 +136,34 @@ a {
 #checkoutTotal {
 	text-size: 12px;
 	text-align: right;
-}
-
-
-.price {
-	float: right;	
+	font-weight: 500;
 }
 
 .button {
 	cursor: pointer;
     background-color: darkturquoise;	
+	font-size: 12px;
 	color: #FFFFFF;
+	width: auto;
+	text-align: center;
 	font-weight: 500;
-	font-size: 14px;	
-	padding: 5px;
-	padding-left: 10px;
-	padding-right: 10px;
-	border-radius: 25px;
-	
+	padding: 10px 14px 10px 14px;
+  	border: none;
+  	border-radius: 6px;
+  	position: relative;
+}
+
+.dropdwn {
+	cursor: pointer;
+    background-color: darkturquoise;	
+	font-size: 12px;
+	color: #FFFFFF;
+	width: 70px;
+	font-weight: 500;
+	padding: 10px 8px 10px 14px;
+  	border: none;
+  	border-radius: 6px;
+  	position: relative;
 }
 
 
