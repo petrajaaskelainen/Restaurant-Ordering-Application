@@ -173,7 +173,7 @@ nav{
 	background-color: aqua;
 }
 #checkoutTotal {
-	text-size: 12px;
+	font-size: 12px;
 	text-align: right;
 	font-weight: 500;
 	border-top: 1px dotted #2B2B2B;
@@ -266,6 +266,7 @@ footer {
 	margin: 0px;
 	margin-top: 55px;
 }
+
 .contentside {
 	display: none;
 }
@@ -275,4 +276,4 @@ footer {
     content: "";
     display: table;
     clear: both;
-}
+}}

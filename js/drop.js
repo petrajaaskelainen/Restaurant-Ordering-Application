@@ -1,6 +1,15 @@
-/**
- * 
- */
+//============================================================================
+// Name        : drop.js
+// Author      : Hafiz Areeb Asad, ....
+// Version     : 1.0
+// Copyright   : (c) Reserved
+// Date Created: 18th Febraury, 2019
+// Last updated: 
+// Description : Implements dragndrop functionality, some functions are taken from
+//               Bar2 example   
+// Requires
+// Known Issues: 
+//=============================================================================
 //
 // A standard function. If you don't want any "extras", just use this
 // as it is. It will prevent the default behaviour, which is not to accept
@@ -30,6 +39,11 @@ function drop(ev) {
 
     // The default action is to not accept drops, så
     ev.preventDefault();
+    //ev.stopPropagation(); Not sure what it does
+
+    console.log(ev);
+
+    //if(ev.target.id === "checkoutCart"){
 
     // This allows for copying menu items, rather than moving them.
     // Comment out this line to see the difference.
@@ -56,15 +70,19 @@ function drop(ev) {
         //if this doesn't exist then add
         ev.target.appendChild(nodeCopy);
         document.getElementById(nodeCopy.id).ondragstart = function() { return false; };
-        
+        document.getElementById(nodeCopy.id).drop = function() { return false; };
+        document.getElementById(nodeCopy.id).ondragover = function() { return false; };
+        document.getElementById(nodeCopy.id).ondragenter = function() { return false; };
+
         
 
         $(nodeID).addClass("cartItemsList");
         //$(nodeID + "span .category").remove();
-        //$(nodeID + "span alcoholStrength").remove();
         $(nodeID).find('.alcoholStrength').remove();
         $(nodeID).data("quantity", 1);
+        $(nodeID).append("<span class='cartPlusButtonSpan'>"+ "<button class='cartItemsPlusButton'>"+ "+"+'</button>' +'</span>');
         $(nodeID).append("<span class='quantity'>"+ 1 +'</span>');
+        $(nodeID).append("<span class='cartMinusButtonSpan'>"+ "<button class='cartItemsMinusButton'>"+ "-"+'</button>' +'</span>');
         $(nodeID).append("<span class='cartRemoveSpan'>"+ "<button class='cartItemsRemoveButton'>"+ "Remove"+'</button>' +'</span>');
 
         //console.log( $(nodeID).data("quantity"));
@@ -81,15 +99,8 @@ function drop(ev) {
 
     } 
 
-    $('.cartItemsRemoveButton').on('click', function(){
-        var parent_id = $(this).parent().parent().attr('id');
-        console.log(parent_id);
-        
-        $("#" + parent_id).remove();
-        
-        var sum = sumCartTotal();
-        $("#checkoutTotal").text("Total: " + sum + " kr.");
-    })
+    addCartItemListeners();
+   
 
     // Get the ID of the target (the order).
     var tempid = "#" + ev.target.id;
@@ -97,6 +108,7 @@ function drop(ev) {
     var sum = sumCartTotal();
     
     $("#checkoutTotal").text("Total: " + sum + " kr.");
+    //}
 
 }
 
@@ -110,10 +122,67 @@ function sumCartTotal(){
         var val = parseInt($(this).data('cart-listing-price')) * parseInt($(this).data('quantity'));
            sum += val;
        });
-    
+       //console.log("hey hey");
+
      //console.log("sum = " + sum);
      return sum;
 }
+
+
+
+function addCartItemListeners(){
+
+    $('.cartItemsRemoveButton').on('click', function(){
+        var parent_id = $(this).parent().parent().attr('id');
+        console.log(parent_id);
+        
+        $("#" + parent_id).remove();
+        
+        var sum = sumCartTotal();
+        $("#checkoutTotal").text("Total: " + sum + " kr.");
+    })
+
+    $('.cartItemsPlusButton').on('click', function(){
+        var parent_id = $(this).parent().parent().attr('id');
+        console.log(parent_id);
+        
+        var nodeID = "#" + parent_id;
+        var itemQuantity = $(nodeID).data("quantity") + 1;
+        var itemPrice = parseInt($(nodeID).data("cart-listing-price"));
+        var totalPrice = itemPrice * itemQuantity;
+        
+        $(nodeID).data("quantity", itemQuantity);           // set and save new value
+        $(nodeID).find(".quantity").text(itemQuantity);     // set value for view
+        $(nodeID).find(".price").text( totalPrice );        // set value for view
+
+        var sum = sumCartTotal();
+        $("#checkoutTotal").text("Total: " + sum + " kr.");
+    })
+
+    $('.cartItemsMinusButton').on('click', function(){
+        var parent_id = $(this).parent().parent().attr('id');
+        console.log(parent_id);
+        
+        var nodeID = "#" + parent_id;
+        if($(nodeID).data("quantity") >= 1){
+            var itemQuantity = $(nodeID).data("quantity") - 1;
+            var itemPrice = parseInt($(nodeID).data("cart-listing-price"));
+            var totalPrice = itemPrice * itemQuantity;
+        
+            $(nodeID).data("quantity", itemQuantity);           // set and save new value
+            $(nodeID).find(".quantity").text(itemQuantity);     // set value for view
+            $(nodeID).find(".price").text( totalPrice );        // set value for view
+
+            var sum = sumCartTotal();
+            $("#checkoutTotal").text("Total: " + sum + " kr.");
+        }    
+    })
+
+
+
+}
+
+
 
 
 // ===================================================================================================================
