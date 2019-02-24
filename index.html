@@ -100,10 +100,6 @@ index.css
 						</select>
 					</div>
 				</div>
-				<div id= "login">
-					<!--- Add here login form which opens confirmpurchase div-->
-					<button class="button" id="loginbtn">Login</button>
-				</div>
 				<div id= "menulist">
 				<!---BRING DATABASE ITEMS HERE-->
 				</div>
@@ -123,6 +119,14 @@ index.css
 	<!--- Right side section of the page -->
 		<div class="content" id="cartcontent">
 		<div id= "cart"> 
+			<div id= "login">
+				<span>Browse products here. If you are a VIP customer, you can also login and order the products yourself by logging in:</span>
+				<label for="uname"><b>Username</b></label><br>
+    			<input id="loginUsername" type="text" placeholder="Enter Username" name="uname" required><br>
+				<label for="psw"><b>Password</b></label><br>
+    			<input id="loginPassword" type="password" placeholder="Enter Password" name="psw" required><br>
+				<button class="button" id="loginbtn">Login</button><br>
+			</div>
 			<div id= "checkout">	
 				<!--- This div below contains the droppable items list -->			
 				<div class="tooltip">
