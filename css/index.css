@@ -201,9 +201,8 @@ nav{
 		color: #2B2B2B;
 }
 
-.cartItemsPlusButton .cartItemsMinusButton .cartItemsRemoveButton {
+.cartItemsPlusButton{
 	cursor: pointer;
-    background-color: inherit;	
 	font-size: 10px;
 	text-transform: uppercase;
 	font-weight: 500;
@@ -216,9 +215,34 @@ nav{
   	position: relative;
 	background-color: darkturquoise;
 }
-.cartbutton:hover { 
- 		background-color: paleturquoise;
-		color: #2B2B2B;
+.cartItemsMinusButton {
+	text: hide;
+	cursor: pointer;
+	font-size: 10px;
+	text-transform: uppercase;
+	font-weight: 500;
+	color: #FFFFFF;
+	width: auto;
+	padding: 3px 8px 3px 8px;
+	margin: 0px 10px 0px 10px;	
+  	border: none;
+  	border-radius: 25px;
+  	position: relative;
+	background-color: darkturquoise;
+}
+.cartItemsRemoveButton {
+	cursor: pointer;
+	font-size: 10px;
+	text-transform: uppercase;
+	font-weight: 500;
+	color: #FFFFFF;
+	width: auto;
+	padding: 3px 8px 3px 8px;
+	margin: 0px 10px 0px 10px;	
+  	border: none;
+  	border-radius: 25px;
+  	position: relative;
+	background-color: darkturquoise;
 }
 
 .tooltip {

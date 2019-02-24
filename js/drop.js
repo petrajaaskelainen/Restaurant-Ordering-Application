@@ -83,7 +83,7 @@ function drop(ev) {
         $(nodeID).append("<span class='cartPlusButtonSpan'>"+ "<button class='cartItemsPlusButton'>"+ "+"+'</button>' +'</span>');
         $(nodeID).append("<span class='quantity'>"+ 1 +'</span>');
         $(nodeID).append("<span class='cartMinusButtonSpan'>"+ "<button class='cartItemsMinusButton'>"+ "-"+'</button>' +'</span>');
-        $(nodeID).append("<span class='cartRemoveSpan'>"+ "<button class='cartItemsRemoveButton'>"+ "Remove"+'</button>' +'</span>');
+        $(nodeID).append("<span class='cartRemoveSpan'>"+ "<button class='cartItemsRemoveButton'>"+ "X"+'</button>' +'</span>');
 
         //console.log( $(nodeID).data("quantity"));
     }
