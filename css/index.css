@@ -24,8 +24,8 @@ nav{
 
 #progress {
 	display: none;
-	height: 110px;
-	padding-top: 10px;
+	height: 90px;
+	padding-top: 30px;
 	float: center;
 	text-transform: uppercase;
 	font-weight: 500;
@@ -104,7 +104,7 @@ nav{
 	border-radius: 25px;
     display: flex;
   	flex-direction: row;
-  	background-color: #D8D8D8;
+	background-image: radial-gradient(paleturquoise, #D8D8D8);
 }
 
 .contentside {
@@ -195,7 +195,6 @@ nav{
 	overflow-y: scroll;
 	width: inherit;
 	height: 550px;
-	background-color: aqua;
 }
 #checkoutTotal {
 	font-size: 12px;
@@ -203,28 +202,28 @@ nav{
 	font-weight: 500;
 	border-top: 1px dotted #2B2B2B;
 	border-bottom: 1px dotted #2B2B2B;
-	width: 100%;
+	width: 90%;
 	height: auto;
-	margin: 5px;
+
 }
 
 .button {
 	cursor: pointer;
-    background-color: darkturquoise;	
+	background-image: radial-gradient(darkturquoise, #00B3B0);
 	font-size: 12px;
 	color: #FFFFFF;
 	width: auto;
 	text-align: center;
 	font-weight: 500;
-	padding: 10px 14px 10px 14px;
+	padding: 7px 10px 7px 10px;
   	border: none;
   	border-radius: 6px;
   	position: relative;
 	text-transform: uppercase;
 }
 .button:hover { 
- 		background-color: paleturquoise;
-		color: #2B2B2B;
+	background-image: linear-gradient(-90deg, paleturquoise);
+	color: #FFFFFF;
 }
 
 .cartItemsPlusButton{
@@ -239,7 +238,7 @@ nav{
   	border: none;
   	border-radius: 25px;
   	position: relative;
-	background-color: darkturquoise;
+	background-image: radial-gradient(#5F5F5F, #2B2B2B);
 }
 .cartItemsMinusButton {
 	text: hide;
@@ -254,7 +253,7 @@ nav{
   	border: none;
   	border-radius: 25px;
   	position: relative;
-	background-color: darkturquoise;
+	background-image: radial-gradient(#5F5F5F, #2B2B2B);
 }
 .cartItemsRemoveButton {
 	cursor: pointer;
@@ -268,7 +267,7 @@ nav{
   	border: none;
   	border-radius: 25px;
   	position: relative;
-	background-color: darkturquoise;
+	background-image: radial-gradient(#5F5F5F, #2B2B2B);
 }
 
 .tooltip {
@@ -279,8 +278,10 @@ nav{
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 130px;
-  background-color: black;
-  color: #fff;
+background-image: -webkit-linear-gradient(left, darkturquoise, paleturquoise);
+background-image: -o-linear-gradient(left, darkturquoise, paleturquoise);
+background-image: linear-gradient(to right, darkturquoise, paleturquoise);
+  color: #2B2B2B;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
@@ -307,7 +308,7 @@ nav{
   	border: none;
   	border-radius: 6px;
   	position: relative;
-	background-color: darkturquoise;
+	background-image: radial-gradient(darkturquoise, #00B3B0);
 }
 
 
