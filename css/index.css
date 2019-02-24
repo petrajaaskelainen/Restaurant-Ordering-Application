@@ -3,14 +3,13 @@ body{
 	color: #2B2B2B;
 	font-size: 12px;
 	font-family: "Helvetica Neue", Helvetica, Arial, "sans-serif";
-    background-color: #FFFFFF;
 	text-align: center;
 	margin: 0;
     height: auto;
 }
 header {
 	width: 100%;
-    background-color: #FFFFFF;
+  	background-color: #FFFFFF;
 	height: 150px;
 	padding-top: 15px;
 }
@@ -20,11 +19,11 @@ nav{
 	padding: 10px;
 	padding-right: 45px;
 	padding-top: 25px;
-    background-color: #FFFFFF;
 	text-align: right;
 }
 
 #progress {
+	display: none;
 	height: 90px;
 	padding-top: 30px;
 	float: center;
@@ -55,6 +54,7 @@ nav{
 	font-weight: 500;
 	display: flex;
   	flex-direction: column;
+	background-color: #D8D8D8;
 }
 #sortBy {
 	padding-top: 7px;
@@ -94,11 +94,16 @@ nav{
 }
 
 .content {
+	overflow-y: scroll;
+	overflow-x: hidden;	
+	border-bottom: 1px dotted #D8D8D8;
+	border-top: 1px dotted #D8D8D8;
 	width: 40%;
+	height: 600px;
 	margin: 10px;
 	margin-top: 80px;
 	border-radius: 25px;
-	display: flex;
+    display: flex;
   	flex-direction: row;
   	background-color: #D8D8D8;
 }
@@ -136,24 +141,29 @@ nav{
 	display: flex;
 	flex-direction: row;
 	text-align: left;
-	
 }
 .menuItemList:hover { 
  		background-color: paleturquoise;
-	
 }
 
-#menulist {
+.menuItemDrop:hover { 
+ 		border: 1px dotted red;
 }
+
 #login {
 	width: 100%;
+	height: 100%;
+	padding: 45px;
+	padding-top: 200px;
 }
 #confirmPurchase {
+	padding-top: 200px;
 	display: none;
 	width: 100%;
 	height: 100%;
 }
 #orderPlaced {
+	padding-top: 200px;
 	display: none;
 	width: 100%;
 	height: 100%;
@@ -161,6 +171,8 @@ nav{
 
 #checkout {
 	display: none;
+	width: 100%;
+	height: 100%;	
 }
 
 #cart {
@@ -171,8 +183,9 @@ nav{
 	height: 100%;
 }
 #checkoutCart {
-	width: 100%;
-	height: 300px;
+	overflow-y: scroll;
+	width: inherit;
+	height: 550px;
 	background-color: aqua;
 }
 #checkoutTotal {
@@ -182,7 +195,8 @@ nav{
 	border-top: 1px dotted #2B2B2B;
 	border-bottom: 1px dotted #2B2B2B;
 	width: 100%;
-	height: 40%;
+	height: 20px;
+	margin: 5px;
 }
 
 .button {
