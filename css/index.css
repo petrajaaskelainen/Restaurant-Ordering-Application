@@ -23,21 +23,39 @@ nav{
 }
 
 #progress {
-	display: none;
-	height: 90px;
-	padding-top: 30px;
+	display: non;
+	height: 150px;
+	padding-top: 20px;
 	float: center;
-	text-transform: uppercase;
-	font-weight: 500;
-	font-size: 10px;
+	font-weight: 400;
+	font-size: 11px;
 	letter-spacing: 0.5px;
-	background-color: #D8D8D8;
+	background-image: radial-gradient(paleturquoise, #D8D8D8);
+	  align-content: center;
 }
 .progresspoint {
-	height: 50px;
-	width: 50px;
+	height: 60px;
+	width: 95px;
 	display: inline-block;
-	text-align: center;
+	align-items: center;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+.number {
+	padding-top: 6px;
+	padding-left: 1px;
+	color: #FFFFFF;
+	font-weight: 500;
+}
+
+.prg {
+	background-image: radial-gradient(darkturquoise, #00B3B0);
+	height: 40px;
+	width: 40px;
+	margin-left: 26px;
+	border-radius: 25px;
+	font-size: 20px;
 }
 
 #container{
@@ -216,6 +234,7 @@ nav{
 	text-align: center;
 	font-weight: 500;
 	padding: 7px 10px 7px 10px;
+	margin: 10px 10px 10px 10px;
   	border: none;
   	border-radius: 6px;
   	position: relative;
