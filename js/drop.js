@@ -66,7 +66,7 @@ function drop(ev) {
     
     var nodeID = "#" + nodeCopy.id;
 
-    if($(nodeID).length == 0) {
+    if($(nodeID).length === 0) {
         //if this doesn't exist then add
         ev.target.appendChild(nodeCopy);
         document.getElementById(nodeCopy.id).ondragstart = function() { return false; };
@@ -80,10 +80,10 @@ function drop(ev) {
         //$(nodeID + "span .category").remove();
         $(nodeID).find('.alcoholStrength').remove();
         $(nodeID).data("quantity", 1);
-        $(nodeID).append("<span class='cartPlusButtonSpan'>"+ "<button class='cartItemsPlusButton'>"+ "+"+'</button>' +'</span>');
+        $(nodeID).append("<span class='cartPlusButtonSpan'>"+ "<button class='cartbutton'>"+ "+"+'</button>' +'</span>');
         $(nodeID).append("<span class='quantity'>"+ 1 +'</span>');
-        $(nodeID).append("<span class='cartMinusButtonSpan'>"+ "<button class='cartItemsMinusButton'>"+ "-"+'</button>' +'</span>');
-        $(nodeID).append("<span class='cartRemoveSpan'>"+ "<button class='cartItemsRemoveButton'>"+ "Remove"+'</button>' +'</span>');
+        $(nodeID).append("<span class='cartMinusButtonSpan'>"+ "<button class='cartbutton'>"+ "-"+'</button>' +'</span>');
+        $(nodeID).append("<span class='cartRemoveSpan'>"+ "<button class='cartbutton'>"+ "Remove"+'</button>' +'</span>');
 
         //console.log( $(nodeID).data("quantity"));
     }

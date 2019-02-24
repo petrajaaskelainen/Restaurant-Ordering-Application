@@ -34,7 +34,7 @@ function getDrinks(type, arr) {
         //
         //if (arr[i].type == type) {
         out += '<div id="' + "menuitem" + i + '" class="menuItemList"  draggable="true" ondragstart="drag(event)"' 
-                + 'data-cart-listing-price="' + arr[i].price  + '" >' 
+                + 'data-cart-listing-price="' + arr[i].price + '" >' 
                 + ' <span class="name">' + arr[i].name + '</span>'
                 + ' <span class="price">' + arr[i].price + '</span>' 
                 + ' <span class="alcoholStrength">' + arr[i].alcohol + '</span>' + '</div>';
