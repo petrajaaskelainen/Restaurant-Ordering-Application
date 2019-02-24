@@ -24,15 +24,24 @@ $(document).ready(function(){
         var hash = md5(userPass);               // "2063c1608d6e0baf80249c42e2be5804"
 
 
-        if($('#loginUsername').val() === userDet.userName && hash === userDet.pass){
+        if (userName === '' || userPass === ''){
+        
+                if(userName === userDet.userName && hash === userDet.pass){
 
-            console.log("correct");
+                    console.log("correct");
 
 
 
+                }
+                 else{
+                    console.log("not correct");
+       
+                 }
         }
         else{
-            console.log("not correct");
+                //if empty then show
+                console.log("emty");
+
         }
 
 
