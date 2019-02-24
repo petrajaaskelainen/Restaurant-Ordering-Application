@@ -1,28 +1,33 @@
 // JavaScript Document
 
-function login() {
-  var x = document.getElementById("login");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "block";
-  }
-}
+$(document).ready(function(){
+$("#loginbtn").click(function(){
+    $("#login").hide();
+	$("#menulist").show();
+	$("#checkout").show();
+  });
+});
 
-function confirm() {
-  var x = document.getElementById("confirmPurchase");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "block";
-  }
-}
+$(document).ready(function(){
+$("#checkoutbtn").click(function(){
+    $("#menulist").hide();
+	$("#filterColumn").hide();
+	$("#confirmPurchase").show();
+  });
+});
 
-function done() {
-  var x = document.getElementById("orderPlaced");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "block";
-  }
-}
+$(document).ready(function(){
+$("#confirmbtn").click(function(){
+    $("#confirmPurchase").hide();
+	$("#checkout").hide();
+	$("#orderPlaced").show();
+  });
+});
+
+$(document).ready(function(){
+$("#backtomenu").click(function(){
+    $("#orderPlaced").hide();
+	$("#filterColumn").show();
+	$("#menulist").show();
+  });
+});

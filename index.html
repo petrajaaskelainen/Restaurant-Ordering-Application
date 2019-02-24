@@ -101,29 +101,28 @@ index.css
 					</div>
 				</div>
 				
-				<!---BRING INTO THIS DIV THE MENU DATABASE-->
 				<div id= "menulist">
-				</div>
-				<!--- Hidden as default, visible in check-out process-->
-				<div id= "login">
-					<!--- Add here login form which opens confirmpurchase div-->
-					<button class="button" onclick="confirm()">Login</button>
+				<!---BRING DATABASE ITEMS HERE-->
 				</div>
 				<!--- Hidden as default, visible in check-out process-->
 				<div id= "confirmPurchase">
 					<p>Put here price and credits, etc.</p>
-					<button class="button" onclick="done()">Confirm purchase</button>
+					<button class="button" id="confirmbtn">Confirm purchase</button>
 				</div>
 				<!--- Hidden as default, visible in check-out process-->
 				<div id= "orderPlaced">
 					<img src="img/check.png" alt="checkmark" width="100" height="100">
 					<p>Order placed!</p>
-					<button class="button">Back to menu</button>
+					<button class="button" id="backtomenu">Back to menu</button>
 				</div>
 			</div>
 		</div>
 	<!--- Right side section of the page -->
 		<div class="content">
+		<div id= "login">
+				<!--- Add here login form which opens confirmpurchase div-->
+				<button class="button" id="loginbtn">Login</button>
+		</div>
 		<div id= "cart"> 
 			<div id= "checkout">	
 				<!--- This div below contains the droppable items list -->			
@@ -133,7 +132,7 @@ index.css
 					</div>
 				</div>
 				<div id="checkoutTotal">Add here total amount</div>
-				<button class="button" id= "checkoutbtn" onclick="login()">Checkout</button>
+				<button class="button" id= "checkoutbtn">Checkout</button>
 			</div>
 		</div>
 		</div>
