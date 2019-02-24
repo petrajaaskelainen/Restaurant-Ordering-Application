@@ -201,7 +201,7 @@ nav{
 		color: #2B2B2B;
 }
 
-.cartbutton {
+.cartItemsPlusButton .cartItemsMinusButton .cartItemsRemoveButton {
 	cursor: pointer;
     background-color: inherit;	
 	font-size: 10px;
