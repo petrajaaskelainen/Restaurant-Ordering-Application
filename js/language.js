@@ -25,7 +25,7 @@ $(document).ready(function(){
 
     /* This function updates all the text in the webpage as per the desired language */
     function updateLanguage(){
-        $('#progress').text(language.checkoutProcessSteps);
+        $('#checkout-process-steps').text(language.checkoutProcessSteps);
         $('#div2').text(language.order);
     }
     

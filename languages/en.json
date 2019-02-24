@@ -3,6 +3,9 @@
     "urdu": "اردو",
 
     "welcome": "Welcome",
-    "order": "Order"
+    "order": "Order",
+    "checkoutProcessSteps" : "Check Out Process Steps",
+    "select-products" : "پسند فرمایئے",
+    "confirm-payement": "رقم کی تصدیق"
 
 }
