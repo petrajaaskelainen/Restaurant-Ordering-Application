@@ -34,13 +34,12 @@ $(document).ready(function(){
 
                 }
                  else{
-                    console.log("not correct");
-       
+                        $('#loginmsg').text("Username OR Password Incorrect!");
                  }
         }
         else{
                 //if empty then show
-                console.log("emty");
+                $('#loginmsg').text("Username OR Password not entered!");
 
         }
 
