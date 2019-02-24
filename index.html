@@ -64,6 +64,7 @@ index.css
 	<!--- the main content of the page -->	
 	<section id="container">
 		<div class="contentside"></div>
+		
 		<!--- Left side section of the page -->	
         <div class="content">
 			<div id= "menu"> 
@@ -124,12 +125,12 @@ index.css
 		<div class="content" id="cartcontent">
 		<div id= "cart"> 
 			<div id= "login">
-				<span>Browse products here. If you are a VIP customer, you can also login and order the products yourself by logging in:</span>
-				<label for="uname"><b>Username</b></label><br>
-    			<input id="loginUsername" type="text" placeholder="Enter Username" name="uname" required><br>
-				<label for="psw"><b>Password</b></label><br>
-    			<input id="loginPassword" type="password" placeholder="Enter Password" name="psw" required><br>
-				<button class="button" id="loginbtn">Login</button><br>
+				<div class="logincontent">Browse products here. If you are a VIP customer, you can also login and order the products yourself by logging in:</p></div>
+				<div class="logincontent"><label for="uname"><b>Username</b></label></div>
+    			<div class="logincontent"><input id="loginUsername" type="text" placeholder="Enter Username" name="uname" required></div>
+				<div class="logincontent"><label for="psw"><b>Password</b></label></div>
+    			<div class="logincontent"><input id="loginPassword" type="password" placeholder="Enter Password" name="psw" required></div>
+				<div class="logincontent"><button class="button" id="loginbtn">Login</button></div>
 			</div>
 			<div id= "checkout">	
 				<!--- This div below contains the droppable items list -->			
@@ -137,9 +138,9 @@ index.css
 					<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)">
   					<span class="tooltiptext">Drag items to cart from the left side menu</span>
 					</div>
-				</div>
 				<div id="checkoutTotal">Add here total amount</div>
 				<button class="button" id= "checkoutbtn">Checkout</button>
+				</div>
 			</div>
 		</div>
 		</div>
