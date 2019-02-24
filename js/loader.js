@@ -25,7 +25,7 @@ function allUserNames() {
 // which contains the current account status for the person.
 //
 function userDetails(userName) {
-    var userCollect = [];
+    var userCollect ;
     var userID;
     var userIndex;
     var account;
@@ -51,15 +51,17 @@ function userDetails(userName) {
 
     // This is the way to add the details you want from the db into your own data structure.
     // If you want to change the details, then just add or remove items accordingly below.
-    userCollect.push(
-        DB.users[userIndex].user_id,
-        DB.users[userIndex].username,
-        DB.users[userIndex].first_name,
-        DB.users[userIndex].last_name,
-        DB.users[userIndex].email,
-
-        account
-    );
+    //userCollect.push(
+        userCollect = {
+        userId:  DB.users[userIndex].user_id,
+        userName: DB.users[userIndex].username,
+        firstName: DB.users[userIndex].first_name,
+        lastName: DB.users[userIndex].last_name,
+        email: DB.users[userIndex].email,
+        pass: DB.users[userIndex].password,
+        account: account
+        }
+    //);
 
     return userCollect;
 }

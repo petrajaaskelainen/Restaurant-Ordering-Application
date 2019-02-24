@@ -11,12 +11,40 @@
 
 
 $(document).ready(function(){
-    var userName;               // 
-    var userPass;
+   
+    
+    console.log(userDetails("jorass")); 
+    
+    $('#loginbtn').click(function(){
+
+        var userName = $('#loginUsername').val();              
+        var userPass = $('#loginPassword').val()
+
+        var userDet =  userDetails(userName);   // jorass 
+        var hash = md5(userPass);               // "2063c1608d6e0baf80249c42e2be5804"
+
+
+        if($('#loginUsername').val() === userDet.userName && hash === userDet.pass){
+
+            console.log("correct");
+
+
+
+        }
+        else{
+            console.log("not correct");
+        }
+
+
+
+
+    })  
+
+
     
     
 
 
 
-    
+
 });
