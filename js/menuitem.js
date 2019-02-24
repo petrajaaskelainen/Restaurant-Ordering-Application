@@ -10,11 +10,15 @@
 //=============================================================================
 
 
-var beverges = allBeverages().slice(1,20);
+var beverges = allBeverages().slice(1,30);
 //console.log(beverges.slice(1,20));
 
 console.log(beverges[5].name);
 
+
+function pad2(number) {
+    return (number < 10 ? '0' : '') + number
+ }
 
 // ===================================================================================================================
 // The function returns all menu drinks strings (created as divs) of a certain type (given as argument).
@@ -33,7 +37,8 @@ function getDrinks(type, arr) {
         // Otherwise we skip to the next item.
         //
         //if (arr[i].type == type) {
-        out += '<div id="' + "menuitem" + i + '" class="menuItemList"  draggable="true" ondragstart="drag(event)"' 
+   
+        out += '<div id="' + "menuitem" + pad2(i) + '" class="menuItemList"  draggable="true" ondragstart="drag(event)"' 
                 + 'data-cart-listing-price="' + arr[i].price + '" >' 
                 + ' <span class="name">' + arr[i].name + '</span>'
                 + ' <span class="price">' + arr[i].price + '</span>' 

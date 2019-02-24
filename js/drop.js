@@ -58,7 +58,7 @@ function drop(ev) {
     //
     var nodeCopy = document.getElementById(data).cloneNode(true);
 
-    nodeCopy.id = "cartItem" + data.substr(data.length - 1);  // We cannot use the same ID. Ideally we should generate the new ID with a
+    nodeCopy.id = "cartItem" + data.substr(data.length - 2);  // We cannot use the same ID. Ideally we should generate the new ID with a
                             // random or incremental number. This is left as an exercise...
                             //
 
@@ -84,6 +84,8 @@ function drop(ev) {
         $(nodeID).append("<span class='quantity'>"+ 1 +'</span>');
         $(nodeID).append("<span class='cartMinusButtonSpan'>"+ "<button class='cartItemsMinusButton'>"+ "-"+'</button>' +'</span>');
         $(nodeID).append("<span class='cartRemoveSpan'>"+ "<button class='cartItemsRemoveButton'>"+ "X"+'</button>' +'</span>');
+
+        $(nodeID).addClass(".menuItemDrop");
 
         //console.log( $(nodeID).data("quantity"));
     }

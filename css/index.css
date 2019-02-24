@@ -147,7 +147,9 @@ nav{
 }
 
 .menuItemDrop:hover { 
- 		border: 1px dotted red;
+		 border: 4px dotted red;
+		 background-color: red;
+
 }
 
 #login {
