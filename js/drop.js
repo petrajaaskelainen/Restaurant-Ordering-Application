@@ -7,8 +7,8 @@
 // Last updated: 
 // Description : Implements dragndrop functionality, some functions are taken from
 //               Bar2 example   
-// Requires
-// Known Issues: 
+// Requires    : index.html, jquery API 
+// Known Issues: Sometimes drops on the children elements of the Target Parent.
 //=============================================================================
 //
 // A standard function. If you don't want any "extras", just use this
@@ -18,6 +18,7 @@
 function allowDrop(ev) {
     ev.preventDefault(); // This makes the item accept drop actions.
 }
+
 
 // A standard function. It packages the ID of the source into the data
 // transfer package. The type of the transferred data is pure text.
@@ -58,9 +59,7 @@ function drop(ev) {
     //
     var nodeCopy = document.getElementById(data).cloneNode(true);
 
-    nodeCopy.id = "cartItem" + data.substr(data.length - 2);  // We cannot use the same ID. Ideally we should generate the new ID with a
-                            // random or incremental number. This is left as an exercise...
-                            //
+    nodeCopy.id = "cartItem" + data.substr(data.length - 2);  // We cannot use the same ID. So, made the new id with the ID number of menu items.
 
     nodeCopy.draggable = "false"; // The new element is set as being not draggable.
     
@@ -134,6 +133,7 @@ function sumCartTotal(){
 
 function addCartItemListeners(){
 
+    //Listens if remove button of cart item is clicked.
     $('.cartItemsRemoveButton').on('click', function(){
         var parent_id = $(this).parent().parent().attr('id');
         console.log(parent_id);
@@ -144,6 +144,7 @@ function addCartItemListeners(){
         $("#checkoutTotal").text("Total: " + sum + " kr.");
     })
 
+    //Listens if add button of cart item is clicked.
     $('.cartItemsPlusButton').on('click', function(){
         var parent_id = $(this).parent().parent().attr('id');
         console.log(parent_id);
@@ -161,6 +162,7 @@ function addCartItemListeners(){
         $("#checkoutTotal").text("Total: " + sum + " kr.");
     })
 
+    //Listens if minus button of cart item is clicked.
     $('.cartItemsMinusButton').on('click', function(){
         var parent_id = $(this).parent().parent().attr('id');
         console.log(parent_id);
@@ -183,11 +185,3 @@ function addCartItemListeners(){
 
 
 }
-
-
-
-
-// ===================================================================================================================
-// END OF FILE
-// ===================================================================================================================
-
