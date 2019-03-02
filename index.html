@@ -23,9 +23,9 @@ index.css
 <!--- Script for multilanguage -->
 <script src="js/language.js"></script>
 <!--- Database file, contains information of drinks -->
-<!-- <script src="database/Beverges.js"></script> -->
+<script src="database/Beverges.js"></script>
 <!--- Database file, contains information of users -->
-<!-- <script src="database/DBLoaded.js"></script> -->
+<script src="database/DBLoaded.js"></script>
 <!--- Script for loading the database -->
 <script src="js/loader.js"></script>
 <!--- Script for populating menu items list -->
@@ -56,13 +56,6 @@ index.css
         <img src="img/logo.png" alt="logo" width="100" height="100">
     </header>
 	
-	<!--- Progress bar -->
-	<div id="progress"><p id="checkout-process-steps">Steps in check-out process</p><br>
-		<div class="progresspoint"><div class="prg" id="1"><p class ="number">1</p></div><p>Select products</p></div>
-		<div class="progresspoint"><div class="prg" id="2"><p class ="number">2</p></div><p>Confirm payment</p></div>	
-		<div class="progresspoint"><div class="prg" id="3"><p class ="number">3</p></div><p>Order placed</p></div>
-	</div>
-	
 	<!--- the main content of the page -->	
 	<section id="container">
 		<div class="contentside"></div>
@@ -70,89 +63,20 @@ index.css
 		<!--- Left side section of the page -->	
         <div class="content">
 			<div id= "menu"> 
-				<div id="filterColumn">
-					<div class="filterCategory" id="nameCategory">
-						<select class="dropdwn" id="nameSelector">
-    						<option value="1" selected>Name</option>
-							<option value="2">A</option>
-    						<option value="3">Z</option>
-						</select>
-					</div>
-					<div class="filterCategory">
-						<select class="dropdwn" id="alcoholStrengthSelector">
-							<option value="1" selected>Alcohol %</option>
-    						<option value="2">Low</option>
-							<option value="3">High</option>
-						</select>
-					</div>
-					<div class="filterCategory">
-						<select class="dropdwn" id="countrySelector">
-							<option value="1" selected>Origin</option>
-    						<option value="2">A</option>
-    						<option value="3">Z</option>
-						</select>
-					</div>
-					<div class="filterCategory">
-						<select class="dropdwn" id="stockBalance">
-    						<option value="1" selected>In stock</option>
-							<option value="2">Low</option>
-    						<option value="3">High</option>
-						</select>
-					</div>
-					<div class="filterCategory">
-						<select class="dropdwn" id="priceSelector">
-    						<option value="1" selected>Price</option>
-							<option value="2">Low</option>
-    						<option value="3">High</option>
-						</select>
+				<a href="indexStaff.html">Staff</a>
 					</div>
 				</div>
-				<div id= "menulist">
-				<!---BRING DATABASE ITEMS HERE-->
-				</div>
-			</div>
-				<!--- Hidden as default, visible in check-out process-->
-				<div id= "confirmPurchase">
-					<p>Put here price and credits, etc.</p>
-					<button class="button" id="confirmbtn">Confirm purchase</button>
-				</div>
-				<!--- Hidden as default, visible in check-out process-->
-				<div id= "orderPlaced">
-					<img src="img/check.png" alt="checkmark" width="100" height="100">
-					<p>Order placed!</p>
-					<button class="button" id="backtomenu">Back to menu</button>
-				</div>
-			
-		</div>
+
 	<!--- Right side section of the page -->
 		<div class="content" id="cartcontent">
 		<div id= "cart"> 
-			<div id= "login">
-				<div class="logincontent">Browse products here. If you are a VIP customer, you can also login and order the products yourself by logging in:</p></div>
-				<div class="logincontent"><label for="uname"><b>Username</b></label></div>
-    			<div class="logincontent"><input id="loginUsername" type="text" placeholder="Enter Username" name="uname" required></div>
-				<div class="logincontent"><label for="psw"><b>Password</b></label></div>
-    			<div class="logincontent"><input id="loginPassword" type="password" placeholder="Enter Password" name="psw" required></div>
-				<div class="logincontent"><button class="button" id="loginbtn">Login</button></div>
-				<div class="logincontent" id="loginMsg"></div>
-			</div>
-			<div id= "checkout">	
-				<!--- This div below contains the droppable items list -->			
-				<div class="tooltip">
-					<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)">
-  					<span class="tooltiptext">Drag items to cart from the left side menu</span>
-					</div>
-				<div id="checkoutTotal">Add here total amount</div>
-				<button class="button" id= "checkoutbtn">Checkout</button>
-				<button class="button" id= "undobtn">Undo</button>
-				</div>
+				<a href="indexCustomer.html">Customers</a>
 			</div>
 		</div>
-		</div>
-		<div class="contentside"></div>
+		
+				<div class="contentside"></div>
     </section>
 	
-    <footer>&copy; Petra Jaaskelainen, Ridhi Agrawal, Kamil Iqbal and Hafiz Areeb Asad</footer>
 </body>
 </html>
 
