@@ -42,7 +42,7 @@ function drop(ev) {
     ev.preventDefault();
     //ev.stopPropagation(); Not sure what it does
 
-    console.log(ev);
+   // console.log(ev);
 
     //if(ev.target.id === "checkoutCart"){
 
@@ -52,6 +52,8 @@ function drop(ev) {
     ev.dataTransfer.dropEffect = "copy";
 
     var data = ev.dataTransfer.getData("id"); // Get the data from the transfer...
+    var dataID = ev.dataTransfer.getData("cart-listing-id"); // Get the data from the transfer...
+    //console.log(dataID);
 
     // If we use .cloneNode(true) the dragging results in a cloned copy, rather than
     // an actual move of the source. This is important when we use the dragged item as
@@ -62,8 +64,78 @@ function drop(ev) {
     nodeCopy.id = "cartItem" + data.substr(data.length - 2);  // We cannot use the same ID. So, made the new id with the ID number of menu items.
 
     nodeCopy.draggable = "false"; // The new element is set as being not draggable.
+    //console.log(nodeCopy); 
+    //console.log(nodeCopy.getAttribute("data-cart-listing-id")) // Data("cart-listing-id"))
+
+    if ( sessionStorage.getItem('cart') === null)  {
+
+        let cart = {
+            "items": [
+                {
+                    "dbItemID": nodeCopy.getAttribute("data-cart-listing-id"),
+                    "menuItemID":data ,
+                    "cartItemID" : nodeCopy.id,
+                    "price": nodeCopy.getAttribute("data-cart-listing-price") ,
+                    "quantity": 1
+                }
+
+            ]}
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+        //var cart2 = JSON.parse(sessionStorage.getItem('cart'));
+        //console.log(cart2);
+        console.log("First time Cart Message")
+        addItemInUndo(cart, "add");  
+
+    }
+    else{
+
+        let cart1 = JSON.parse(sessionStorage.getItem('cart'));
+        //console.log(cart1);
+        
+        let checkItem = cart1.items.find(items => items.dbItemID === nodeCopy.getAttribute("data-cart-listing-id"));
+        //console.log("CheckItem: " + checkItem);
+
+        if (checkItem === undefined){
+            var itemobjtemp =  {
+                "dbItemID": nodeCopy.getAttribute("data-cart-listing-id"),
+                "menuItemID":data ,
+                "cartItemID" : nodeCopy.id,
+                "price": nodeCopy.getAttribute("data-cart-listing-price") ,
+                "quantity": 1
+            }
+
+            cart1.items.push(itemobjtemp);
+            console.log(cart1);
+            sessionStorage.setItem('cart', JSON.stringify(cart1));
+            //console.log(cart2);
+        }
+        else{
+            cart1.items.forEach((items, index, array) => {
+                if (items.dbItemID === nodeCopy.getAttribute("data-cart-listing-id")){
+
+                    items.quantity +=1;
+                }
+               // console.log(element.dbItemID); // 100, 200, 300
+               // console.log(index); // 0, 1, 2
+               // console.log(array); // same myArray object 3 times
+            });
+
+           // cart1.items.push(itemobjtemp);
+            console.log(cart1);
+            sessionStorage.setItem('cart', JSON.stringify(cart1));
+        }    
+
+    }    
     
+
+
+
+
+
+
+
     var nodeID = "#" + nodeCopy.id;
+
 
     if($(nodeID).length === 0) {
         //if this doesn't exist then add
@@ -146,6 +218,43 @@ function sumCartTotal(){
      return sum;
 }
 
+
+
+function drawCart(){
+
+    let cart = JSON.parse(sessionStorage.getItem('cart'));
+    /*
+    var out = "";
+    
+    // Go through the array and collect all the items of the desired type.
+    //
+    for (var i = 0; i < cart.items.length; i++) {
+
+
+        var cartID = cart.items[i].
+        var cartName =
+        var cartPrice = 
+        var cartQuantity = 
+
+
+        // if the item is of the desired type, then we add the HTML string to the collection variable.
+        // Otherwise we skip to the next item.
+        //
+        //if (arr[i].type == type) {
+   
+        out += '<div id="' + "cartItem" + pad2(i) + '" class="menuItemList"  draggable="true" ondragstart="drag(event)"' 
+                + 'data-cart-listing-price="' + arr[i].price + '" ' 
+                + 'data-cart-listing-id="' + arr[i].id + '" >' 
+                + ' <span class="name">' + arr[i].name + '</span>'
+                + ' <span class="alcoholStrength">' + arr[i].alcohol + '</span>'
+                + ' <span class="price">' + arr[i].price + '</span>' 
+                + '</div>';
+        //}
+    }
+
+    */
+
+}
 
 
 function addCartItemListeners(){

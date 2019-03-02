@@ -43,10 +43,12 @@ $(document).ready(function(){
             //if (arr[i].type == type) {
        
             out += '<div id="' + "menuitem" + pad2(i) + '" class="menuItemList"  draggable="true" ondragstart="drag(event)"' 
-                    + 'data-cart-listing-price="' + arr[i].price + '" >' 
+                    + 'data-cart-listing-price="' + arr[i].price + '" ' 
+                    + 'data-cart-listing-id="' + arr[i].id + '" >' 
                     + ' <span class="name">' + arr[i].name + '</span>'
+                    + ' <span class="alcoholStrength">' + arr[i].alcohol + '</span>'
                     + ' <span class="price">' + arr[i].price + '</span>' 
-                    + ' <span class="alcoholStrength">' + arr[i].alcohol + '</span>' + '</div>';
+                    + '</div>';
             //}
         }
         // Once we are finished we return the resulting HTML string containing all the menu items for the desired menu.

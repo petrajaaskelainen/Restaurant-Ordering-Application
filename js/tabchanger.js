@@ -17,13 +17,14 @@ $(document).ready(function(){
 	   If username & password are correct then show the Checkout Box (Div) and hide login (Div)*/
 	$('#loginbtn').click(function(){
 
-		var userName = $('#loginUsername').val();   //  Get username from input field (html)         
+		var userName = $('#loginUsername').val();   	//  Get username from input field (html)         
 		var userPass = $('#loginPassword').val();		//  Get password from input field (html)
 
 	 
 		if (userName != '' || userPass != ''){ 			// Make sure username and password entered by user are not empty 
 		
 				var userDet =  userDetails(userName);   // Get user details from database 
+				//console.log("userDet")
 				var hash = md5(userPass);               // Convert plain text password to md5 hash.
 
 						if(userName === userDet.userName && hash === userDet.pass){
@@ -64,7 +65,7 @@ $(document).ready(function(){
 		$("#cartcontent").show();
 		$("#menu").show();
 		$("#login").show();
-    $("#orderPlaced").hide();
+    	$("#orderPlaced").hide();
 		$("#checkout").hide();		
 	
 	});
