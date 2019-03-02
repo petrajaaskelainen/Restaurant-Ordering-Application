@@ -11,6 +11,35 @@
 // advantage that the data is easy to access through simple APIs. Also, when storing as local storage,
 // all data is stored as strings, which might be adding some complexity.
 //
+let DB;                           // Global variable
+
+
+if ( localStorage.getItem('Database') === null)  {
+
+    $.getScript('./database/database.js', function()
+    {
+        // script is now loaded and executed.
+        // put your dependent JS here.
+    
+        localStorage.setItem('Database', JSON.stringify(DB_File));
+       
+        DB = JSON.parse( localStorage.getItem('Database'));    
+    
+        console.log(DB);
+    });
+
+
+}
+else {
+        DB = JSON.parse(localStorage.getItem('Database'));
+        console.log ("Not Null");
+        console.log(DB);
+       // localStorage.removeItem('Database');
+}
+
+
+
+
 function allUserNames() {
     var nameCollect = [];
     for (i = 0; i < DB.users.length; i++) {
@@ -105,8 +134,8 @@ function allBeverages() {
     // The DB is stored in the variable DB2, with "spirits" as key element. If you need to select only certain
     // items, you may introduce filter functions in the loop... see the template within comments.
     //
-    for (i = 0; i < DB2.spirits.length; i++) {
-        obj = {name: DB2.spirits[i].name, category: DB2.spirits[i].catgegory, price: DB2.spirits[i].priceinclvat, alcohol: DB2.spirits[i].alcoholstrength};
+    for (i = 0; i < DB.spirits.length; i++) {
+        obj = {name: DB.spirits[i].name, category: DB.spirits[i].catgegory, price: DB.spirits[i].priceinclvat, alcohol: DB.spirits[i].alcoholstrength};
         collector.push(obj);
     };
     //
@@ -126,16 +155,16 @@ function allStrongBeverages(strength) {
     // The DB is stored in the variable DB2, with "spirits" as key element. If you need to select only certain
     // items, you may introduce filter functions in the loop... see the template within comments.
     //
-    for (i = 0; i < DB2.spirits.length; i++) {
+    for (i = 0; i < DB.spirits.length; i++) {
 
         // We check if the percentage alcohol strength stored in the data base is lower than the
         // given limit strength. If the limit is set to 14, also liqueuers are listed.
         //
-        if (percentToNumber(DB2.spirits[i].alkoholhalt) > strength) {
+        if (percentToNumber(DB.spirits[i].alkoholhalt) > strength) {
 
             // The key for the beverage name is "namn", and beverage type is "varugrupp".
             //
-            collector.push([DB2.spirits[i].namn, DB2.spirits[i].varugrupp]);
+            collector.push([DB.spirits[i].namn, DB.spirits[i].varugrupp]);
         };
     };
 

@@ -86,6 +86,15 @@ function drop(ev) {
 
         $(nodeID).addClass(".menuItemDrop");
 
+
+        let backgroundColor = $(nodeID).css('background');  // store original background
+        $(nodeID).css('background', 'yellow');              // change element background
+        setTimeout(function() {
+            $(nodeID).css('background', backgroundColor);   // change it back after ...
+        }, 600);                                            // waiting few millisecond
+
+
+
         //console.log( $(nodeID).data("quantity"));
     }
     else {
@@ -98,6 +107,14 @@ function drop(ev) {
         $(nodeID).find(".quantity").text(itemQuantity);     // set value for view
         $(nodeID).find(".price").text( totalPrice );        // set value for view
 
+    
+        let backgroundColor = $(nodeID).css('background');  // store original background
+        $(nodeID).css('background', 'yellow');              // change element background
+        setTimeout(function() {
+            $(nodeID).css('background', backgroundColor);   // change it back after ...
+        }, 600);   
+    
+    
     } 
 
     addCartItemListeners();
