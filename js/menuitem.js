@@ -44,7 +44,8 @@ $(document).ready(function(){
        
             out += '<div id="' + "menuitem" + pad2(i) + '" class="menuItemList"  draggable="true" ondragstart="drag(event)"' 
                     + 'data-cart-listing-price="' + arr[i].price + '" ' 
-                    + 'data-cart-listing-id="' + arr[i].id + '" >' 
+                    + 'data-cart-listing-id="' + arr[i].id + '" ' 
+                    + 'data-cart-listing-name="' + arr[i].name + '" >'
                     + ' <span class="name">' + arr[i].name + '</span>'
                     + ' <span class="alcoholStrength">' + arr[i].alcohol + '</span>'
                     + ' <span class="price">' + arr[i].price + '</span>' 

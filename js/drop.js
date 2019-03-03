@@ -75,6 +75,7 @@ function drop(ev) {
                     "dbItemID": nodeCopy.getAttribute("data-cart-listing-id"),
                     "menuItemID":data ,
                     "cartItemID" : nodeCopy.id,
+                    "name": nodeCopy.getAttribute("data-cart-listing-name"),
                     "price": nodeCopy.getAttribute("data-cart-listing-price") ,
                     "quantity": 1
                 }
@@ -84,7 +85,7 @@ function drop(ev) {
         //var cart2 = JSON.parse(sessionStorage.getItem('cart'));
         //console.log(cart2);
         console.log("First time Cart Message")
-        addItemInUndo(cart, "add");  
+        addItemInUndo(cart.items[0], "add");  
 
     }
     else{
@@ -100,12 +101,14 @@ function drop(ev) {
                 "dbItemID": nodeCopy.getAttribute("data-cart-listing-id"),
                 "menuItemID":data ,
                 "cartItemID" : nodeCopy.id,
+                "name": nodeCopy.getAttribute("data-cart-listing-name"),
                 "price": nodeCopy.getAttribute("data-cart-listing-price") ,
                 "quantity": 1
             }
 
             cart1.items.push(itemobjtemp);
             console.log(cart1);
+            addItemInUndo(itemobjtemp, "add");
             sessionStorage.setItem('cart', JSON.stringify(cart1));
             //console.log(cart2);
         }
@@ -123,19 +126,26 @@ function drop(ev) {
            // cart1.items.push(itemobjtemp);
             console.log(cart1);
             sessionStorage.setItem('cart', JSON.stringify(cart1));
+
+            
+
+
+
+
+
         }    
 
     }    
     
 
+    drawCart();
 
 
 
 
-
-
+    
     var nodeID = "#" + nodeCopy.id;
-
+    /*
 
     if($(nodeID).length === 0) {
         //if this doesn't exist then add
@@ -188,9 +198,19 @@ function drop(ev) {
     
     
     } 
+    */
+
+   
+
 
     addCartItemListeners();
    
+
+    let backgroundColor = $(nodeID).css('background');  // store original background
+    $(nodeID).css('background', 'yellow');              // change element background
+     setTimeout(function() {
+        $(nodeID).css('background', backgroundColor);   // change it back after ...
+     }, 600);  
 
     // Get the ID of the target (the order).
     var tempid = "#" + ev.target.id;
@@ -223,36 +243,35 @@ function sumCartTotal(){
 function drawCart(){
 
     let cart = JSON.parse(sessionStorage.getItem('cart'));
-    /*
+    
     var out = "";
     
     // Go through the array and collect all the items of the desired type.
-    //
     for (var i = 0; i < cart.items.length; i++) {
 
 
-        var cartID = cart.items[i].
-        var cartName =
-        var cartPrice = 
-        var cartQuantity = 
-
-
-        // if the item is of the desired type, then we add the HTML string to the collection variable.
-        // Otherwise we skip to the next item.
-        //
-        //if (arr[i].type == type) {
+        var cartID = cart.items[i].cartItemID;
+        var cartName = cart.items[i].name;
+        var cartPrice = cart.items[i].price;
+        var cartQuantity = cart.items[i].quantity;
    
-        out += '<div id="' + "cartItem" + pad2(i) + '" class="menuItemList"  draggable="true" ondragstart="drag(event)"' 
-                + 'data-cart-listing-price="' + arr[i].price + '" ' 
-                + 'data-cart-listing-id="' + arr[i].id + '" >' 
-                + ' <span class="name">' + arr[i].name + '</span>'
-                + ' <span class="alcoholStrength">' + arr[i].alcohol + '</span>'
-                + ' <span class="price">' + arr[i].price + '</span>' 
+        out += '<div id="' + cartID + '" class="menuItemList cartItemsList menuItemDrop" ' 
+                + 'data-cart-listing-price="' + cartPrice + '" ' 
+                + 'data-quantity="' + cartQuantity + '" >'
+                + '<span class="name">' + cartName + '</span>'
+                + '<span class="price">' + cartPrice + '</span>' 
+                + '<span class="cartPlusButtonSpan">' + "<button class='cartItemsPlusButton'>"+ "+"+'</button>' +'</span>'
+                + '<span class="quantity">'+ cartQuantity +'</span>'
+                + '<span class="cartMinusButtonSpan">'+ "<button class='cartItemsMinusButton'>"+ "-"+'</button>' +'</span>'
+                + '<span class="cartRemoveSpan">'+ "<button class='cartItemsRemoveButton'>"+ "X"+'</button>' +'</span>'
                 + '</div>';
-        //}
+    
     }
 
-    */
+
+    $("#checkoutCart").html(out);
+
+    sumCartTotal();
 
 }
 
