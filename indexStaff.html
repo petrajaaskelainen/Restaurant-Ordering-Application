@@ -56,13 +56,15 @@ index.css
 	<div class="tab">
   		<button class="tablinks" onclick="openTab(event, 'home')">Home</button>
   		<button class="tablinks" onclick="openTab(event, 'order')">Order products</button>
- 		<button class="tablinks" onclick="openTab(event, 'history')">Purchase history</button>
-		<select class="dropdwn" id="languageOptionSelector">
+ 			<button class="tablinks" onclick="openTab(event, 'history')">Purchase history</button>
+		
+			 <select class="dropdwn" id="languageOptionSelector">
     		<option value="en" selected>English</option>
     		<option value="ur">اردو</option>
-		</select>
-		<button id="logout" onclick="openTab()">Logout</button>
-		<button id="login" onclick="openTab()">Login</button>
+			</select>
+		
+			<button id="logout" onclick="openTab()">Logout</button>
+			<button id="login" onclick="openTab()">Login</button>
 	</div>
 	
 	<!-- Tab content -->
@@ -78,18 +80,19 @@ index.css
 		<div class="progresspoint"><div class="prg" id="2"><p class ="number">2</p></div><p>Confirm payment</p></div>	
 		<div class="progresspoint"><div class="prg" id="3"><p class ="number">3</p></div><p>Order placed</p></div>
 	</div>
-		<!--- the main content of the page -->	
+	
+	<!--- the main content of the page -->	
 	<section id="container">
 		<div class="contentside"></div>
 		
 		<div id="purchasehistory">This is the purchase history</div>
 		
 		<!--- Left side section of the page -->	
-        <div class="content">
+    <div class="content">
 			<div id= "menu"> 
 				<div id="filterColumn">
-  					<button class="filterCategory" id="nameCategory" onclick="sortBy(, 'name')">Name &#8679;</button>
-  					<button class="filterCategory" id="alcoholCategory" onclick="sortBy(, 'name')">Alcohol % &#8681;</button>					
+  					<button class="filterCategory" id="nameCategory" onclick="sortBy('name')">Name &#8679;</button>
+  					<button class="filterCategory" id="alcoholCategory" onclick="sortBy('name')">Alcohol % &#8681;</button>					
   					<button class="filterCategory" id="originCategory" onclick="sortBy(, 'name')">Origin</button>
   					<button class="filterCategory" id="inStockCategory" onclick="sortBy(, 'name')">In stock</button>					
 		  			<button class="filterCategory" id="priceCategory" onclick="sortBy(, 'name')">Price</button>			
@@ -121,9 +124,9 @@ index.css
 				<!--- This div below contains the droppable items list -->			
 				<div class="tooltip">
 					<div id="undoredo">
-						<button class="cartbutton" id= "left">&#x276E; Remove last item</button>
+						<button class="cartbutton" id= "undoBtn">&#x276E; Remove last item</button>
 						<button class="cartbutton" type="reset" value="Reset">Empty cart</button>
-						<button class="cartbutton" id= "right">Add item again &#x276F;</button>
+						<button class="cartbutton" id= "redoBtn">Add item again &#x276F;</button>
 					<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)">
   					<span class="tooltiptext">Drag items to cart from the left side menu</span>
 					</div>

@@ -5,7 +5,9 @@
 // Copyright   : (c) Reserved
 // Date Created: 17th Febraury, 2019
 // Last updated: 
-// Description : Implements multiple language support.  
+// Description : Implements multiple language support.
+//               I personally acknowledge the contributions of Mr. Attique ur Rehman (Pakistani National)
+//               assisting in translation of english language to urdu language.
 // Requires en.json, ur.json and index.html
 //=============================================================================
 

@@ -8,9 +8,38 @@
 // Description : Implements dragndrop functionality, some functions are taken from
 //               Bar2 example   
 // Requires    : index.html, jquery API 
-// Known Issues: Sometimes drops on the children elements of the Target Parent.
+// Known Issues: All fixed, No so far
 //=============================================================================
-//
+
+/**
+ * This file contains following functions
+ * 1.  drawCartView() 
+ * 2.  addOrPlusItemInCart(data)
+ * 3.  plusQuantityOfItemInCart(cartItemID)
+ * 4.  removeItemFromCart(cartItemID)
+ * 5.  minusQuantityOfItemInCart(cartItemID)
+ * 6.  sumCartTotal() 
+ * 7.  addCartItemListeners()
+ * 8.  removeCartItemListeners()
+ * 9.  allowDrop(ev)
+ * 10. drag(ev)
+ * 11. drop(ev)
+ */
+
+let CART;
+
+if ( document.URL.includes("indexStaff.html") ) {
+    CART = "cart-staff";
+}
+else {
+    
+    if ( document.URL.includes("indexCustomer.html") )
+        CART = "cart-customer";
+}
+ 
+
+
+
 // A standard function. If you don't want any "extras", just use this
 // as it is. It will prevent the default behaviour, which is not to accept
 // any drops.
@@ -51,159 +80,28 @@ function drop(ev) {
     //
     ev.dataTransfer.dropEffect = "copy";
 
-    var data = ev.dataTransfer.getData("id"); // Get the data from the transfer...
-    var dataID = ev.dataTransfer.getData("cart-listing-id"); // Get the data from the transfer...
-    //console.log(dataID);
+    var menuID = ev.dataTransfer.getData("id"); // Get the data from the transfer...
 
     // If we use .cloneNode(true) the dragging results in a cloned copy, rather than
     // an actual move of the source. This is important when we use the dragged item as
     // an example, rather than as an individual object.
     //
-    var nodeCopy = document.getElementById(data).cloneNode(true);
+    var nodeCopy = document.getElementById(menuID).cloneNode(true);
 
-    nodeCopy.id = "cartItem" + data.substr(data.length - 2);  // We cannot use the same ID. So, made the new id with the ID number of menu items.
-
-    nodeCopy.draggable = "false"; // The new element is set as being not draggable.
-    //console.log(nodeCopy); 
-    //console.log(nodeCopy.getAttribute("data-cart-listing-id")) // Data("cart-listing-id"))
-
-    if ( sessionStorage.getItem('cart') === null)  {
-
-        let cart = {
-            "items": [
-                {
-                    "dbItemID": nodeCopy.getAttribute("data-cart-listing-id"),
-                    "menuItemID":data ,
-                    "cartItemID" : nodeCopy.id,
-                    "name": nodeCopy.getAttribute("data-cart-listing-name"),
-                    "price": nodeCopy.getAttribute("data-cart-listing-price") ,
-                    "quantity": 1
-                }
-
-            ]}
-        sessionStorage.setItem('cart', JSON.stringify(cart));
-        //var cart2 = JSON.parse(sessionStorage.getItem('cart'));
-        //console.log(cart2);
-        console.log("First time Cart Message")
-        addItemInUndo(cart.items[0], "add");  
-
-    }
-    else{
-
-        let cart1 = JSON.parse(sessionStorage.getItem('cart'));
-        //console.log(cart1);
-        
-        let checkItem = cart1.items.find(items => items.dbItemID === nodeCopy.getAttribute("data-cart-listing-id"));
-        //console.log("CheckItem: " + checkItem);
-
-        if (checkItem === undefined){
-            var itemobjtemp =  {
-                "dbItemID": nodeCopy.getAttribute("data-cart-listing-id"),
-                "menuItemID":data ,
-                "cartItemID" : nodeCopy.id,
-                "name": nodeCopy.getAttribute("data-cart-listing-name"),
-                "price": nodeCopy.getAttribute("data-cart-listing-price") ,
-                "quantity": 1
-            }
-
-            cart1.items.push(itemobjtemp);
-            console.log(cart1);
-            addItemInUndo(itemobjtemp, "add");
-            sessionStorage.setItem('cart', JSON.stringify(cart1));
-            //console.log(cart2);
-        }
-        else{
-            cart1.items.forEach((items, index, array) => {
-                if (items.dbItemID === nodeCopy.getAttribute("data-cart-listing-id")){
-
-                    items.quantity +=1;
-                }
-               // console.log(element.dbItemID); // 100, 200, 300
-               // console.log(index); // 0, 1, 2
-               // console.log(array); // same myArray object 3 times
-            });
-
-           // cart1.items.push(itemobjtemp);
-            console.log(cart1);
-            sessionStorage.setItem('cart', JSON.stringify(cart1));
-
-            
-
-
-
-
-
-        }    
-
-    }    
-    
-
-    drawCart();
-
-
-
-
-    
+    nodeCopy.id = "cartItem" + menuID.substr(menuID.length - 2);  // We cannot use the same ID. So, made the new id with the ID number of menu items.
     var nodeID = "#" + nodeCopy.id;
-    /*
 
-    if($(nodeID).length === 0) {
-        //if this doesn't exist then add
-        ev.target.appendChild(nodeCopy);
-        document.getElementById(nodeCopy.id).ondragstart = function() { return false; };
-        document.getElementById(nodeCopy.id).drop = function() { return false; };
-        document.getElementById(nodeCopy.id).ondragover = function() { return false; };
-        document.getElementById(nodeCopy.id).ondragenter = function() { return false; };
-
-        
-
-        $(nodeID).addClass("cartItemsList");
-        //$(nodeID + "span .category").remove();
-        $(nodeID).find('.alcoholStrength').remove();
-        $(nodeID).data("quantity", 1);
-        $(nodeID).append("<span class='cartPlusButtonSpan'>"+ "<button class='cartItemsPlusButton'>"+ "+"+'</button>' +'</span>');
-        $(nodeID).append("<span class='quantity'>"+ 1 +'</span>');
-        $(nodeID).append("<span class='cartMinusButtonSpan'>"+ "<button class='cartItemsMinusButton'>"+ "-"+'</button>' +'</span>');
-        $(nodeID).append("<span class='cartRemoveSpan'>"+ "<button class='cartItemsRemoveButton'>"+ "X"+'</button>' +'</span>');
-
-        $(nodeID).addClass(".menuItemDrop");
-
-
-        let backgroundColor = $(nodeID).css('background');  // store original background
-        $(nodeID).css('background', 'yellow');              // change element background
-        setTimeout(function() {
-            $(nodeID).css('background', backgroundColor);   // change it back after ...
-        }, 600);                                            // waiting few millisecond
-
-
-
-        //console.log( $(nodeID).data("quantity"));
+    //nodeCopy.draggable = "false"; // The new element is set as being not draggable.
+    
+    let data = {
+        id: menuID,
+        quantity: 1
     }
-    else {
-
-        var itemQuantity = $(nodeID).data("quantity") + 1;
-        var itemPrice = parseInt($(nodeID).data("cart-listing-price"));
-        var totalPrice = itemPrice * itemQuantity;
-        
-        $(nodeID).data("quantity", itemQuantity);           // set and save new value
-        $(nodeID).find(".quantity").text(itemQuantity);     // set value for view
-        $(nodeID).find(".price").text( totalPrice );        // set value for view
-
     
-        let backgroundColor = $(nodeID).css('background');  // store original background
-        $(nodeID).css('background', 'yellow');              // change element background
-        setTimeout(function() {
-            $(nodeID).css('background', backgroundColor);   // change it back after ...
-        }, 600);   
-    
-    
-    } 
-    */
+    addOrPlusItemInCart(data);     
 
-   
+    drawCartView();
 
-
-    addCartItemListeners();
    
 
     let backgroundColor = $(nodeID).css('background');  // store original background
@@ -214,39 +112,204 @@ function drop(ev) {
 
     // Get the ID of the target (the order).
     var tempid = "#" + ev.target.id;
-    
-    var sum = sumCartTotal();
-    
-    $("#checkoutTotal").text("Total: " + sum + " kr.");
-    //}
+  
 
 }
 
 
 function sumCartTotal(){
 
-    var sum = 0;
-    var cartList = $(".cartItemsList");
-    
-    $(".cartItemsList").each(function(){
-        var val = parseInt($(this).data('cart-listing-price')) * parseInt($(this).data('quantity'));
-           sum += val;
-       });
-       //console.log("hey hey");
+    let sum = 0;
+    let cartTemp = JSON.parse(sessionStorage.getItem(CART));
 
-     //console.log("sum = " + sum);
-     return sum;
+    cartTemp.items.forEach((items, index, array) => {
+            let val = items.quantity * items.price;
+            sum += val;
+    });
+
+    return sum;
 }
 
 
 
-function drawCart(){
 
-    let cart = JSON.parse(sessionStorage.getItem('cart'));
+/**
+ * 
+ * @param {Id of the menu} menuID 
+ * Example: menuItem01, menuItem02, ...
+ * 
+ * @Description This function adds the item in the cart.
+ *              You have to explicitly call drawCartView() to update the view on front-end.
+ */
+function addOrPlusItemInCart(data, addInUndo = true){
+               
+    if ( sessionStorage.getItem(CART) === null)  {
+
+        let cart = {"items": []};
+
+        
+        sessionStorage.setItem(CART, JSON.stringify(cart));
+    
+    }
+    
+    console.log(data);
+    let menuID = data.id;
+    let itemQuantity = data.quantity;
+    
+    let menuIDStr = "#" + menuID;  
+    let cartItemID = "cartItem" + menuID.substr(menuID.length - 2); 
+    let drinkDBID = $(menuIDStr).data("cart-listing-id").toString();
+    let cartTemp = JSON.parse(sessionStorage.getItem(CART));
+    let action = "add";    
+    
+    let checkItem = cartTemp.items.find(items => items.drinkDBID === drinkDBID);
+    //console.log("CheckItem: " + checkItem);
+
+    if (checkItem === undefined){
+        
+        let itemObjTemp =  {
+            "drinkDBID": drinkDBID, 
+            "menuItemID": menuID,
+            "cartItemID" : cartItemID,
+            "name": $(menuIDStr).data("cart-listing-name"),
+            "price": $(menuIDStr).data("cart-listing-price"),
+            "quantity": itemQuantity
+        }
+
+        cartTemp.items.push(itemObjTemp);
+       
+    }
+    else{
+        
+        cartTemp.items.forEach((items, index, array) => {
+            if (items.drinkDBID === drinkDBID){
+
+                items.quantity +=1;
+                itemQuantity = items.quantity;
+                action="Plus";
+            }
+        });
+
+    }        
+
+    
+    sessionStorage.setItem(CART, JSON.stringify(cartTemp));
+    
+    data = {id: cartItemID, quantity: itemQuantity};
+    
+    if(addInUndo === true){
+        addItemInUndo(data ,action, true);
+    }
+    
+    console.log("add or plus items in cart: \n" );
+    console.log(cartTemp);
+
+    return data;
+
+}
+
+
+function plusQuantityOfItemInCart(cartItemID, addInUndo = true){
+
+    let cartTemp = JSON.parse(sessionStorage.getItem(CART));
+    let tempQuantity;
+
+    cartTemp.items.forEach((items, index, array) => {
+        if (items.cartItemID === cartItemID){
+            items.quantity +=1;
+            tempQuantity = items.quantity;
+        }
+    });
+
+
+    sessionStorage.setItem(CART, JSON.stringify(cartTemp));
+
+    let data = {id: cartItemID, quantity: tempQuantity};
+
+    if(addInUndo === true){
+        addItemInUndo(data ,"Plus", true);
+    }    
+}
+
+
+
+
+function minusQuantityOfItemInCart(cartItemID, addInUndo = true){
+
+    let cartTemp = JSON.parse(sessionStorage.getItem(CART));
+    let tempQuantity;
+
+    cartTemp.items.forEach((items, index, array) => {
+        if (items.cartItemID === cartItemID){
+           
+            if(items.quantity >= 2){
+                items.quantity -=1;
+            }
+        }
+    });
+
+
+    sessionStorage.setItem(CART, JSON.stringify(cartTemp));
+
+    let data = {id: cartItemID, quantity: tempQuantity};
+
+    if(addInUndo === true){
+        addItemInUndo(data ,"Minus", true);
+    }    
+}
+
+function removeItemFromCart(cartItemID,addInUndo = true){
+
+    let menuID; 
+    let quantity;
+    let toRemoveItemIndex;
+    let cartTemp = JSON.parse(sessionStorage.getItem(CART));
+
+    console.log("cartID Remove Function:")
+    //console.log(cartID);
+
+    cartTemp.items.forEach((items, index, array) => {
+       
+        if (items.cartItemID === cartItemID){
+          /* USAGE:
+            # console.log(items.cartID); // 100, 200, 300
+            # console.log(index); // 0, 1, 2
+            # console.log(array); // same myArray object 3 times
+          */         
+            menuID = items.menuItemID;
+            quantity = items.quantity;
+            toRemoveItemIndex = index;
+            console.log("index" + index );
+        }
+      
+    });
+
+    cartTemp.items.splice(toRemoveItemIndex, 1);
+    console.log("Remove items in cart: \n" );
+    console.log(cartTemp);
+    sessionStorage.setItem(CART, JSON.stringify(cartTemp));
+    
+    let data = {id: menuID, quantity:quantity};
+
+    if(addInUndo === true){
+        addItemInUndo(data ,"remove", true);
+    } 
+    return data;
+}
+
+
+
+
+
+function drawCartView(){
+
+    removeCartItemListeners();
+
+    let cart = JSON.parse(sessionStorage.getItem(CART));
     
     var out = "";
     
-    // Go through the array and collect all the items of the desired type.
+    // Go through the array and add all the items.
     for (var i = 0; i < cart.items.length; i++) {
 
 
@@ -259,7 +322,7 @@ function drawCart(){
                 + 'data-cart-listing-price="' + cartPrice + '" ' 
                 + 'data-quantity="' + cartQuantity + '" >'
                 + '<span class="name">' + cartName + '</span>'
-                + '<span class="price">' + cartPrice + '</span>' 
+                + '<span class="price">' + cartPrice * cartQuantity + '</span>' 
                 + '<span class="cartPlusButtonSpan">' + "<button class='cartItemsPlusButton'>"+ "+"+'</button>' +'</span>'
                 + '<span class="quantity">'+ cartQuantity +'</span>'
                 + '<span class="cartMinusButtonSpan">'+ "<button class='cartItemsMinusButton'>"+ "-"+'</button>' +'</span>'
@@ -270,61 +333,54 @@ function drawCart(){
 
 
     $("#checkoutCart").html(out);
+    $("#checkoutTotal").text("Total: " +  sumCartTotal() + " kr.");
+   
+    addCartItemListeners();
 
-    sumCartTotal();
+}
 
+
+function removeCartItemListeners(){
+
+    $(".cartItemsPlusButton").off("click");
+    $(".cartItemsMinusButton").off("click");
+    $(".cartItemsRemoveButton").off("click");
 }
 
 
 function addCartItemListeners(){
 
-    //Listens if remove button of cart item is clicked.
+    /*Listens if remove button of cart item is clicked.*/
     $('.cartItemsRemoveButton').on('click', function(){
-        var parent_id = $(this).parent().parent().attr('id');
-        console.log(parent_id);
         
-        $("#" + parent_id).remove();
-        
-        var sum = sumCartTotal();
-        $("#checkoutTotal").text("Total: " + sum + " kr.");
+        let cartID = $(this).parent().parent().attr('id');
+       
+        removeItemFromCart(cartID);
+        drawCartView();
+
     })
 
-    //Listens if add button of cart item is clicked.
+    /*Listens if add button of cart item is clicked.*/
     $('.cartItemsPlusButton').on('click', function(){
-        var parent_id = $(this).parent().parent().attr('id');
-        console.log(parent_id);
         
-        var nodeID = "#" + parent_id;
-        var itemQuantity = $(nodeID).data("quantity") + 1;
-        var itemPrice = parseInt($(nodeID).data("cart-listing-price"));
-        var totalPrice = itemPrice * itemQuantity;
+        let cartID = $(this).parent().parent().attr('id');
         
-        $(nodeID).data("quantity", itemQuantity);           // set and save new value
-        $(nodeID).find(".quantity").text(itemQuantity);     // set value for view
-        $(nodeID).find(".price").text( totalPrice );        // set value for view
-
-        var sum = sumCartTotal();
-        $("#checkoutTotal").text("Total: " + sum + " kr.");
+        plusQuantityOfItemInCart(cartID);
+        drawCartView();
+       
     })
 
-    //Listens if minus button of cart item is clicked.
+    /*Listens if minus button of cart item is clicked.*/
     $('.cartItemsMinusButton').on('click', function(){
-        var parent_id = $(this).parent().parent().attr('id');
-        console.log(parent_id);
-        
-        var nodeID = "#" + parent_id;
-        if($(nodeID).data("quantity") >= 1){
-            var itemQuantity = $(nodeID).data("quantity") - 1;
-            var itemPrice = parseInt($(nodeID).data("cart-listing-price"));
-            var totalPrice = itemPrice * itemQuantity;
-        
-            $(nodeID).data("quantity", itemQuantity);           // set and save new value
-            $(nodeID).find(".quantity").text(itemQuantity);     // set value for view
-            $(nodeID).find(".price").text( totalPrice );        // set value for view
+       
+        let cartID = $(this).parent().parent().attr('id');        
+        let nodeID = "#" + cartID;
 
-            var sum = sumCartTotal();
-            $("#checkoutTotal").text("Total: " + sum + " kr.");
-        }    
+        if($(nodeID).data("quantity") >= 2){
+            minusQuantityOfItemInCart(cartID);
+            drawCartView();
+        }  
+
     })
 
 

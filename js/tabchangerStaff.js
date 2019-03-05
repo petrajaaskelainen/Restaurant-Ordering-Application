@@ -18,18 +18,21 @@ $(document).ready(function(){
 		$("#confirmPurchase").show();
 		$("#menu").hide();	 
 	
-	});
-	//When user clicks confirmbtn, the confirmpurchase is hidden and the orderplaced is shown.		
+  });
+  
+	//When user clicks confirmbtn, the confirm purchase is hidden and the orderplaced is shown.		
 	$("#confirmbtn").click(function(){
 		$("#orderPlaced").show();	
 		$("#confirmPurchase").hide();
 	
-	});	
+  });
+  	
 	//When user clicks backtomenu, the menu and ordering tab are shown and the orderplaced is hidden.	
 	$("#backtomenu").click(function(){
 		$("#menu").show();
 		$("#orderPlaced").hide();	
-	});	
+  });
+  	
 });
 
 //Function for changing the site tabs.
