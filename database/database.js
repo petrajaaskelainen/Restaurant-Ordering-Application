@@ -1147,6 +1147,15 @@ var DB_File = {
             "creditSEK" : "450"
         }
     ],
+    "transactions": [
+        {
+            "transaction_id": "1",
+            "user_id": "2",
+            "total_price": "200",
+            "beer_ids_quantity": [ {"id": "8967303", "quantity": "4"}, {"id": "10001", "quantity": "3"} ]
+        }
+
+    ],
     "spirits" : [
     {
         "nr": "10001",
@@ -1172,7 +1181,8 @@ var DB_File = {
         "module": "",
         "assortment": "FS",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "24"
     }, {
         "nr": "1001",
         "articleid": "190719",
@@ -1197,7 +1207,8 @@ var DB_File = {
         "module": "",
         "assortment": "FS",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "24"
     }, {
         "nr": "1001201",
         "articleid": "51029",
@@ -1222,7 +1233,8 @@ var DB_File = {
         "module": "",
         "assortment": "FS",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "24"
     }, {
         "nr": "1001202",
         "articleid": "407506",
@@ -1247,7 +1259,8 @@ var DB_File = {
         "module": "",
         "assortment": "FS",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "24"
     }, {
         "nr": "1003802",
         "articleid": "513291",
@@ -1272,7 +1285,8 @@ var DB_File = {
         "module": "",
         "assortment": "TSS",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1004703",
         "articleid": "723841",
@@ -1297,7 +1311,8 @@ var DB_File = {
         "module": "T5",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1004801",
         "articleid": "733051",
@@ -1322,7 +1337,8 @@ var DB_File = {
         "module": "T7",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1004901",
         "articleid": "733068",
@@ -1347,7 +1363,8 @@ var DB_File = {
         "module": "T7",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1005001",
         "articleid": "733084",
@@ -1372,7 +1389,8 @@ var DB_File = {
         "module": "",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1005101",
         "articleid": "733200",
@@ -1397,7 +1415,8 @@ var DB_File = {
         "module": "",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1005201",
         "articleid": "733236",
@@ -1422,7 +1441,8 @@ var DB_File = {
         "module": "",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1005401",
         "articleid": "733429",
@@ -1447,7 +1467,8 @@ var DB_File = {
         "module": "",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1005502",
         "articleid": "733446",
@@ -1472,7 +1493,8 @@ var DB_File = {
         "module": "T7",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1005602",
         "articleid": "733468",
@@ -1497,7 +1519,8 @@ var DB_File = {
         "module": "T7",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "101",
         "articleid": "1",
@@ -1522,7 +1545,8 @@ var DB_File = {
         "module": "",
         "assortment": "FS",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1010001",
         "articleid": "817007",
@@ -1547,7 +1571,8 @@ var DB_File = {
         "module": "",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1010404",
         "articleid": "611864",
@@ -1572,7 +1597,8 @@ var DB_File = {
         "module": "",
         "assortment": "TST",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1010501",
         "articleid": "659534",
@@ -1597,7 +1623,8 @@ var DB_File = {
         "module": "",
         "assortment": "TST",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1011302",
         "articleid": "723428",
@@ -1622,7 +1649,8 @@ var DB_File = {
         "module": "T5",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1011401",
         "articleid": "811782",
@@ -1647,7 +1675,8 @@ var DB_File = {
         "module": "",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1011601",
         "articleid": "614078",
@@ -1672,7 +1701,8 @@ var DB_File = {
         "module": "",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1011701",
         "articleid": "734763",
@@ -1697,7 +1727,8 @@ var DB_File = {
         "module": "T7",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1011901",
         "articleid": "614800",
@@ -1722,7 +1753,8 @@ var DB_File = {
         "module": "",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1012601",
         "articleid": "874805",
@@ -1747,7 +1779,8 @@ var DB_File = {
         "module": "",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }, {
         "nr": "1013104",
         "articleid": "734572",
@@ -1772,7 +1805,8 @@ var DB_File = {
         "module": "T7",
         "assortment": "TSE",
         "organic": "0",
-        "kosher": "0"
+        "kosher": "0",
+        "amount": "5"
     }
 
     ]

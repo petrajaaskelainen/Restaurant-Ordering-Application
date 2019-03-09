@@ -12,143 +12,193 @@ language.js
 index.css
 -->
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>The Flying Dutchman</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!--- Connecting stylesheet -->
-<link href="css/indexStaff.css" rel="stylesheet">
-<!--- Adding Browser Favicon -->	
-<link rel="favicon" type="image/png" href=""/>
-<!--- Script for multilanguage -->
-<script src="js/language.js"></script>
-<!--- Database file, contains information of drinks -->
-<!-- <script src="database/Beverges.js"></script> -->
-<!--- Database file, contains information of users -->
-<!-- <script src="database/DBLoaded.js"></script> -->
-<!--- Script for loading the database -->
-<script src="js/loader.js"></script>
-<!--- Script for populating menu items list -->
-<script src="js/menuitem.js"></script>
-<!--- Script for undo/redo functionality -->
-<script src="js/undoRedo.js"></script>
-<!--- Script for dragndrop of menu items list or cart list-->
-<script src="js/drop.js"></script>
-<!--- Script for checkout process -->
-<script src="js/login.js"></script>
-<!--- Script for checkout process -->
-<script src="js/md5.min.js"></script>
-<!--- Script for checkout process -->
-<script src="js/tabchangerStaff.js"></script>
+	<meta charset="UTF-8">
+	<title>The Flying Dutchman</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!--- Connecting stylesheet -->
+	<link href="css/indexStaff.css" rel="stylesheet">
+	<!--- Adding Browser Favicon -->
+	<link rel="favicon" type="image/png" href="" />
+	<!--- Script for multilanguage -->
+	<script src="js/language.js"></script>
+	<!--- Database file, contains information of drinks -->
+	<!-- <script src="database/Beverges.js"></script> -->
+	<!--- Database file, contains information of users -->
+	<!-- <script src="database/DBLoaded.js"></script> -->
+	<!--- Script for loading the database -->
+	<script src="js/loader.js"></script>
+	<!--- Script for populating menu items list -->
+	<script src="js/menuitem.js"></script>
+	<!--- Script for undo/redo functionality -->
+	<script src="js/undoRedo.js"></script>
+	<!--- Script for dragndrop of menu items list or cart list-->
+	<script src="js/drop.js"></script>
+	<!--- Script for checkout process -->
+	<script src="js/login.js"></script>
+	<!--- Script for checkout process -->
+	<script src="js/md5.min.js"></script>
+	<!--- Script for checkout process -->
+	<script src="js/tabchangerStaff.js"></script>
+
+
+	<style>
+		#historyT {
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+		
+		#historyT td, #historyT th {
+			border: 1px solid #ddd;
+			padding: 8px;
+		}
+		
+		#historyT tr:nth-child(even){background-color: #f2f2f2;}
+		
+		#historyT tr:hover {background-color: #ddd;}
+		
+		#historyT th {
+			padding-top: 12px;
+			padding-bottom: 12px;
+			text-align: left;
+			background-color: #33c3c3;
+			color: white;
+		}
+		</style>
+
+
+
+
 </head>
-	
+
 <body>
-	<!--- Language selector panel on the top-->	
+	<!--- Language selector panel on the top-->
 	<nav>
 
-    </nav>
-	
-	<!--- Header with the logo -->	
-    <header>
-        <img src="img/logo.png" alt="logo" width="100" height="100">
-    </header>
-	
-	<div class="tab">
-  		<button class="tablinks" onclick="openTab(event, 'home')">Home</button>
-  		<button class="tablinks" onclick="openTab(event, 'order')">Order products</button>
- 			<button class="tablinks" onclick="openTab(event, 'history')">Purchase history</button>
-		
-			 <select class="dropdwn" id="languageOptionSelector">
-    		<option value="en" selected>English</option>
-    		<option value="ur">اردو</option>
-			</select>
-		
-			<button id="logout" onclick="openTab()">Logout</button>
-			<button id="login" onclick="openTab()">Login</button>
-	</div>
-	
-	<!-- Tab content -->
-<div id="home" class="tabcontent">
-  <h3>The flying dutchman</h3>
-  <p>Add here any informative text about the company.</p>
-</div>
+	</nav>
 
-<div id="order" class="tabcontent">
-	<!--- Progress bar -->
-	<div id="progress"><p id="checkout-process-steps">Steps in check-out process</p><br>
-		<div class="progresspoint"><div class="prg" id="1"><p class ="number">1</p></div><p>Select products</p></div>
-		<div class="progresspoint"><div class="prg" id="2"><p class ="number">2</p></div><p>Confirm payment</p></div>	
-		<div class="progresspoint"><div class="prg" id="3"><p class ="number">3</p></div><p>Order placed</p></div>
+	<!--- Header with the logo -->
+	<header>
+		<img src="img/logo.png" alt="logo" width="100" height="100">
+	</header>
+
+	<div class="tab">
+		<button class="tablinks" onclick="openTab(event, 'home')">Home</button>
+		<button class="tablinks" onclick="openTab(event, 'order')">Order products</button>
+		<button id="historytab" class="tablinks" onclick="openTab(event, 'history')">Purchase history</button>
+
+		<select class="dropdwn" id="languageOptionSelector">
+			<option value="en" selected>English</option>
+			<option value="ur">اردو</option>
+		</select>
+
+		<button id="logout" onclick="openTab()">Logout</button>
+		<button id="login" onclick="openTab()">Login</button>
 	</div>
-	
-	<!--- the main content of the page -->	
-	<section id="container">
-		<div class="contentside"></div>
-		
-		<div id="purchasehistory">This is the purchase history</div>
-		
-		<!--- Left side section of the page -->	
-    <div class="content">
-			<div id= "menu"> 
-				<div id="filterColumn">
-  					<button class="filterCategory" id="nameCategory" onclick="sortBy('name')">Name &#8679;</button>
-  					<button class="filterCategory" id="alcoholCategory" onclick="sortBy('name')">Alcohol % &#8681;</button>					
-  					<button class="filterCategory" id="originCategory" onclick="sortBy(, 'name')">Origin</button>
-  					<button class="filterCategory" id="inStockCategory" onclick="sortBy(, 'name')">In stock</button>					
-		  			<button class="filterCategory" id="priceCategory" onclick="sortBy(, 'name')">Price</button>			
+
+	<!-- Tab content -->
+	<div id="home" class="tabcontent">
+		<h3>The flying dutchman</h3>
+		<p>Add here any informative text about the company.</p>
+	</div>
+
+	<div id="order" class="tabcontent">
+		<!--- Progress bar -->
+		<div id="progress">
+			<p id="checkout-process-steps">Steps in check-out process</p><br>
+			<div class="progresspoint">
+				<div class="prg" id="1">
+					<p class="number">1</p>
 				</div>
-				<div id= "menulist">
-				<!---BRING DATABASE ITEMS HERE-->
-				</div>
+				<p>Select products</p>
 			</div>
+			<div class="progresspoint">
+				<div class="prg" id="2">
+					<p class="number">2</p>
+				</div>
+				<p>Confirm payment</p>
+			</div>
+			<div class="progresspoint">
+				<div class="prg" id="3">
+					<p class="number">3</p>
+				</div>
+				<p>Order placed</p>
+			</div>
+		</div>
+
+		<!--- the main content of the page -->
+		<section id="container">
+			<div class="contentside"></div>
+
+			<!-- <div id="purchasehistory">This is the purchase history</div> -->
+
+			<!--- Left side section of the page -->
+			<div class="content">
+				<div id= "menu"> 
+	
+					<div id="filterColumn">
+						<button class="filterCategory" id="nameCategory" onclick="sortBy('name')">Name &#8679;</button>
+						<button class="filterCategory" id="alcoholCategory" onclick="sortBy('name')">Alcohol % &#8681;</button>
+						<button class="filterCategory" id="originCategory" onclick="sortBy('name')">Origin</button>
+						<button class="filterCategory" id="inStockCategory" onclick="sortBy( 'name')">In stock</button>
+						<button class="filterCategory" id="priceCategory" onclick="sortBy( 'name')">Price</button>
+					</div>
+					<div id="menulist">
+						<!---BRING DATABASE ITEMS HERE-->
+					</div>
+				</div>
 				<!--- Hidden as default, visible in check-out process-->
-				<div id= "confirmPurchase">
+				<div id="confirmPurchase">
 					<p>Put here price and credits, etc.</p>
 					<button class="cartbutton" id="backbtn">Go back</button>
 					<button class="button" id="confirmbtn">Confirm purchase</button>
 				</div>
 				<!--- Hidden as default, visible in check-out process-->
-				<div id= "orderPlaced">
+				<div id="orderPlaced">
 					<h1>&#x2714;</h1>
 					<p>Order placed!</p>
 					<p>You are now logged out.</p>
 					<button class="button" id="backtomenu">Back to menu</button>
 				</div>
-			
-		</div>
-	<!--- Right side section of the page -->
-		<div class="content" id="cartcontent">
-		<div id= "cart"> 
 
-			<div id= "checkout">	
-				<!--- This div below contains the droppable items list -->			
-				<div class="tooltip">
-					<div id="undoredo">
-						<button class="cartbutton" id= "undoBtn">&#x276E; Remove last item</button>
-						<button class="cartbutton" type="reset" value="Reset">Empty cart</button>
-						<button class="cartbutton" id= "redoBtn">Add item again &#x276F;</button>
-					<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)">
-  					<span class="tooltiptext">Drag items to cart from the left side menu</span>
+			</div>
+			<!--- Right side section of the page -->
+			<div class="content" id="cartcontent">
+				<div id= "cart"> 
+		
+
+					<div id="checkout">
+						<!--- This div below contains the droppable items list -->
+						<div class="tooltip">
+							<div id="undoredo">
+								<button class="cartbutton" id="undoBtn">&#x276E; Remove last item</button>
+								<button class="cartbutton" type="reset" value="Reset">Empty cart</button>
+								<button class="cartbutton" id="redoBtn">Add item again &#x276F;</button>
+								<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)">
+									<span class="tooltiptext">Drag items to cart from the left side menu</span>
+								</div>
+								<div id="checkoutTotal">Add here total amount</div>
+								<button class="button" id="checkoutbtn">Checkout</button>
+							</div>
+						</div>
 					</div>
-				<div id="checkoutTotal">Add here total amount</div>
-				<button class="button" id= "checkoutbtn">Checkout</button>
 				</div>
 			</div>
-		</div>
-		</div>
-			</div>
-		<div class="contentside"></div>
-    </section>
-</div>
+			<div class="contentside"></div>
+		</section>
+	</div>
 
-<div id="history" class="tabcontent">
-  <h3>Purchase history</h3>
-  <p>Add here the purchase history.</p>
-</div>
-	
-	
-    <footer>&copy; Petra Jaaskelainen, Ridhi Agrawal, Kamil Iqbal and Hafiz Areeb Asad</footer>
+	<div id="history" class="tabcontent">
+		<h3>Purchase history</h3>
+		<p>Add here the purchase history.</p>
+	</div>
+
+
+	<footer>&copy; Petra Jaaskelainen, Ridhi Agrawal, Kamil Iqbal and Hafiz Areeb Asad</footer>
 </body>
+
 </html>
 
 <!--- END of file index.html -->

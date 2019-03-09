@@ -70,6 +70,29 @@ $(getDrinks(beverges[0].category, beverges)).appendTo("#menulist");
 
 $("#checkoutTotal").text("Total: " + 0 + "kr.");
 
+function sortByLowPrice(){
+    var divList = $(".menuItemList");
+    divList.sort(function(a, b){ return $(a).data("cart-listing-price")-$(b).data("cart-listing-price")});
+
+    $("#menulist").html(divList);
+}
+
+
+function sortByHighPrice(){
+    var divList = $(".menuItemList");
+    divList.sort(function(a, b){ return $(a).data("cart-listing-price")-$(b).data("cart-listing-price")});
+
+    $("#menulist").html(divList);
+}
+
+
+function sortByAlcohol(){
+    var divList = $(".menuItemList");
+    divList.sort(function(a, b){ return $(a).data("cart-listing-alcohol")-$(b).data("cart-listing-alcohol")});
+
+    $("#menulist").html(divList);
+}
+
 function sort(){
     var divList = $(".menuItemList");
     divList.sort(function(a, b){ return $(a).data("cart-listing-price")-$(b).data("cart-listing-price")});

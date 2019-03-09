@@ -31,6 +31,8 @@ $(document).ready(function(){
 							$("#login").hide();
 							$("#progress").show();
 							$("#checkout").show();
+							let userObj = userDet;
+							sessionStorage.setItem('user', JSON.stringify(userObj));  
 						}
 						else{
 							 			// if username or password is not correct then display this text
@@ -49,7 +51,12 @@ $(document).ready(function(){
 	
 		$("#progress").show();
 		$("#confirmPurchase").show();
-		$("#menu").hide();	 
+		$("#menu").hide();
+		
+		let userDetails =	JSON.parse(sessionStorage.getItem('user'));
+
+		//userDetails.account //This is the user Credit I need some id to change text
+
 	
 	});
 	
@@ -57,6 +64,40 @@ $(document).ready(function(){
 	
 		$("#orderPlaced").show();	
 		$("#confirmPurchase").hide();
+		
+		if(sessionStorage.getItem('cart-customer') !== null && JSON.parse(sessionStorage.getItem('cart-customer')).items.length >= 1 ){
+
+			let cartTemp = JSON.parse(sessionStorage.getItem('cart-customer'))
+			let userDetails =	JSON.parse(sessionStorage.getItem('user'));
+
+			let newTransacObj;
+			let beer_ids_quantity_Temp = [];
+			let total = sumCartTotal();
+			let userNewCredit = userDetails.account - total;
+
+			changeBalance(userDetails.userName, userNewCredit);
+			cartTemp.items.forEach((items, index, array) => {
+					
+				changeBevergesQuantity(items.drinkDBID, items.quantity);
+
+					let tempObj = {
+						"id": items.drinkDBID,
+						"quantity": items.quantity
+					}
+					beer_ids_quantity_Temp.push(tempObj);
+			});
+
+
+			newTransacObj = {
+				"transaction_id": getNewTransactionID(),
+				"user_id": userDetails.userId,
+				"total_price": total,
+				"beer_ids_quantity":  beer_ids_quantity_Temp
+			}
+		
+			saveNewTransaction(newTransacObj);
+			
+		}
 	
 	});	
 

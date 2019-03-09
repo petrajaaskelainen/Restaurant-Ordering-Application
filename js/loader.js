@@ -10,9 +10,6 @@
 // We use (global) variables to store the data. This is not generally advisable, but has the
 // advantage that the data is easy to access through simple APIs. Also, when storing as local storage,
 // all data is stored as strings, which might be adding some complexity.
-//
-let DB;                           // Global variable
-
 
 if ( localStorage.getItem('Database') === null)  {
 
@@ -54,6 +51,8 @@ function allUserNames() {
 // which contains the current account status for the person.
 //
 function userDetails(userName) {
+    
+    let DB = JSON.parse( localStorage.getItem('Database')); 
     var userCollect ;
     var userID;
     var userIndex;
@@ -100,6 +99,8 @@ function userDetails(userName) {
 // balance and not the changed amount (± balance).
 //
 function changeBalance(userName, newAmount) {
+    let DB = JSON.parse( localStorage.getItem('Database')); 
+
 
     // We use this variable to store the userID, since that is the link between the two data bases.
     var userID;
@@ -121,6 +122,10 @@ function changeBalance(userName, newAmount) {
         };
     };
 
+    localStorage.setItem('Database', JSON.stringify(DB));
+
+
+
 }
 // =====================================================================================================
 // Returns a list of all the names of the beverages in the database. This function can be used as a
@@ -128,6 +133,8 @@ function changeBalance(userName, newAmount) {
 //
 function allBeverages() {
 
+
+    DB = JSON.parse( localStorage.getItem('Database'));  
     // Using a local variable to collect the items.
     var collector = [];
     var obj = {};
@@ -141,6 +148,79 @@ function allBeverages() {
     //
     return collector;
 }
+
+// =====================================================================================================
+// Returns a list of all the names of the beverages in the database. This function can be used as a
+// recipe for similar functions.
+//
+function changeBevergesQuantity(drinkId, quantity) {
+
+    DB = JSON.parse( localStorage.getItem('Database'));  
+    
+
+    // The DB is stored in the variable DB2, with "spirits" as key element. If you need to select only certain
+    // items, you may introduce filter functions in the loop... see the template within comments.
+    //
+    for (i = 0; i < DB.spirits.length; i++) {
+        if(DB.spirits[i].nr === drinkId){
+            DB.spirits[i].amoount -= quantity;
+
+        }
+    
+    };
+
+    localStorage.setItem('Database', JSON.stringify(DB));
+}
+
+
+
+
+function getNewTransactionID() {
+
+    DB = JSON.parse( localStorage.getItem('Database'));  
+    
+    
+    let newID = DB.transactions.length + 1;
+    
+    return newID;
+}
+
+
+function saveNewTransaction(transac) {
+
+    DB = JSON.parse( localStorage.getItem('Database'));  
+    
+    
+    DB.transactions.push(transac);
+    
+    localStorage.setItem('Database', JSON.stringify(DB));
+}
+
+
+
+
+// =====================================================================================================
+// Returns a list of all the names of the beverages in the database. This function can be used as a
+// recipe for similar functions.
+//
+function allTransactions() {
+
+
+    DB = JSON.parse( localStorage.getItem('Database'));  
+    // Using a local variable to collect the items.
+    var collector = [];
+    var obj = {};
+    // The DB is stored in the variable DB2, with "spirits" as key element. If you need to select only certain
+    // items, you may introduce filter functions in the loop... see the template within comments.
+    //
+    for (i = 0; i < DB.transactions.length; i++) {
+        obj = {transID: DB.transactions[i].transaction_id, userID: DB.transactions[i].user_id, price: DB.transactions[i].total_price, beers: DB.transactions[i].beer_ids_quantity};
+        collector.push(obj);
+    };
+    //
+    return collector;
+}
+
 
 // =====================================================================================================
 // This function returns the names of all strong beverages (i.e. all that contain a percentage of alcohol
