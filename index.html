@@ -1,49 +1,33 @@
 <!DOCTYPE html>
 <!---File: index.html
-This file contains the index page of the system. 
+This file contains the temporary index page of the system, which can be used to navigate either to the customer or to the staff side of the system.
+It was designed, so that the project would be easy to present and develop. 
 
-Version 0.5
-Authors: Petra Jaaskelainen, Hafiz Areeb Asad, .... 
+Authors: Petra Jaaskelainen 
 
 Requires the following files:
-database.js
-db.json
-language.js
 index.css
 -->
+<!--- Defining HTML document language -->
 <html lang="en">
+<!--- Head starts here -->
 <head>
+<!--- Defining unicode encoding -->
 <meta charset="UTF-8">
+<!--- Page title, shows in the browser tab -->
 <title>The Flying Dutchman</title>
+<!--- Adding jQuery -->	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!--- Connecting stylesheet -->
 <link href="css/index.css" rel="stylesheet">
 <!--- Adding Browser Favicon -->	
-<link rel="favicon" type="image/png" href=""/>
+<link rel="favicon" type="image/png" href="img/fav.png"/>
 <!--- Script for multilanguage -->
 <script src="js/language.js"></script>
-<!--- Database file, contains information of drinks -->
-<script src="database/Beverges.js"></script>
-<!--- Database file, contains information of users -->
-<script src="database/DBLoaded.js"></script>
-<!--- Script for loading the database -->
-<script src="js/loader.js"></script>
-<!--- Script for populating menu items list -->
-<script src="js/menuitem.js"></script>
-<!--- Script for undo/redo functionality -->
-<script src="js/undoRedo.js"></script>
-<!--- Script for dragndrop of menu items list or cart list-->
-<script src="js/drop.js"></script>
-<!--- Script for checkout process -->
-<script src="js/login.js"></script>
-<!--- Script for checkout process -->
-<script src="js/md5.min.js"></script>
-<!--- Script for checkout process -->
-<script src="js/tabchanger.js"></script>
 </head>
 	
 <body>
-	<!--- Language selector panel on the top-->	
+	<!--- Language selector panel on the top: includes navigation bar, dropdown selector and the language options inside selector -->	
 	<nav>
 		<select class="dropdwn" id="languageOptionSelector">
     		<option value="en" selected>English</option>
@@ -56,25 +40,28 @@ index.css
         <img src="img/logo.png" alt="logo" width="100" height="100">
     </header>
 	
-	<!--- the main content of the page -->	
+	<!--- The main content of the page -->	
 	<section id="container">
+		
+		<!--- Side elements created to keep the content correctly placed with CSS flex -->	
 		<div class="contentside"></div>
 		
-		<!--- Left side section of the page -->	
+		<!--- Left side section of the page, link to staff side -->	
         <div class="content">
-			<div id= "menu"> 
+			<div id= "menu" class ="choice"> 
 				<a href="indexStaff.html">Staff</a>
 					</div>
 				</div>
 
-	<!--- Right side section of the page -->
-		<div class="content" id="cartcontent">
-		<div id= "cart"> 
+		<!--- Right side section of the page, link to customer side -->
+		<div class="content">
+		<div id= "cart" class ="choice"> 
 				<a href="indexCustomer.html">Customers</a>
 			</div>
 		</div>
 		
-				<div class="contentside"></div>
+		<!--- Side elements created to keep the content correctly placed with CSS flex -->	
+		<div class="contentside"></div>
     </section>
 	
 </body>

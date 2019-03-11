@@ -43,24 +43,29 @@ index.css
 </head>
 	
 <body>
-	<!--- Language selector panel on the top-->	
-	<nav>
-		<select class="dropdwn" id="languageOptionSelector">
-    		<option value="en" selected>English</option>
-    		<option value="ur">اردو</option>
-		</select>
-    </nav>
 	
 	<!--- Header with the logo -->	
     <header>
         <img src="img/logo.png" alt="logo" width="100" height="100">
     </header>
 	
+	<div class="tab">
+  		<button class="tablinks" onclick="openTab(event, 'home')">Help</button>
+  		<button class="tablinks" onclick="openTab(event, 'order')">Order products</button>
+		<!--- Language selector panel on the top-->	
+		<select class="dropdwn" id="languageOptionSelector">
+    		<option value="en" selected>English</option>
+    		<option value="ur">اردو</option>
+		</select>
+		<button id="logout" onclick="openTab()">Logout</button>
+		<button id="loginnav" onclick="openTab()">Login</button>
+	</div>
+	
 	<!--- Progress bar -->
 	<div id="progress"><p id="checkout-process-steps">Steps in check-out process</p><br>
-		<div class="progresspoint"><div class="prg" id="1"><p class ="number">1</p></div><p>Select products</p></div>
-		<div class="progresspoint"><div class="prg" id="2"><p class ="number">2</p></div><p>Confirm payment</p></div>	
-		<div class="progresspoint"><div class="prg" id="3"><p class ="number">3</p></div><p>Order placed</p></div>
+		<div class="progresspoint"><div class="prg" id="one"><p class ="number">1</p></div><p>Select products</p></div>
+		<div class="progresspoint"><div class="prg" id="two"><p class ="number">2</p></div><p>Confirm payment</p></div>	
+		<div class="progresspoint"><div class="prg" id="three"><p class ="number">3</p></div><p>Order placed</p></div>
 	</div>
 	
 	<!--- the main content of the page -->	
@@ -120,27 +125,26 @@ index.css
 	<!--- Right side section of the page -->
 		<div class="content" id="cartcontent">
 		<div id= "cart"> 
-						<div id= "login">
-				<div class="logincontent">Browse products here. If you are a VIP customer, you can also login and order the products yourself by logging in:</p></div>
-				<div class="logincontent"><label for="uname"><b>Username</b></label></div>
+			<div id= "login">
+				<div class="logincontent">Browse products here.<br><br>If you are a VIP customer, you can also login and order the products yourself by logging in:</div><br>
+				<div class="logincontent"><label for="uname"></label></div>
     			<div class="logincontent"><input id="loginUsername" type="text" placeholder="Enter Username" name="uname" required></div>
-				<div class="logincontent"><label for="psw"><b>Password</b></label></div>
+				<div class="logincontent"><label for="psw"></label></div>
     			<div class="logincontent"><input id="loginPassword" type="password" placeholder="Enter Password" name="psw" required></div>
 				<div class="logincontent"><button class="button" id="loginbtn">Login</button></div>
 				<div class="logincontent" id="loginMsg"></div>
 			</div>
 			
 			<div id= "checkout">	
+				<button class="button" id= "undoBtn">Undo</button>
+				<button class="button" id= "redoBtn">Redo</button>
 				<!--- This div below contains the droppable items list -->			
 				<div class="tooltip">
 					<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)">
-  					<span class="tooltiptext">Drag items to cart from the left side menu</span>
+  					<span id="tooltiptext">Drag items to cart from the left side menu</span>
 					</div>
 				<div id="checkoutTotal">Add here total amount</div>
 				<button class="button" id= "checkoutbtn">Checkout</button>
-				<button class="button" id= "undoBtn">Undo</button>
-				<button class="button" id= "redoBtn">Redo</button>
-
 				</div>
 			</div>
 		</div>

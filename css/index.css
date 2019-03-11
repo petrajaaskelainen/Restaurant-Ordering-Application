@@ -1,3 +1,4 @@
+/* Styling the basics for the body for the document: font, background color, text color and size etc.. */
 body{
 	width:100%;
 	color: #2B2B2B;
@@ -7,23 +8,73 @@ body{
 	margin: 0;
     height: auto;
 }
+/* Styling the header where the logo is located */
 header {
 	width: 100%;
   	background-color: #FFFFFF;
 	height: 150px;
 	padding-top: 15px;
 }
-nav{
-	width:100%;
+/* Styling the tabs in the navigation panel */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+/* Styling the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+/* Changing the background color of the buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+/* Changing the background of the active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+/* Styling the tab content */
+.tabcontent {
+	display: none;
+	padding: 20px 0px 20px 0px;
+	height: 80%;
+}
+/* Hiding the home tab */
+#home {
+	display: none;
+}
+/* Setting so that the ordering tab will be visible as default */
+#order {
+	display: block;
+}
+/* Styling the language selector to float on the right side and adjusting it's placement */
+#languageOptionSelector{
 	float: right;
-	padding: 10px;
+	margin: 12px;
 	padding-right: 45px;
 	padding-top: 25px;
 	text-align: right;
 }
+/* Styling the login and logout buttons to float on the right side */
+#loginnav, #logout {
+	float: right;
+}
+/* Hiding the logout button from the default view, so only login will show */
+#logout {
+	display: none;
+}
+
+
+
 
 #progress {
-	display: non;
+	display: none;
 	height: 150px;
 	padding-top: 20px;
 	float: center;
@@ -33,6 +84,7 @@ nav{
 	background-image: radial-gradient(paleturquoise, #D8D8D8);
 	  align-content: center;
 }
+
 .progresspoint {
 	height: 60px;
 	width: 95px;
@@ -41,6 +93,25 @@ nav{
 	padding-left: 7px;
 	padding-right: 7px;
 }
+
+.choice a {
+	font-size: 25px;
+	text-decoration: none;
+	color: #2b2b2b;
+	font-weight: 200;
+}
+
+.choice {
+	margin-top: 35%;
+}
+
+#home {
+	display:none;
+}
+#order {
+	display:block;
+}
+
 
 .number {
 	padding-top: 6px;
@@ -56,6 +127,18 @@ nav{
 	margin-left: 26px;
 	border-radius: 25px;
 	font-size: 20px;
+}
+
+#one {
+	background-image: radial-gradient(#2b2b2b, #2b2b2b);	
+}
+
+#two {
+	background-image: radial-gradient(darkturquoise, #00B3B0);
+}
+
+#three {
+	background-image: radial-gradient(darkturquoise, #00B3B0);
 }
 
 #container{
@@ -75,37 +158,26 @@ nav{
   	flex-direction: column;
 	background-color: #D8D8D8;
 }
-#sortBy {
-	padding-top: 7px;
-}
-#filterTitles {
-	display: flex;
-  	flex-direction: row;
-	width: 100%;
-}
+
 #filterColumn {
 	display: flex;
   	flex-direction: row;
 	width: 100%;
-}
-.filterTitle {
-	padding-top: 7px;
-	width: 20%;
-	height: 100%;
-}
-.filterCategory {
-	margin: 5px;
-	margin-right: 8px;
-	margin-left: 8px;
-	padding: 10px 12px 10px 12px;
-	width: 15%;
-	height: 100%;
-	text-align: left;
-	height: 25%;
+	height: auto;
 }
 
-#nameCategory {
-	width: 40%;
+.filterCategory {
+	margin: 5px;
+	padding: 5px 10px 5px 10px;
+	width: 90px;
+	height: 25px;
+	text-align: left;
+	border-radius: 25px;
+	cursor: pointer;
+	outline: inherit;
+	background-color: #ffffff;
+	opacity: 0.7;
+	color: #2b2b2b;
 }
 
 .container > content {
@@ -172,14 +244,24 @@ nav{
 }
 
 #login {
+	padding-top: 60px;
+	padding-left: auto;
+	padding-right: auto;
 	width: 100%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	overflow-wrap: break-word;
 }
 
 .logincontent {
 	padding: 5px;
+}
+
+#tooltiptext {
+	padding-top: 40px;
+	padding-left: auto;
+	padding-right: auto;
 }
 
 #confirmPurchase {
@@ -196,7 +278,6 @@ nav{
 }
 
 #checkout {
-	
 	display: none;
 	width: 100%;
 	height: 100%;	
@@ -289,48 +370,14 @@ nav{
 	background-image: radial-gradient(#5F5F5F, #2B2B2B);
 }
 
-.tooltip {
-	width: 100%;
-	height: 80%;
-}
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 130px;
-background-image: -webkit-linear-gradient(left, darkturquoise, paleturquoise);
-background-image: -o-linear-gradient(left, darkturquoise, paleturquoise);
-background-image: linear-gradient(to right, darkturquoise, paleturquoise);
-  color: #2B2B2B;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-
-
+/* Dropdown menu styling */
 .dropdwn {
 	cursor: pointer;
-    background-color: inherit;	
-	font-size: 10px;
-	text-transform: uppercase;
-	font-weight: 500;
+	background-image: radial-gradient(#5F5F5F, #2B2B2B);
 	color: #FFFFFF;
-	width: 70px;
-	padding: 16px 8px 12px 14px;
-  	border: none;
-  	border-radius: 6px;
-  	position: relative;
-	background-image: radial-gradient(darkturquoise, #00B3B0);
 }
-
-
+/* Footer copyright styling */
 footer {
     text-align: center;
 	background-color: white;
@@ -343,7 +390,7 @@ footer {
     float: bottom;
 	display: none;
 }
-
+/* Responsive view for screens less than 1100px */
 @media only screen and (max-width: 1100px) {
 	#container{
 	margin-bottom: 125px;

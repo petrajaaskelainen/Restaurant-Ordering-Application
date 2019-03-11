@@ -53,10 +53,12 @@ $(document).ready(function(){
 		$("#confirmPurchase").show();
 		$("#menu").hide();
 		
+		$("#one").css('background', 'yellow');
+		
 		let userDetails =	JSON.parse(sessionStorage.getItem('user'));
 
 		//userDetails.account //This is the user Credit I need some id to change text
-
+});
 	
 	});
 	
