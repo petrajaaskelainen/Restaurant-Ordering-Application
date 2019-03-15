@@ -122,7 +122,7 @@ function changeBalance(userName, newAmount) {
         };
     };
 
-    localStorage.setItem('Database', JSON.stringify(DB));
+    localStorage.setItem('', JSON.stringify(DB));
 
 
 

@@ -3,7 +3,7 @@
 This file contains the index page of the system. 
 
 Version 0.5
-Authors: Petra Jaaskelainen, Hafiz Areeb Asad, .... 
+Authors: Petra Jaaskelainen, Hafiz Areeb Asad, Ridhi Agrawal..
 
 Requires the following files:
 database.js
@@ -30,6 +30,7 @@ index.css
 <script src="js/loader.js"></script>
 <!--- Script for populating menu items list -->
 <script src="js/menuitem.js"></script>
+    <script src="js/filter.js"></script>
 <!--- Script for undo/redo functionality -->
 <script src="js/undoRedo.js"></script>
 <!--- Script for dragndrop of menu items list or cart list-->
@@ -77,14 +78,15 @@ index.css
 			<div id= "menu"> 
 				<div id="filterColumn">
 					<div class="filterCategory" id="nameCategory">
-						<select class="dropdwn" id="nameSelector">
-    						<option value="1" selected>Name</option>
-							<option value="2">A</option>
-    						<option value="3">Z</option>
+						<select class="dropdwn" id="nameSelector" onchange="changeName()">
+    						<option value="Default"selected>Name</option>
+							<option value="ascending">A</option>
+    						<option value="descending">Z</option>
 						</select>
 					</div>
 					<div class="filterCategory">
-						<select class="dropdwn" id="alcoholStrengthSelector">
+						<select class="dropdwn" id="alcoholStrengthSelector"
+                                onchange="changeAlcohol()">
 							<option value="1" selected>Alcohol %</option>
     						<option value="2">Low</option>
 							<option value="3">High</option>
@@ -98,7 +100,8 @@ index.css
 						</select>
 					</div>
 					<div class="filterCategory">
-						<select class="dropdwn" id="priceSelector">
+						<select class="dropdwn" id="priceSelector"
+                                onchange="changePrice()">
     						<option value="1" selected>Price</option>
 							<option value="2">Low</option>
     						<option value="3">High</option>

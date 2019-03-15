@@ -60,7 +60,7 @@ $(document).ready(function(){
 		//userDetails.account //This is the user Credit I need some id to change text
 });
 	
-	});
+//	});
 	
 	$("#confirmbtn").click(function(){
 	
