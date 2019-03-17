@@ -335,6 +335,13 @@ function drawCartView(){
     $("#checkoutCart").html(out);
     $("#checkoutTotal").text("Total: " +  sumCartTotal() + " kr.");
    
+    let userDetails =	JSON.parse(sessionStorage.getItem('user'));
+
+	let total = sumCartTotal();
+	let userNewCredit = userDetails.account - total;
+    $("#cartCreditTotal").text("Total Credit: " +  userNewCredit + " kr.");
+   
+
     addCartItemListeners();
 
 }

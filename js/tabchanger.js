@@ -32,7 +32,8 @@ $(document).ready(function(){
 							$("#progress").show();
 							$("#checkout").show();
 							let userObj = userDet;
-							sessionStorage.setItem('user', JSON.stringify(userObj));  
+							sessionStorage.setItem('user', JSON.stringify(userObj)); 
+							$("#cartCreditTotal").text("Total Credit: " +  userObj.account + " kr."); 
 						}
 						else{
 							 			// if username or password is not correct then display this text
@@ -53,7 +54,7 @@ $(document).ready(function(){
 		$("#confirmPurchase").show();
 		$("#menu").hide();
 		
-		$("#one").css('background', 'yellow');
+		$("#two").css('background', 'yellow');
 		
 		let userDetails =	JSON.parse(sessionStorage.getItem('user'));
 
