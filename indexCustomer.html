@@ -68,11 +68,6 @@ index.css
 		<p>The Flying dutchman was established in 1956. Our aim is to offer quality beer and experiences to our customers.</p>
 	</div>
 
-	<div id="help" class="tabcontent">
-		<h3>Here you can find answers to most common questions.</h3>
-		<p>Here you can find answers to most common questions.</p>
-	</div>
-
 	<div id="order" class="tabcontent">
 	<!--- Progress bar -->
 	<div id="progress"><p id="checkout-process-steps">Steps in check-out process</p><br>
@@ -125,12 +120,14 @@ index.css
 				<!--- Hidden as default, visible in check-out process-->
 				<div id= "confirmPurchase">
 					<p>Put here price and credits, etc.</p>
+					<button class="cartbutton" id="backbtn">Go back</button>
 					<button class="button" id="confirmbtn">Confirm purchase</button>
 				</div>
 				<!--- Hidden as default, visible in check-out process-->
 				<div id= "orderPlaced">
-					<img src="img/check.png" alt="checkmark" width="100" height="100">
+					<h1>&#x2714;</h1>
 					<p>Order placed!</p>
+					<p>You are now logged out.</p>
 					<button class="button" id="backtomenu">Back to menu</button>
 				</div>
 			
@@ -149,8 +146,9 @@ index.css
 			</div>
 			
 			<div id= "checkout">	
-				<button class="button" id= "undoBtn">Undo</button>
-				<button class="button" id= "redoBtn">Redo</button>
+				<button class="cartbutton" id="undoBtn">&#x276E; Remove last item</button>
+				<button class="cartbutton" id="emptyCartBtn">Empty cart</button>
+				<button class="cartbutton" id="redoBtn">Add item again &#x276F;</button>
 				<!--- This div below contains the droppable items list -->			
 				<div class="tooltip">
 					<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -165,6 +163,11 @@ index.css
 		</div>
 		<div class="contentside"></div>
     </section>	
+	</div>
+	
+	<div id="help" class="tabcontent">
+		<h3>Here you can find answers to most common questions.</h3>
+		<p>Here you can find answers to most common questions.</p>
 	</div>
 	
     <footer>&copy; Petra Jaaskelainen, Ridhi Agrawal, Kamil Iqbal and Hafiz Areeb Asad</footer>
