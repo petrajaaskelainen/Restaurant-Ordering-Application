@@ -105,7 +105,7 @@ function drop(ev) {
    
 
     let backgroundColor = $(nodeID).css('background');  // store original background
-    $(nodeID).css('background', 'yellow');              // change element background
+    $(nodeID).css('background', 'SpringGreen');              // change element background
      setTimeout(function() {
         $(nodeID).css('background', backgroundColor);   // change it back after ...
      }, 600);  
@@ -297,7 +297,23 @@ function removeItemFromCart(cartItemID,addInUndo = true){
     return data;
 }
 
+function emptyCartView(){
 
+    removeCartItemListeners();
+
+    let cart = JSON.parse(sessionStorage.getItem(CART));
+    
+    cart = {"items": []};
+    
+    sessionStorage.setItem(CART, JSON.stringify(cart));
+
+
+    $("#checkoutCart").empty();
+
+    $("#checkoutTotal").text("Total: " +  "0" + " kr.");
+   
+
+}
 
 
 
@@ -387,6 +403,13 @@ function addCartItemListeners(){
             minusQuantityOfItemInCart(cartID);
             drawCartView();
         }  
+
+    })
+
+    /*Listens if empty button of cart item is clicked.*/
+    $('#emptyCartBtn').on('click', function(){
+       
+        emptyCartView();
 
     })
 
