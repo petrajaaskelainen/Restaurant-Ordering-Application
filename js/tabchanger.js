@@ -16,6 +16,10 @@ $(document).ready(function(){
 	/* If user clicks on Login Button, then check the username and password (from DB) provided by user.
 	   If username & password are correct then show the Checkout Box (Div) and hide login (Div)*/
 	$('#loginbtn').click(function(){
+		
+		$("#one").css('background', '#2b2b2b');
+		$("#two").css('background', 'darkturquoise');
+		$("#three").css('background', 'darkturquoise');
 
 		var userName = $('#loginUsername').val();   	//  Get username from input field (html)         
 		var userPass = $('#loginPassword').val();		//  Get password from input field (html)
@@ -54,8 +58,8 @@ $(document).ready(function(){
 		$("#confirmPurchase").show();
 		$("#menu").hide();
 		
-		$("#two").css('background', 'yellow');
-		$("#one").css('background', '#2b2b2b');
+		$("#two").css('background', '#2b2b2b');
+		$("#one").css('background', 'darkturquoise');
 
 		let userDetails =	JSON.parse(sessionStorage.getItem('user'));
 
@@ -68,7 +72,7 @@ $(document).ready(function(){
 	
 		$("#orderPlaced").show();	
 		$("#confirmPurchase").hide();
-		$("#two").css('background', '#2b2b2b');
+		$("#two").css('background', 'darkturquoise');
 		$("#three").css('background', '#2b2b2b');
 		
 		if(sessionStorage.getItem('cart-customer') !== null && JSON.parse(sessionStorage.getItem('cart-customer')).items.length >= 1 ){

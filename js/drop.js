@@ -105,7 +105,7 @@ function drop(ev) {
    
 
     let backgroundColor = $(nodeID).css('background');  // store original background
-    $(nodeID).css('background', 'SpringGreen');              // change element background
+    $(nodeID).css('background', 'yellow');              // change element background
      setTimeout(function() {
         $(nodeID).css('background', backgroundColor);   // change it back after ...
      }, 600);  
@@ -297,23 +297,7 @@ function removeItemFromCart(cartItemID,addInUndo = true){
     return data;
 }
 
-function emptyCartView(){
 
-    removeCartItemListeners();
-
-    let cart = JSON.parse(sessionStorage.getItem(CART));
-    
-    cart = {"items": []};
-    
-    sessionStorage.setItem(CART, JSON.stringify(cart));
-
-
-    $("#checkoutCart").empty();
-
-    $("#checkoutTotal").text("Total: " +  "0" + " kr.");
-   
-
-}
 
 
 
@@ -338,10 +322,10 @@ function drawCartView(){
                 + 'data-cart-listing-price="' + cartPrice + '" ' 
                 + 'data-quantity="' + cartQuantity + '" >'
                 + '<span class="name">' + cartName + '</span>'
+                + '<span class="price">' + cartPrice * cartQuantity + '</span>' 
                 + '<span class="cartPlusButtonSpan">' + "<button class='cartItemsPlusButton'>"+ "+"+'</button>' +'</span>'
                 + '<span class="quantity">'+ cartQuantity +'</span>'
                 + '<span class="cartMinusButtonSpan">'+ "<button class='cartItemsMinusButton'>"+ "-"+'</button>' +'</span>'
-                + '<span class="price">' + cartPrice * cartQuantity + '</span>' 
                 + '<span class="cartRemoveSpan">'+ "<button class='cartItemsRemoveButton'>"+ "X"+'</button>' +'</span>'
                 + '</div>';
     
@@ -403,13 +387,6 @@ function addCartItemListeners(){
             minusQuantityOfItemInCart(cartID);
             drawCartView();
         }  
-
-    })
-
-    /*Listens if empty button of cart item is clicked.*/
-    $('#emptyCartBtn').on('click', function(){
-       
-        emptyCartView();
 
     })
 
