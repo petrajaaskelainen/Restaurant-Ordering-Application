@@ -251,10 +251,6 @@ header {
  		background-color: paleturquoise;
 }
 
-.menuItemDrop:hover { 
- 		border: 1px dotted red;
-}
-
 #login {
 	padding-top: 60px;
 	padding-left: auto;

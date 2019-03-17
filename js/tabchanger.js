@@ -54,6 +54,8 @@ $(document).ready(function(){
 		$("#menu").hide();
 		
 		$("#one").css('background', 'yellow');
+		$("#two").css('background', '#2b2b2b');
+		
 		
 		let userDetails =	JSON.parse(sessionStorage.getItem('user'));
 
@@ -66,6 +68,8 @@ $(document).ready(function(){
 	
 		$("#orderPlaced").show();	
 		$("#confirmPurchase").hide();
+		$("#two").css('background', '#2b2b2b');
+		$("#three").css('background', '#2b2b2b');
 		
 		if(sessionStorage.getItem('cart-customer') !== null && JSON.parse(sessionStorage.getItem('cart-customer')).items.length >= 1 ){
 

@@ -165,9 +165,6 @@ header {
 .menuItemList:hover { 
 	background-image: radial-gradient(paleturquoise, darkturquoise);
 }
-.menuItemDrop:hover { 
- 		border: 1px dotted red;
-}
 
 #confirmPurchase {
 	padding-top: 200px;
