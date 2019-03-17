@@ -49,8 +49,10 @@ index.css
         <img src="img/logo.png" alt="logo" width="100" height="100">
     </header>
 	
+	<!--- Menu bar, which is implemented as tab structure -->	
 	<div class="tab">
-  		<button class="tablinks" onclick="openTab(event, 'home')">Help</button>
+		<button class="tablinks" onclick="openTab(event, 'home')">Home</button>
+  		<button class="tablinks" onclick="openTab(event, 'help')">Help</button>
   		<button class="tablinks" onclick="openTab(event, 'order')">Order products</button>
 		<!--- Language selector panel on the top-->	
 		<select class="dropdwn" id="languageOptionSelector">
@@ -61,6 +63,17 @@ index.css
 		<button id="loginnav" onclick="openTab()">Login</button>
 	</div>
 	
+	<div id="home" class="tabcontent">
+		<h3>The flying dutchman</h3>
+		<p>The Flying dutchman was established in 1956. Our aim is to offer quality beer and experiences to our customers.</p>
+	</div>
+
+	<div id="help" class="tabcontent">
+		<h3>Here you can find answers to most common questions.</h3>
+		<p>Here you can find answers to most common questions.</p>
+	</div>
+
+	<div id="order" class="tabcontent">
 	<!--- Progress bar -->
 	<div id="progress"><p id="checkout-process-steps">Steps in check-out process</p><br>
 		<div class="progresspoint"><div class="prg" id="one"><p class ="number">1</p></div><p>Select products</p></div>
@@ -143,6 +156,7 @@ index.css
 					<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)">
   					<span id="tooltiptext">Drag items to cart from the left side menu</span>
 					</div>
+				<div id="creditTotal">Add here total credits</div>
 				<div id="checkoutTotal">Add here total amount</div>
 				<button class="button" id= "checkoutbtn">Checkout</button>
 				</div>
@@ -150,7 +164,8 @@ index.css
 		</div>
 		</div>
 		<div class="contentside"></div>
-    </section>
+    </section>	
+	</div>
 	
     <footer>&copy; Petra Jaaskelainen, Ridhi Agrawal, Kamil Iqbal and Hafiz Areeb Asad</footer>
 </body>

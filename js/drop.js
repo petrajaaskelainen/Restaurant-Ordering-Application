@@ -300,28 +300,6 @@ function removeItemFromCart(cartItemID,addInUndo = true){
 
 
 
-function emptyCartView(){
-
-    removeCartItemListeners();
-
-    let cart = JSON.parse(sessionStorage.getItem(CART));
-    
-    cart = {"items": []};
-    
-    sessionStorage.setItem(CART, JSON.stringify(cart));
-
-    
-    //var out = "";                   
-    //$("#checkoutCart").html(out);
-    $("#checkoutCart").empty();
-
-    $("#checkoutTotal").text("Total: " +  "0" + " kr.");
-   
-
-}
-
-
-
 
 function drawCartView(){
 
@@ -343,12 +321,11 @@ function drawCartView(){
         out += '<div id="' + cartID + '" class="menuItemList cartItemsList menuItemDrop" ' 
                 + 'data-cart-listing-price="' + cartPrice + '" ' 
                 + 'data-quantity="' + cartQuantity + '" >'
-                + '<span class="cartName">' + cartName + '</span>'
-               
+                + '<span class="name">' + cartName + '</span>'
+                + '<span class="price">' + cartPrice * cartQuantity + '</span>' 
                 + '<span class="cartPlusButtonSpan">' + "<button class='cartItemsPlusButton'>"+ "+"+'</button>' +'</span>'
-                + '<span class="cartQuantity">'+ cartQuantity +'</span>'
+                + '<span class="quantity">'+ cartQuantity +'</span>'
                 + '<span class="cartMinusButtonSpan">'+ "<button class='cartItemsMinusButton'>"+ "-"+'</button>' +'</span>'
-                + '<span class="cartPrice">' + cartPrice * cartQuantity + '</span>' 
                 + '<span class="cartRemoveSpan">'+ "<button class='cartItemsRemoveButton'>"+ "X"+'</button>' +'</span>'
                 + '</div>';
     
@@ -405,15 +382,6 @@ function addCartItemListeners(){
         }  
 
     })
-
-
-     /*Listens if empty button of cart item is clicked.*/
-     $('#emptyCartBtn').on('click', function(){
-       
-        emptyCartView();
-
-    })
-
 
 
 

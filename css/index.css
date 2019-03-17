@@ -1,3 +1,6 @@
+/* File: css.html
+Author: Petra Jaaskelainen*/
+
 /* Styling the basics for the body for the document: font, background color, text color and size etc.. */
 body{
 	width:100%;
@@ -47,7 +50,13 @@ header {
 }
 /* Hiding the home tab */
 #home {
-	display: none;
+	background-image: url(../img/bg1.jpeg);
+	position: fixed;
+	top: 20;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	color: white;
 }
 /* Setting so that the ordering tab will be visible as default */
 #order {
@@ -105,9 +114,17 @@ header {
 	margin-top: 35%;
 }
 
+
 #home {
-	display:none;
+	background-image: url(../img/bg1.jpeg);
+	position: fixed;
+	top: 20;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	color: white;
 }
+
 #order {
 	display:block;
 }
@@ -374,8 +391,6 @@ header {
 /* Dropdown menu styling */
 .dropdwn {
 	cursor: pointer;
-	background-image: radial-gradient(#5F5F5F, #2B2B2B);
-	color: #FFFFFF;
 }
 /* Footer copyright styling */
 footer {
@@ -392,25 +407,9 @@ footer {
 }
 /* Responsive view for screens less than 1100px */
 @media only screen and (max-width: 1100px) {
-	#container{
-	margin-bottom: 125px;
-	display: flex;
-  	flex-direction: column;
-	flex-wrap: nowrap;
-}
-.content {
-	width: 100%;
-	margin: 0px;
-	margin-top: 55px;
-}
-
-.contentside {
+	.contentside {
 	display: none;
 }
-
-
-.clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
+	.content {
+	width: 50%;
 }}

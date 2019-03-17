@@ -17,14 +17,12 @@ $(document).ready(function(){
 	$("#checkoutbtn").click(function(){
 		$("#confirmPurchase").show();
 		$("#menu").hide();	 
-	
   });
   
 	//When user clicks confirmbtn, the confirm purchase is hidden and the orderplaced is shown.		
 	$("#confirmbtn").click(function(){
 		$("#orderPlaced").show();	
 		$("#confirmPurchase").hide();
-	
   });
   	
 	//When user clicks backtomenu, the menu and ordering tab are shown and the orderplaced is hidden.	
@@ -40,14 +38,12 @@ $(document).ready(function(){
 
   $("#historytab").click(function(){
     
-    
     let trans =  allTransactions();     // Get from Database (Model)
     drawPurchaseHistory(trans);         // Make display for Screen (View)
-
    
     $(":button[id^=show_]").click(function(event) {
 
-      $("#extra_" + $(this).attr('id').substr(5)).slideToggle("slow");
+      $("#extra_" + $(this).attr('id').substr(5)).slideToggle("medium");
 
       event.preventDefault();
     })
@@ -104,8 +100,6 @@ function drawPurchaseHistory(trans){
   $("#history").html(out);
 
 }
-
-
 
 
 
