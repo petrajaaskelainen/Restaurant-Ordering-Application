@@ -55,7 +55,8 @@ $(document).ready(function(){
 		$("#menu").hide();
 		
 		$("#two").css('background', 'yellow');
-		
+		$("#one").css('background', '#2b2b2b');
+
 		let userDetails =	JSON.parse(sessionStorage.getItem('user'));
 
 		//userDetails.account //This is the user Credit I need some id to change text
