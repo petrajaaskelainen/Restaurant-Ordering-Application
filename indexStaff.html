@@ -41,36 +41,6 @@ index.css
 	<script src="js/md5.min.js"></script>
 	<!--- Script for checkout process -->
 	<script src="js/tabchangerStaff.js"></script>
-
-
-	<style>
-		#historyT {
-			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-			border-collapse: collapse;
-			width: 100%;
-		}
-		
-		#historyT td, #historyT th {
-			border: 1px solid #ddd;
-			padding: 8px;
-		}
-		
-		#historyT tr:nth-child(even){background-color: #f2f2f2;}
-		
-		#historyT tr:hover {background-color: #ddd;}
-		
-		#historyT th {
-			padding-top: 12px;
-			padding-bottom: 12px;
-			text-align: left;
-			background-image: radial-gradient(darkturquoise, #00B3B0);
-			color: white;
-		}
-		</style>
-
-
-
-
 </head>
 
 <body>
@@ -85,10 +55,10 @@ index.css
 	</header>
 
 	<div class="tab">
-		<button class="tablinks" onclick="openTab(event, 'home')">Home</button>
-		<button class="tablinks" onclick="openTab(event, 'order')">Order products</button>
-		<button id="historytab" class="tablinks" onclick="openTab(event, 'history')">Purchase history</button>
-		<button id="historytab" class="tablinks" onclick="openTab(event, 'inventory')">Inventory</button>
+		<button class="tablinks" key="home" onclick="openTab(event, 'home')">Home</button>
+		<button class="tablinks" key="order" onclick="openTab(event, 'order')">Order products</button>
+		<button id="historytab" key="purchase" class="tablinks" onclick="openTab(event, 'history')">Purchase history</button>
+		<button id="inventorytab" key="inventory" class="tablinks" onclick="openTab(event, 'inventory')"><span>Inventory</span></button>
 
 		<select class="dropdwn" id="languageOptionSelector">
 			<option value="en" selected>English</option>
@@ -98,25 +68,25 @@ index.css
 
 	<!-- Tab content -->
 	<div id="home" class="tabcontent">
-		<h3>The flying dutchman</h3>
-		<p>The Flying dutchman was established in 1956. Our aim is to offer quality beer and experiences to our customers.</p>
+		<h3 id="companyName" key="companyname">The flying dutchman</h3>
+		<p key="companyparagraph">The Flying dutchman was established in 1956. Our aim is to offer quality beer and experiences to our customers.</p>
 	</div>
 
 	<div id="order" class="tabcontent">
 		<!--- Progress bar -->
 		<div id="progress">
-			<p id="checkout-process-steps">Steps in check-out process</p><br>
+			<p key="checkoutsteps">Steps in check-out process</p><br>
 			<div class="progresspoint">
 				<div class="prg" id="1">
 					<p class="number">1</p>
 				</div>
-				<p>Select products</p>
+				<p key="selectproducts">Select products</p>
 			</div>
 			<div class="progresspoint">
 				<div class="prg" id="2">
 					<p class="number">2</p>
 				</div>
-				<p>Confirm payment</p>
+				<p key="confirmpayment">Confirm payment</p>
 			</div>
 			<div class="progresspoint">
 				<div class="prg" id="3">

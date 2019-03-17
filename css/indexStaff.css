@@ -332,6 +332,33 @@ header {
 	float: right;
 }
 
+
+		#historyT {
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+		
+		#historyT td, #historyT th {
+			border: 1px solid #ddd;
+			padding: 8px;
+		}
+		
+		#historyT tr:nth-child(even){background-color: #f2f2f2;}
+		
+		#historyT tr:hover {background-color: #ddd;}
+		
+		#historyT th {
+			padding-top: 12px;
+			padding-bottom: 12px;
+			text-align: left;
+			background-image: radial-gradient(darkturquoise, #00B3B0);
+			color: white;
+		}
+
+
+
+
 .dropdwn {
 	cursor: pointer;
 }

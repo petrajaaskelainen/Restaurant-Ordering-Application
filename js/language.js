@@ -28,7 +28,14 @@ $(document).ready(function(){
     /* This function updates all the text in the webpage as per the desired language */
     function updateLanguage(){
         $('#checkout-process-steps').text(language.checkoutProcessSteps);
-        $('#div2').text(language.order);
+        $('#companyName').text(language.companyName);
+        $('#inventorytab').text(language.inventorytab);		
+		
+		
+		
+		
+		
+		
     }
     
     /* This function gets content from the slected language file, if no language is selected then by

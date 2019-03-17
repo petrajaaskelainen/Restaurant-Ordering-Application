@@ -5,7 +5,22 @@
     "welcome": "Welcome",
     "order": "Order",
     "checkoutProcessSteps" : "Check Out Process Steps",
-    "select-products" : "پسند فرمایئے",
-    "confirm-payement": "رقم کی تصدیق"
-
+    "select-products" : "",
+	
+	
+    "companyName": "The Flying Dutchman",
+	"inventorytab": "Inventory",
+	
+	
+	
+	"home": "Home",
+	order
+	history
+	inventory
+	companyname
+	companyparagraph
+	checkoutsteps
+	selectproducts
+	confirmpayment
+	
 }
