@@ -36,7 +36,7 @@ $(document).ready(function(){
 		//$("#orderPlaced").hide();	
   });
 
-  $("#historytab").click(function(){
+  $("#historyTab").click(function(){
     
     let trans =  allTransactions();     // Get from Database (Model)
     drawPurchaseHistory(trans);         // Make display for Screen (View)

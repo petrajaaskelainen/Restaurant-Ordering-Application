@@ -55,10 +55,10 @@ index.css
 	</header>
 
 	<div class="tab">
-		<button class="tablinks lang" key="home" onclick="openTab(event, 'home')">Home</button>
-		<button class="tablinks lang" key="order" onclick="openTab(event, 'order')">Order products</button>
-		<button id="historytab" key="purchase" class="tablinks lang" onclick="openTab(event, 'history')">Purchase history</button>
-		<button id="inventorytab" key="inventory" class="tablinks lang" onclick="openTab(event, 'inventory')">Inventory</button>
+		<button class="tablinks lang" id="homeTab" onclick="openTab(event, 'home')"></button>
+		<button class="tablinks lang" id="orderTab" onclick="openTab(event, 'order')"></button>
+		<button id="historyTab" key="purchase" class="tablinks lang" onclick="openTab(event, 'history')">Purchase history</button>
+		<button id="inventoryTab" key="inventory" class="tablinks lang" onclick="openTab(event, 'inventory')">Inventory</button>
 
 		<select class="dropdwn" id="languageOptionSelector">
 			<option value="en" selected>English</option>
@@ -68,31 +68,31 @@ index.css
 
 	<!-- Tab content -->
 	<div id="home" class="tabcontent">
-		<h3 id="companyName" key="companyname">The flying dutchman</h3>
-		<p key="companyparagraph">The Flying dutchman was established in 1956. Our aim is to offer quality beer and experiences to our customers.</p>
+		<h3 id="companyName" ></h3>
+		<p  id="companyParagraph"></p>
 	</div>
 
 	<div id="order" class="tabcontent">
 		<!--- Progress bar -->
 		<div id="progress">
-			<p key="checkoutsteps">Steps in check-out process</p><br>
+			<p id="checkOutStepsHeading"></p><br>
 			<div class="progresspoint">
 				<div class="prg" id="1">
 					<p class="number">1</p>
 				</div>
-				<p key="selectproducts">Select products</p>
+				<p id="checkOutStepsOneText"></p>
 			</div>
 			<div class="progresspoint">
 				<div class="prg" id="2">
 					<p class="number">2</p>
 				</div>
-				<p key="confirmpayment">Confirm payment</p>
+				<p id="checkOutStepsTwoText"></p>
 			</div>
 			<div class="progresspoint">
 				<div class="prg" id="3">
 					<p class="number">3</p>
 				</div>
-				<p key="orderplaced">Order placed</p>
+				<p id="checkOutStepsThreeText"></p>
 			</div>
 		</div>
 
@@ -107,11 +107,11 @@ index.css
 				<div id= "menu"> 
 	
 					<div id="filterColumn">
-						<button class="filterCategory" id="nameCategory" onclick="sortBy('name')">Name &#8679;</button>
-						<button class="filterCategory" id="alcoholCategory" onclick="sortBy('name')">Alcohol % &#8681;</button>
-						<button class="filterCategory" id="originCategory" onclick="sortBy('name')">Origin</button>
-						<button class="filterCategory" id="inStockCategory" onclick="sortBy( 'name')">In stock</button>
-						<button class="filterCategory" id="priceCategory" onclick="sortBy( 'name')">Price</button>
+						<button class="filterCategory" id="nameCategory" onclick="sortBy('name')"></button>
+						<button class="filterCategory" id="alcoholCategory" onclick="sortBy('name')"></button>
+						<button class="filterCategory" id="originCategory" onclick="sortBy('name')"></button>
+						<button class="filterCategory" id="inStockCategory" onclick="sortBy( 'name')"></button>
+						<button class="filterCategory" id="priceCategory" onclick="sortBy( 'name')"></button>
 					</div>
 					<div id="menulist">
 						<!---BRING DATABASE ITEMS HERE-->
@@ -141,13 +141,13 @@ index.css
 						<!--- This div below contains the droppable items list -->
 						<div class="tooltip">
 							<div id="undoredo">
-								<button class="cartbutton" id="undoBtn">&#x276E; Remove last item</button>
-								<button class="cartbutton" id="emptyCartBtn">Empty cart</button>
+								<button class="cartbutton" id="undoBtn"></button>
+								<button class="cartbutton" id="emptyCartBtn"></button>
 								<button class="cartbutton" id="redoBtn">Add item again &#x276F;</button>
 								<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)">
-									<span class="tooltiptext">Drag items to cart from the left side menu</span>
+									<span class="tooltiptext" id="dragItemsText">Drag items to cart from the left side menu</span>
 								</div>
-								<div id="checkoutTotal">Add here total amount</div>
+								<div id="checkoutTotal"></div>
 								<button class="button" id="checkoutbtn">Checkout</button>
 							</div>
 						</div>
@@ -168,8 +168,6 @@ index.css
 		<p>Add here the inventory.</p>
 	</div>
 
-
-	<footer>&copy; Petra Jaaskelainen, Ridhi Agrawal, Kamil Iqbal and Hafiz Areeb Asad</footer>
 </body>
 
 </html>

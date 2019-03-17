@@ -28,9 +28,42 @@ $(document).ready(function(){
     /* This function updates all the text in the webpage as per the desired language */
     function updateLanguage(){
         $('#checkout-process-steps').text(language.checkoutProcessSteps);
+       //----------------Tab Buttons-----------------//
+        $('#homeTab').html(language.homeTab);
+        $('#orderTab').html(language.orderTab);
+        $('#historyTab').html(language.historyTab);
+        $('#inventoryTab').html(language.inventoryTab);
+
         $('#companyName').text(language.companyName);
-        $('#inventorytab').text(language.inventorytab);		
-		
+        $('#companyParagraph').text(language.companyParagraph);	
+        
+        $('#checkOutStepsHeading').text(language.checkOutStepsHeading);
+        $('#checkOutStepsOneText').text(language.checkOutStepsOneText);	
+        $('#checkOutStepsTwoText').text(language.checkOutStepsTwoText);	
+        $('#checkOutStepsThreeText').text(language.checkOutStepsThreeText);	
+
+        $('#nameCategory').html(language.nameCategory);
+        $('#alcoholCategory').html(language.alcoholCategory);
+        $('#originCategory').html(language.originCategory);
+        $('#inStockCategory').html(language.inStockCategory);
+        $('#priceCategory').html(language.priceCategory);
+
+
+        $('#backbtn').html(language.backbtn);
+        $('#confirmbtn').html(language.confirmbtn);
+        $('#backtomenu').html(language.backtomenu);
+
+        $('#undoBtn').html(language.undoBtn);
+        $('#emptyCartBtn').html(language.emptyCartBtn);
+        $('#redoBtn').html(language.redoBtn);
+        $('#checkoutbtn').html(language.checkoutbtn);
+
+        $('#dragItemsText').html(language.dragItemsText);
+
+        
+
+
+
 		
 		
 		

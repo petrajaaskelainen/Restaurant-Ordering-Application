@@ -1,15 +1,32 @@
-{ 
+{ 	
     "english": "English",
     "urdu": "اردو",
 	
-	"home": "Home",
-	"order": "Order",
-	"history"; "History",
-	"inventory"; "Inventory",
-	"companyname"; "The Flying Dutchman",
-	"companyparagraph"; "x",
-	"checkoutsteps"; "Checkout steps",
-	"selectproducts"; "Select products",
-	"confirmpayment"; "Confirm payment",
-	"orderplaced"; "Order placed",
+	"homeTab": "اردو",
+	"orderTab": "اردو",
+	"historyTab": "اردو",
+	"inventoryTab": "اردو",
+	"companyName": "The اردو Dutchman",
+	"companyParagraph": "The Flying dutchman was established in 1956. Our aim is to offer quality beer and experiences to our customers.",
+	
+	"checkOutStepsHeading": "Steps in اردو",
+	"checkOutStepsOneText": "Select اردو",
+	"checkOutStepsTwoText": "Confirm اردو",
+	"checkOutStepsThreeText": "Order اردو",
+
+	"nameCategory": "اردو &#8679;",
+	"alcoholCategory": "اردو %  &#8681;",
+	"originCategory": "اردو",
+	"inStockCategory": "In stock",
+	"priceCategory": "اردو",
+	
+	"backbtn": "Go اردو",
+	"confirmbtn": "Confirm purchase",
+	"backtomenu": "اردو to menu",
+	"undoBtn": "&#x276E; Remove last اردو",
+	"emptyCartBtn": "Empty cart",
+	"redoBtn": "Add اردو again &#x276F;",
+	"checkoutbtn": "اردو",
+	"dragItemsText": "Drag اردو to cart from the اردو side menu"
+
 }
