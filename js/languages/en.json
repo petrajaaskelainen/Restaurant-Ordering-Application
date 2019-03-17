@@ -1,0 +1,14 @@
+{ 
+    "english": "English",
+    "urdu": "اردو",
+
+    "welcome": "Welcome",
+    "order": "Order",
+    "checkoutProcessSteps" : "Check Out Process Steps",
+    "select-products" : "",
+	
+	
+    "companyName": "The Flying Dutchman",
+	"inventorytab": "Inventory",
+	"home": "Home",
+}

@@ -1,0 +1,419 @@
+/* File: css.html
+Author: Petra Jaaskelainen*/
+
+/* Styling the basics for the body for the document: font, background color, text color and size etc.. */
+body{
+	width:100%;
+	color: #2B2B2B;
+	font-size: 13px;
+	font-family: "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	text-align: center;
+	margin: 0;
+    height: auto;
+}
+/* Styling the header where the logo is located */
+header {
+	width: 100%;
+  	background-color: #FFFFFF;
+	height: 150px;
+	padding-top: 15px;
+}
+/* Styling the tabs in the navigation panel */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+/* Styling the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+/* Changing the background color of the buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+/* Changing the background of the active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+/* Styling the tab content */
+.tabcontent {
+	display: none;
+	padding: 20px 0px 20px 0px;
+	height: 80%;
+}
+/* Hiding the home tab */
+#home {
+	background-image: url(../img/bg1.jpeg);
+	position: fixed;
+	top: 20;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	color: white;
+}
+/* Setting so that the ordering tab will be visible as default */
+#order {
+	display: block;
+}
+/* Styling the language selector to float on the right side and adjusting it's placement */
+#languageOptionSelector{
+	float: right;
+	margin: 12px;
+	padding-right: 45px;
+	padding-top: 25px;
+	text-align: right;
+}
+/* Styling the login and logout buttons to float on the right side */
+#loginnav, #logout {
+	float: right;
+}
+/* Hiding the logout button from the default view, so only login will show */
+#logout {
+	display: none;
+}
+/* Styling the progress bar */
+#progress {
+	display: none;
+	height: 150px;
+	padding-top: 20px;
+	float: center;
+	font-weight: 400;
+	font-size: 11px;
+	letter-spacing: 0.5px;
+	background-image: radial-gradient(paleturquoise, #D8D8D8);
+	align-content: center;
+}
+/* Styling the progress points as a class */
+.progresspoint {
+	height: 60px;
+	width: 95px;
+	display: inline-block;
+	align-items: center;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+/* Styling variating colors for each progress point */
+#one {
+	background-image: radial-gradient(#2b2b2b, #2b2b2b);	
+}
+#two {
+	background-image: radial-gradient(darkturquoise, #00B3B0);
+}
+#three {
+	background-image: radial-gradient(darkturquoise, #00B3B0);
+}
+
+
+
+.choice a {
+	font-size: 25px;
+	text-decoration: none;
+	color: #2b2b2b;
+	font-weight: 200;
+}
+
+.choice {
+	margin-top: 35%;
+}
+
+#home {
+	background-image: url(../img/bg1.jpeg);
+	position: fixed;
+	top: 20;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	color: white;
+}
+
+#order {
+	display:block;
+}
+
+.number {
+	padding-top: 6px;
+	padding-left: 1px;
+	color: #FFFFFF;
+	font-weight: 500;
+}
+
+.prg {
+	background-image: radial-gradient(darkturquoise, #00B3B0);
+	height: 40px;
+	width: 40px;
+	margin-left: 26px;
+	border-radius: 25px;
+	font-size: 20px;
+}
+
+#container{
+	width: 100%;
+	margin-bottom: 100px;
+	display: flex;
+  	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+#filter{
+	height: auto;
+	font-size: 9px;
+	text-transform: uppercase;
+	font-weight: 500;
+	display: flex;
+  	flex-direction: column;
+	background-color: #D8D8D8;
+}
+
+#filterColumn {
+	display: flex;
+  	flex-direction: row;
+	width: 100%;
+	height: auto;
+}
+
+.filterCategory {
+	margin: 5px;
+	padding: 5px 10px 5px 10px;
+	width: 90px;
+	height: 25px;
+	text-align: left;
+	border-radius: 25px;
+	cursor: pointer;
+	outline: inherit;
+	background-color: #ffffff;
+	opacity: 0.7;
+	color: #2b2b2b;
+}
+
+.container > content {
+	width: 600px;
+}
+
+.content {
+	border-bottom: 2px dotted #D8D8D8;
+	border-top: 2px dotted #D8D8D8;
+	width: 40%;
+	height: auto;
+	margin: 10px;
+	margin-top: 80px;
+	border-radius: 25px;
+    display: flex;
+  	flex-direction: row;
+	background-image: radial-gradient(paleturquoise, #D8D8D8);
+}
+
+.contentside {
+	width: 10%;
+}
+
+#menu {
+	border-radius: 25px;
+	display: flex;
+  	flex-direction: column;
+	width: 100%;
+	height: 600px;
+	overflow-y: scroll;
+	overflow-x: hidden;		
+}
+
+.price {
+	font-weight: 500;
+	width: 15%;
+}
+.name {
+	font-weight: 300;
+	width: 40%;
+}
+.alcoholStrength {
+	font-weight: 300;
+	width: 15%;
+}
+.menuItemList {
+	background-color: #FFFFFF;
+	margin: 5px;
+	margin-right: 8px;
+	margin-left: 8px;
+	padding: 10px 12px 10px 12px;
+	border-radius: 18px;
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	text-align: left;
+}
+.menuItemList:hover { 
+ 		background-color: paleturquoise;
+}
+
+#login {
+	padding-top: 60px;
+	padding-left: auto;
+	padding-right: auto;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow-wrap: break-word;
+}
+
+.logincontent {
+	padding: 5px;
+}
+
+#tooltiptext {
+	padding-top: 40px;
+	padding-left: auto;
+	padding-right: auto;
+}
+
+#confirmPurchase {
+	padding-top: 200px;
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+#orderPlaced {
+	padding-top: 200px;
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+
+#checkout {
+	display: none;
+	width: 100%;
+	height: 100%;	
+}
+
+#cart {
+	border-radius: 25px;
+	display: flex;
+  	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
+#checkoutCart {
+	overflow-y: scroll;
+	width: inherit;
+	height: 550px;
+}
+#checkoutTotal {
+	font-size: 12px;
+	text-align: right;
+	font-weight: 500;
+	border-top: 1px dotted #2B2B2B;
+	border-bottom: 1px dotted #2B2B2B;
+	width: 90%;
+	height: auto;
+
+}
+
+.button {
+	cursor: pointer;
+	background-image: radial-gradient(#5F5F5F, #2B2B2B);
+	font-size: 12px;
+  	color: #FFFFFF;
+	width: auto;
+	text-align: center;
+	font-weight: 500;
+	padding: 7px 10px 7px 10px;
+	margin: 10px 10px 10px 10px;
+  	border-radius: 25px;
+  	position: relative;
+}
+.button:hover { 
+	background-image: linear-gradient(-90deg, paleturquoise);
+	color: #FFFFFF;
+}
+
+.cartItemsPlusButton{
+	cursor: pointer;
+	font-size: 10px;
+	text-transform: uppercase;
+	font-weight: 500;
+	color: #FFFFFF;
+	width: auto;
+	padding: 3px 8px 3px 8px;
+	margin: 0px 10px 0px 10px;	
+  	border: none;
+  	border-radius: 25px;
+  	position: relative;
+	background-image: radial-gradient(#5F5F5F, #2B2B2B);
+}
+.cartItemsMinusButton {
+	text: hide;
+	cursor: pointer;
+	font-size: 10px;
+	text-transform: uppercase;
+	font-weight: 500;
+	color: #FFFFFF;
+	width: auto;
+	padding: 3px 8px 3px 8px;
+	margin: 0px 10px 0px 10px;	
+  	border: none;
+  	border-radius: 25px;
+  	position: relative;
+	background-image: radial-gradient(#5F5F5F, #2B2B2B);
+}
+.cartItemsRemoveButton {
+	cursor: pointer;
+	font-size: 10px;
+	text-transform: uppercase;
+	font-weight: 500;
+	color: #FFFFFF;
+	width: auto;
+	padding: 3px 8px 3px 8px;
+	margin: 0px 10px 0px 10px;	
+  	border: none;
+  	border-radius: 25px;
+  	position: relative;
+	background-image: radial-gradient(#5F5F5F, #2B2B2B);
+}
+
+.cartbutton {
+	cursor: pointer;
+	background-color: #ffffff;
+	opacity: 0.7;
+	font-size: 12px;
+	color: #2b2b2b;
+	width: auto;
+	text-align: center;
+	font-weight: 500;
+	padding: 7px 10px 7px 10px;
+	margin: 10px 10px 10px 10px;
+  	border: none;
+  	border-radius: 25px;
+  	position: relative;
+}
+
+/* Dropdown menu styling */
+.dropdwn {
+	cursor: pointer;
+}
+/* Footer copyright styling */
+footer {
+    text-align: center;
+	background-color: white;
+    font-size: 8px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 15px;
+    padding-top: 15px;	
+    float: bottom;
+	display: none;
+}
+/* Responsive view for screens less than 1100px */
+@media only screen and (max-width: 1100px) {
+	.contentside {
+	display: none;
+}
+	.content {
+	width: 50%;
+}}

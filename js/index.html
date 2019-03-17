@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!---File: index.html
+This file contains the temporary index page of the system, which can be used to navigate either to the customer or to the staff side of the system.
+It was designed, so that the project would be easy to present and develop. 
+
+Authors: Petra Jaaskelainen 
+
+Requires the following files:
+index.css
+-->
+<!--- Defining HTML document language -->
+<html lang="en">
+<!--- Head starts here -->
+<head>
+<!--- Defining unicode encoding -->
+<meta charset="UTF-8">
+<!--- Page title, shows in the browser tab -->
+<title>The Flying Dutchman</title>
+<!--- Adding jQuery -->	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--- Connecting stylesheet -->
+<link href="css/index.css" rel="stylesheet">
+<!--- Adding Browser Favicon -->	
+<link rel="favicon" type="image/png" href="img/fav.png"/>
+<!--- Script for multilanguage -->
+<script src="js/language.js"></script>
+</head>
+	
+<body>
+	<!--- Language selector panel on the top: includes navigation bar, dropdown selector and the language options inside selector -->	
+	<nav>
+		<select class="dropdwn" id="languageOptionSelector">
+    		<option value="en" selected>English</option>
+    		<option value="ur">اردو</option>
+		</select>
+    </nav>
+	
+	<!--- Header with the logo -->	
+    <header>
+        <img src="img/logo.png" alt="logo" width="100" height="100">
+    </header>
+	
+	<!--- The main content of the page -->	
+	<section id="container">
+		
+		<!--- Side elements created to keep the content correctly placed with CSS flex -->	
+		<div class="contentside"></div>
+		
+		<!--- Left side section of the page, link to staff side -->	
+        <div class="content">
+			<div id= "menu" class ="choice"> 
+				<a href="indexStaff.html">Staff</a>
+					</div>
+				</div>
+
+		<!--- Right side section of the page, link to customer side -->
+		<div class="content">
+		<div id= "cart" class ="choice"> 
+				<a href="indexCustomer.html">Customers</a>
+			</div>
+		</div>
+		
+		<!--- Side elements created to keep the content correctly placed with CSS flex -->	
+		<div class="contentside"></div>
+    </section>
+	
+</body>
+</html>
+
+<!--- END of file index.html -->

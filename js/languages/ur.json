@@ -1,0 +1,24 @@
+{ 
+    "english": "English",
+    "urdu": "اردو",
+    
+    "welcome": "خوش آمدید",
+    "order":"آرڈر",
+    "checkoutProcessSteps" : "تکمیل کے مراحل",
+    "select-products" : "پسند فرمایئے",
+    "confirm-payement": "رقم کی تصدیق",
+    "customer": "گاہک",
+    "login":"لاگ ان",
+    "logout":"لاگ آؤٹ",
+    "checkout":"چیک آؤٹ",
+    "redo":"دوہرائیے",
+    "staff":"عملہ",
+    "home":"ہوم پیج",
+    "order-products":"",
+    "purchase-history": "کھاتے کی تفصیلات",
+    "undo": "واپس دوہرایئے",
+    "companyName": "Fill in",
+	"inventorytab": "Fill in",
+	"home": "Fill in",
+	
+}
