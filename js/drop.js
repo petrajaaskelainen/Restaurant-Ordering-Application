@@ -338,10 +338,10 @@ function drawCartView(){
                 + 'data-cart-listing-price="' + cartPrice + '" ' 
                 + 'data-quantity="' + cartQuantity + '" >'
                 + '<span class="name">' + cartName + '</span>'
-                + '<span class="price">' + cartPrice * cartQuantity + '</span>' 
                 + '<span class="cartPlusButtonSpan">' + "<button class='cartItemsPlusButton'>"+ "+"+'</button>' +'</span>'
                 + '<span class="quantity">'+ cartQuantity +'</span>'
                 + '<span class="cartMinusButtonSpan">'+ "<button class='cartItemsMinusButton'>"+ "-"+'</button>' +'</span>'
+                + '<span class="price">' + cartPrice * cartQuantity + '</span>' 
                 + '<span class="cartRemoveSpan">'+ "<button class='cartItemsRemoveButton'>"+ "X"+'</button>' +'</span>'
                 + '</div>';
     
