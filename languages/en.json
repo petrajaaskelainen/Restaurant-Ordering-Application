@@ -1,26 +1,16 @@
 { 
     "english": "English",
     "urdu": "اردو",
-
-    "welcome": "Welcome",
-    "order": "Order",
-    "checkoutProcessSteps" : "Check Out Process Steps",
-    "select-products" : "",
-	
-	
-    "companyName": "The Flying Dutchman",
-	"inventorytab": "Inventory",
-	
-	
 	
 	"home": "Home",
-	order
-	history
-	inventory
-	companyname
-	companyparagraph
-	checkoutsteps
-	selectproducts
-	confirmpayment
-	
+	"order": "Order",
+	"history"; "History",
+	"inventory"; "Inventory",
+	"companyname"; "The Flying Dutchman",
+	"companyparagraph"; "x",
+	"checkoutsteps"; "Checkout steps",
+	"selectproducts"; "Select products",
+	"confirmpayment"; "Confirm payment",
+	"orderplaced"; "Order placed",
+
 }
