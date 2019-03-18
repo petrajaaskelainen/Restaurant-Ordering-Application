@@ -309,6 +309,7 @@ function emptyCartView(){
 
 
     $("#checkoutCart").empty();
+    $("#checkoutCart").append('<span class="tooltiptext" id="checkoutWarningText" hidden><br>Cart is empty</span>');
 
     $("#checkoutTotal").text("Total: " +  "0" + " kr.");
    
@@ -349,14 +350,18 @@ function drawCartView(){
 
 
     $("#checkoutCart").html(out);
-    $("#checkoutTotal").text("Total: " +  sumCartTotal() + " kr.");
-   
+    $("#checkoutCart").append('<span class="tooltiptext" id="checkoutWarningText" hidden><br>Cart is empty</span>');
+    
+    let total = sumCartTotal();
     let userDetails =	JSON.parse(sessionStorage.getItem('user'));
+    let userNewCredit = userDetails.account - total;
 
-	let total = sumCartTotal();
-	let userNewCredit = userDetails.account - total;
-    $("#cartCreditTotal").text("Total Credit: " +  userNewCredit + " kr.");
-   
+
+   	$("#checkoutCartPriceValue").text( total + " kr."); //toLocaleString('ar-EG') 
+    $("#checkoutCartCreditValue").text(userNewCredit + " kr.");   
+
+    $("#confirmPurchasePriceValue").text( total + " kr."); //toLocaleString('ar-EG') 
+    $("#confirmPurchaseCreditValue").text(userNewCredit + " kr.");  
 
     addCartItemListeners();
 

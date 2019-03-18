@@ -51,19 +51,21 @@ index.css
 	
 	<!--- Menu bar, which is implemented as tab structure -->	
 	<div class="tab">
-		<button class="tablinks" onclick="openTab(event, 'home')">Home</button>
-  		<button class="tablinks" onclick="openTab(event, 'help')">Help</button>
-  		<button class="tablinks" onclick="openTab(event, 'order')">Menu</button>
+		<button class="tablinks" id="homeTab"  onclick="openTab(event, 'home')">Home</button>
+		<button class="tablinks" id="menuTab" onclick="openTab(event, 'order')">Menu & VIP Order</button>
+  		<button class="tablinks" id="helpTab" onclick="openTab(event, 'help')">Help</button>
+  		
 		<!--- Language selector panel on the top-->	
 		<select class="dropdwn" id="languageOptionSelector">
     		<option value="en" selected>English</option>
     		<option value="ur">اردو</option>
 		</select>
+		<button  class="tablinks" id= "logoutbtn" hidden>Logout</button>
 	</div>
 	
 	<div id="home" class="tabcontent">
-		<h3>The flying dutchman</h3>
-		<p>The Flying dutchman was established in 1956. Our aim is to offer quality beer and experiences to our customers.</p>
+		<h3 id="companyName">The flying dutchman</h3>
+		<p  id="companyParagraph">The Flying dutchman was established in 1956. Our aim is to offer quality beer and experiences to our customers.</p>
 	</div>
 
 	<div id="order" class="tabcontent">
@@ -117,15 +119,19 @@ index.css
 			</div>
 				<!--- Hidden as default, visible in check-out process-->
 				<div id= "confirmPurchase">
-					<p>Put here price and credits, etc.</p>
+					<div>
+						<span id="confirmPurchaseCreditText">Total Credit: </span><span id="confirmPurchaseCreditValue"> 100 kr </span> <br>
+						<span id="confirmPurchasePriceText">Total Price: </span><span id="confirmPurchasePriceValue">109800 Kr </span>
+					</div>
+
 					<button class="cartbutton" id="backbtn">Go back</button>
 					<button class="button" id="confirmbtn">Confirm purchase</button>
 				</div>
 				<!--- Hidden as default, visible in check-out process-->
 				<div id= "orderPlaced">
 					<h1>&#x2714;</h1>
-					<p>Order placed!</p>
-					<p>You are now logged out.</p>
+					<p id="orderplacedText">Order placed!</p>
+					<p id="logoutText">You are now logged out.</p>
 					<button class="button" id="backtomenu">Back to menu</button>
 				</div>
 			
@@ -134,7 +140,7 @@ index.css
 		<div class="content" id="cartcontent">
 		<div id= "cart"> 
 			<div id= "login">
-				<div class="logincontent">Browse products here.<br><br>If you are a VIP customer, you can also login and order the products yourself by logging in:</div><br>
+				<div class="logincontent"><span id="browseproductsText">Browse products here.</span><br><br><span id="vipCustomerLoginText">If you are a VIP customer, you can also login and order the products yourself by logging in:</span></div><br>
 				<div class="logincontent"><label for="uname"></label></div>
     			<div class="logincontent"><input id="loginUsername" type="text" placeholder="Enter Username" name="uname" required></div>
 				<div class="logincontent"><label for="psw"></label></div>
@@ -150,13 +156,23 @@ index.css
 				<!--- This div below contains the droppable items list -->			
 				<div class="tooltip">
 					<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)">
-  					<span id="tooltiptext">Drag items to cart from the left side menu</span>
+					  <span class="tooltiptext" id="dragItemsText">Drag items to cart from the left side menu</span>
+					  <span class="tooltiptext" id="checkoutWarningText" hidden><br>Cart is empty</span>
 					</div>
-				<div id="cartCreditTotal">Add here total credits</div>
-				<div id="checkoutTotal">Add here total amount</div>
+					<div >
+						<span id="checkoutCartCreditText">Total Credit: </span><span id="checkoutCartCreditValue"> 100 </span>
+					</div>
+					<div>
+						<span id="checkoutCartPriceText">Total Price: </span><span id="checkoutCartPriceValue"> 100 </span>
+					</div>
 				<button class="button" id= "checkoutbtn">Checkout</button>
 				</div>
 			</div>
+
+			<div id= "endBox">
+
+			</div>
+
 		</div>
 		</div>
 		<div class="contentside"></div>

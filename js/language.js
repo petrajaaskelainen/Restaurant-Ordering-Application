@@ -33,6 +33,9 @@ $(document).ready(function(){
         $('#orderTab').html(language.orderTab);
         $('#historyTab').html(language.historyTab);
         $('#inventoryTab').html(language.inventoryTab);
+        $('#helpTab').html(language.helpTab);
+        $('#menuTab').html(language.menuTab);
+
 
         $('#companyName').text(language.companyName);
         $('#companyParagraph').text(language.companyParagraph);	
@@ -49,6 +52,11 @@ $(document).ready(function(){
         $('#priceCategory').html(language.priceCategory);
 
 
+        $('#browseproductsText').html(language.browseproductsText);
+        $('#vipCustomerLoginText').html(language.vipCustomerLoginText);
+
+        
+        $('#loginbtn').html(language.loginbtn);
         $('#backbtn').html(language.backbtn);
         $('#confirmbtn').html(language.confirmbtn);
         $('#backtomenu').html(language.backtomenu);
@@ -59,15 +67,18 @@ $(document).ready(function(){
         $('#checkoutbtn').html(language.checkoutbtn);
 
         $('#dragItemsText').html(language.dragItemsText);
-
-        
-
+        $('#checkoutWarningText').text(language.checkoutWarningText);
 
 
-		
-		
-		
-		
+        $('#confirmPurchaseCreditText').html(language.totalCredit);
+        $('#confirmPurchasePriceText').html(language.totalPrice);
+        $('#checkoutCartCreditText').html(language.totalCredit);
+        $('#checkoutCartPriceText').html(language.totalPrice);
+       
+        $('#orderplacedText').text(language.orderplacedText);
+        	
+        $('#logoutText').text(language.logoutText);	
+
 		
     }
     

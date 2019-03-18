@@ -2,31 +2,45 @@
     "english": "English",
     "urdu": "اردو",
 	
-	"homeTab": "اردو",
-	"orderTab": "اردو",
-	"historyTab": "اردو",
-	"inventoryTab": "اردو",
-	"companyName": "The اردو Dutchman",
-	"companyParagraph": "The Flying dutchman was established in 1956. Our aim is to offer quality beer and experiences to our customers.",
-	
-	"checkOutStepsHeading": "Steps in اردو",
-	"checkOutStepsOneText": "Select اردو",
-	"checkOutStepsTwoText": "Confirm اردو",
-	"checkOutStepsThreeText": "Order اردو",
+	"homeTab": "ہوم پیج",
+	"orderTab": "آرڈر",
+	"historyTab": "کھاتے کی تفصیلات",
+	"inventoryTab": "انوینٹری",
+	"helpTab": "مدد",
+	"menuTab": "مینو اور VIP آرڈر",
 
-	"nameCategory": "اردو &#8679;",
-	"alcoholCategory": "اردو %  &#8681;",
-	"originCategory": "اردو",
-	"inStockCategory": "In stock",
-	"priceCategory": "اردو",
+
+	"companyName": "پرواز ڈچ مینمان",
+	"companyParagraph": "فلائی ڈچ مین مین قائم کیا گیا تھا 1956 ء میں. ہمارا مقصد ہمارے گاہکوں کو معیار بیئر اور تجربات پیش کرنا ہے",
 	
-	"backbtn": "Go اردو",
-	"confirmbtn": "Confirm purchase",
-	"backtomenu": "اردو to menu",
-	"undoBtn": "&#x276E; Remove last اردو",
-	"emptyCartBtn": "Empty cart",
-	"redoBtn": "Add اردو again &#x276F;",
-	"checkoutbtn": "اردو",
-	"dragItemsText": "Drag اردو to cart from the اردو side menu"
+	"checkOutStepsHeading": "تکمیل کے مراحل",
+	"checkOutStepsOneText": "پسند فرمایئے",
+	"checkOutStepsTwoText": "رقم کی تصدیق",
+	"checkOutStepsThreeText":"آرڈردیا گیا",
+
+	"nameCategory": "نام &#8679;",
+	"alcoholCategory": "شراب کی مقدار %  &#8681;",
+	"originCategory": "اصل",
+	"inStockCategory": "اسٹاک میں",
+	"priceCategory": "قیمت",
+
+	"browseproductsText": "یہاں مصنوعات کو براؤز کریں.",
+	"vipCustomerLoginText":"اگر آپ وی آئی پی کسٹمر ہیں، تو آپ اپنی مصنوعات کو لاگ ان کرکے اپنے آپ کو لاگ ان اور آرڈر کرسکتے ہیں",
+	
+	"loginbtn": "لاگ ان",
+	"backbtn": "واپس جائیں",
+	"confirmbtn": "خریداری کی توثیق کریں",
+	"backtomenu": "مینو پر واپس جائیں",
+	"undoBtn": "&#x276E; واپس دوہرایئے",
+	"emptyCartBtn": "خالی ٹوکری",
+	"redoBtn": "دوہرائیے &#x276F;",
+	"checkoutbtn": "چیک آؤٹ",
+	"dragItemsText": "بائیں جانب کے مینو سے ٹوکری میں اشیاء کو ڈریگ کریں",
+	"checkoutWarningText":"ٹوکری خالی ہے",
+	"totalCredit": "کل کریڈٹ: ",
+	"totalPrice":"کل قیمت: ",
+
+	"orderplacedText":"آرڈر کیا",
+	"logoutText":"اب آپ لاگ ان کر رہے ہیں"
 
 }

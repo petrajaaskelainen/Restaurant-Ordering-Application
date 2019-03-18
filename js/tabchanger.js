@@ -35,9 +35,12 @@ $(document).ready(function(){
 							$("#login").hide();
 							$("#progress").show();
 							$("#checkout").show();
+							$("#logoutbtn").show();
+
 							let userObj = userDet;
 							sessionStorage.setItem('user', JSON.stringify(userObj)); 
-							$("#cartCreditTotal").text("Total Credit: " +  userObj.account + " kr."); 
+							$("#checkoutCartCreditValue").text(userObj.account + " kr.");
+							$("#checkoutCartPriceValue").text("0" + " kr."); 
 						}
 						else{
 							 			// if username or password is not correct then display this text
@@ -51,30 +54,57 @@ $(document).ready(function(){
 	
 	}); 
 
-
+	// Checkout Button
 	$("#checkoutbtn").click(function(){
 	
-		$("#progress").show();
-		$("#confirmPurchase").show();
-		$("#menu").hide();
 		
-		$("#two").css('background', '#2b2b2b');
-		$("#one").css('background', 'darkturquoise');
+		if(sessionStorage.getItem('cart-customer') !== null && JSON.parse(sessionStorage.getItem('cart-customer')).items.length >= 1 ){
+			//$("#progress").show();
+			$("#menu").hide();
+			$("#confirmPurchase").show();
+		
+		
+			$("#two").css('background', '#2b2b2b');
+			$("#one").css('background', 'darkturquoise');
+		}
+		else{
+			console.log("hey")
+			$("#checkoutWarningText").show();
+			$("#checkoutWarningText").fadeOut(300)
+										.fadeIn(300)
+										.fadeOut(300)
+										.fadeIn(300)
+										.fadeOut(300)
+										.fadeIn(300)
+										.fadeOut(300)
+										.fadeIn(300)
+										.fadeOut(300)
+										.fadeIn(300).hide(0);
+			
+		}
+		
 
-		let userDetails =	JSON.parse(sessionStorage.getItem('user'));
+		
+	});
 
-		//userDetails.account //This is the user Credit I need some id to change text
-});
+	// Back Button
+	$("#backbtn").click(function(){
+	
+		//$("#progress").show();
+		$("#menu").show();
+		$("#confirmPurchase").hide();
+		
+		
+		$("#two").css('background', 'darkturquoise');
+		$("#one").css('background', '#2b2b2b');
+
+		
+	});
 	
 	
-	
+	// Confirm Purchase Button
 	$("#confirmbtn").click(function(){
 	
-		$("#orderPlaced").show();	
-		$("#confirmPurchase").hide();
-		$("#two").css('background', 'darkturquoise');
-		$("#three").css('background', '#2b2b2b');
-		
 		if(sessionStorage.getItem('cart-customer') !== null && JSON.parse(sessionStorage.getItem('cart-customer')).items.length >= 1 ){
 
 			let cartTemp = JSON.parse(sessionStorage.getItem('cart-customer'))
@@ -88,7 +118,7 @@ $(document).ready(function(){
 			changeBalance(userDetails.userName, userNewCredit);
 			cartTemp.items.forEach((items, index, array) => {
 					
-				changeBevergesQuantity(items.drinkDBID, items.quantity);
+				changeBevergesQuantity(items.drinkDBID, items.quantity); // Make changes in database
 
 					let tempObj = {
 						"id": items.drinkDBID,
@@ -104,16 +134,40 @@ $(document).ready(function(){
 				"total_price": total,
 				"beer_ids_quantity":  beer_ids_quantity_Temp
 			}
-		
-			saveNewTransaction(newTransacObj);
 			
+			saveNewTransaction(newTransacObj);
+			emptyCartView();
 		}
+
+		$("#orderPlaced").show();	
+		$("#confirmPurchase").hide();
+		//$("#cartcontent").hide();
+		$("#checkout").hide();
+		$("#logoutbtn").hide();
+
+		
+		$("#two").css('background', 'darkturquoise');
+		$("#three").css('background', '#2b2b2b');
 	
 	});	
 
 	$("#backtomenu").click(function(){
 		
 		$("#cartcontent").show();
+		$("#progress").hide();
+		$("#logoutbtn").hide();
+		$("#menu").show();
+		$("#login").show();
+    	$("#orderPlaced").hide();
+		$("#checkout").hide();		
+	
+	});
+
+	$("#logoutbtn").click(function(){
+		
+		$("#cartcontent").show();
+		$("#progress").hide();
+		$("#logoutbtn").hide();
 		$("#menu").show();
 		$("#login").show();
     	$("#orderPlaced").hide();

@@ -119,15 +119,19 @@ index.css
 				</div>
 				<!--- Hidden as default, visible in check-out process-->
 				<div id="confirmPurchase">
-					<p>Put here price and credits, etc.</p>
+						<div>
+							<!-- <span id="confirmPurchaseCreditText">Total Credit: </span><span id="confirmPurchaseCreditValue"> 100 kr </span> <br> -->
+							<span id="confirmPurchasePriceText">Total Price: </span><span id="confirmPurchasePriceValue"> 100 kr </span>
+						</div>
+			
 					<button class="cartbutton" id="backbtn">Go back</button>
 					<button class="button" id="confirmbtn">Confirm purchase</button>
 				</div>
 				<!--- Hidden as default, visible in check-out process-->
 				<div id="orderPlaced">
 					<h1>&#x2714;</h1>
-					<p>Order placed!</p>
-					<p>You are now logged out.</p>
+					<p id="orderplacedText">Order placed!</p>
+					<p id="logoutText">You are now logged out.</p>
 					<button class="button" id="backtomenu">Back to menu</button>
 				</div>
 
@@ -145,9 +149,16 @@ index.css
 								<button class="cartbutton" id="emptyCartBtn"></button>
 								<button class="cartbutton" id="redoBtn">Add item again &#x276F;</button>
 								<div id="checkoutCart" ondrop="drop(event)" ondragover="allowDrop(event)">
-									<span class="tooltiptext" id="dragItemsText">Drag items to cart from the left side menu</span>
+									<span class="tooltiptext" id="dragItemsText">Drag items to cart from the left side menu</span><br>
+									<span class="tooltiptext" id="checkoutWarningText" hidden>Cart is empty</span>
 								</div>
-								<div id="checkoutTotal"></div>
+								<div >
+									<!-- <span id="checkoutCartCreditText">Total Credit: </span><span id="checkoutCartCreditValue"> 100 kr </span> -->
+								</div>
+								<div>
+									<span id="checkoutCartPriceText">Total Price: </span><span id="checkoutCartPriceValue"> 100 kr </span>
+								</div>
+
 								<button class="button" id="checkoutbtn">Checkout</button>
 							</div>
 						</div>

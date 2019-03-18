@@ -150,6 +150,14 @@ header {
 	font-weight: 300;
 	width: 15%;
 }
+.origin {
+	font-weight: 300;
+	width: 30%;
+}
+.amount {
+	font-weight: 300;
+	width: 15%;
+}
 .menuItemList {
 	background-color: #FFFFFF;
 	margin: 5px;

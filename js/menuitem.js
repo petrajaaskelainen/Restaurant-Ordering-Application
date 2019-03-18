@@ -17,8 +17,6 @@ $(document).ready(function(){
     var beverges = allBeverages().slice(1,30);
     //console.log(beverges.slice(1,20));
     
-   console.log(beverges[5].name);
-    
     
     function pad2(number) {
         return (number < 10 ? '0' : '') + number
@@ -40,17 +38,31 @@ $(document).ready(function(){
             // if the item is of the desired type, then we add the HTML string to the collection variable.
             // Otherwise we skip to the next item.
             //
-            //if (arr[i].type == type) {
+            if (type === "Staff") {
        
             out += '<div id="' + "menuitem" + pad2(i) + '" class="menuItemList"  draggable="true" ondragstart="drag(event)"' 
                     + 'data-cart-listing-price="' + arr[i].price + '" ' 
                     + 'data-cart-listing-id="' + arr[i].id + '" ' 
                     + 'data-cart-listing-name="' + arr[i].name + '" >'
-                    + ' <span class="name">' + arr[i].name + '</span>'
-                    + ' <span class="alcoholStrength">' + arr[i].alcohol + '</span>'
-                    + ' <span class="price">' + arr[i].price + '</span>' 
+                    + '<span class="name">' + arr[i].name + '</span>'
+                    + '<span class="alcoholStrength">' + arr[i].alcohol + '</span>'
+                    + '<span class="origin">' + arr[i].origin + '</span>'
+                    + '<span class="amount">' + arr[i].amount + '</span>'
+                    + '<span class="price">' + arr[i].price + '</span>' 
                     + '</div>';
-            //}
+            }
+            else{
+                out += '<div id="' + "menuitem" + pad2(i) + '" class="menuItemList"  draggable="true" ondragstart="drag(event)"' 
+                    + 'data-cart-listing-price="' + arr[i].price + '" ' 
+                    + 'data-cart-listing-id="' + arr[i].id + '" ' 
+                    + 'data-cart-listing-name="' + arr[i].name + '" >'
+                    + '<span class="name">' + arr[i].name + '</span>'
+                    + '<span class="alcoholStrength">' + arr[i].alcohol + '</span>'
+                    + '<span class="origin">' + arr[i].origin + '</span>'
+                    + '<span class="price">' + arr[i].price + '</span>' 
+                    + '</div>';
+
+            }
         }
         // Once we are finished we return the resulting HTML string containing all the menu items for the desired menu.
         //
@@ -61,11 +73,16 @@ $(document).ready(function(){
 
 
 
+    if ( document.URL.includes("indexStaff.html") ) {
+        $(getDrinks("Staff", beverges)).appendTo("#menulist");
+    }
+    else {
+        
+        if ( document.URL.includes("indexCustomer.html") )
+        $(getDrinks("Customer", beverges)).appendTo("#menulist");
+    }
 
 
-
-
-$(getDrinks(beverges[0].category, beverges)).appendTo("#menulist");
 //document.getElementById('div4').appendChild(makeUL(beverges));
 
 $("#checkoutTotal").text("Total: " + 0 + "kr.");

@@ -142,7 +142,14 @@ function allBeverages() {
     // items, you may introduce filter functions in the loop... see the template within comments.
     //
     for (i = 0; i < DB.spirits.length; i++) {
-        obj = {id: DB.spirits[i].nr, name: DB.spirits[i].name, category: DB.spirits[i].catgegory, price: DB.spirits[i].priceinclvat, alcohol: DB.spirits[i].alcoholstrength};
+        obj = { id: DB.spirits[i].nr,
+                name: DB.spirits[i].name,
+                category: DB.spirits[i].catgegory,
+                price: DB.spirits[i].priceinclvat,
+                alcohol: DB.spirits[i].alcoholstrength,
+                origin:  DB.spirits[i].countryoforiginlandname,
+                amount:  DB.spirits[i].amount
+            };
         collector.push(obj);
     };
     //
@@ -164,7 +171,6 @@ function changeBevergesQuantity(drinkId, quantity) {
     for (i = 0; i < DB.spirits.length; i++) {
         if(DB.spirits[i].nr === drinkId){
             DB.spirits[i].amoount -= quantity;
-
         }
     
     };
