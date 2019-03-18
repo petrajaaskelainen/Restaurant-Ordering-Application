@@ -1,3 +1,11 @@
+// Name        : filterstaff.js.js
+// Author      : Ridhi Agrawal
+// Version     : 1.0
+// Copyright   : (c) Reserved
+// Date Created: 18th march, 2019
+// Last updated: 
+// Description : Creates filter for the menu item, price, alcohol percentage.
+
 $(document).ready(function(){
     sortByName('ascending');
 })
