@@ -1,4 +1,4 @@
-// Name        : filterstaff.js.js
+// Name        : filterstaff.js
 // Author      : Ridhi Agrawal
 // Version     : 1.0
 // Copyright   : (c) Reserved
