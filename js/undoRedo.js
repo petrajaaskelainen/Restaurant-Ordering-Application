@@ -12,6 +12,7 @@
 let UNDO;
 let REDO;
 
+/**Check which html file has included this js file */
 if ( document.URL.includes("indexStaff.html") ) {
     UNDO = "undo-staff";
     REDO = "redo-staff";
@@ -43,25 +44,21 @@ function  addItemInUndo(data, recAction, clearRedo = false) {
 
     if ( (clearRedo === true) && (sessionStorage.getItem('redo') !== null) ){
         let redoArray = sessionStorage.getItem('redo');
-            redoArray= [];
-            sessionStorage.setItem('redo', JSON.stringify(redoArray));  
+            redoArray= [];                                              // Clear redo array 
+            sessionStorage.setItem('redo', JSON.stringify(redoArray));  // Store the updated redo array back in storage 
     }
     
     if ( sessionStorage.getItem('undo') === null)  {
         
         let undo = [];
         undo.push(undoObject);
-        console.log("First time, Add item in undo: ");
-        console.log(undo);
         sessionStorage.setItem('undo', JSON.stringify(undo));  
 
     }
     else{
-        let undo = JSON.parse(sessionStorage.getItem('undo'));
-        undo.push(undoObject);
-        console.log("After First time, Add item in undo: ");
-        console.log(undo);
-        sessionStorage.setItem('undo', JSON.stringify(undo));  
+        let undo = JSON.parse(sessionStorage.getItem('undo'));  // Get undo items from storage
+        undo.push(undoObject);                                  // Add new object in undo array
+        sessionStorage.setItem('undo', JSON.stringify(undo));   // Store the updated undo array back in storage 
     }
 
     $('#undoBtn').prop('disabled', false);
@@ -84,18 +81,14 @@ function addItemInRedo(data, recAction){
         
         let redo = [];
         redo.push(redoObject);
-        console.log("First time, Add item in Redo: ");
-        console.log(redo);
         sessionStorage.setItem('redo', JSON.stringify(redo))  
 
     }
     else{
 
-        let redo = JSON.parse(sessionStorage.getItem('redo'));
-        redo.push(redoObject);
-        console.log("After First time, Add item in Redo: ");
-        console.log(redo);
-        sessionStorage.setItem('redo', JSON.stringify(redo))  
+        let redo = JSON.parse(sessionStorage.getItem('redo'));          // Get redo items from storage
+        redo.push(redoObject);                                          // Add new object in redo array
+        sessionStorage.setItem('redo', JSON.stringify(redo))            // Store the updated redo array back in storage 
 
     }
 
@@ -129,7 +122,7 @@ function removeItemFromUndo(){
           break;
 
         case "remove":
-                tempCartID = addOrPlusItemInCart(data, false);            // Adds the item back in cart         
+                tempCartID = addOrPlusItemInCart(data, false);          // Adds the item back in cart         
                 drawCartView();                                         // Redraw & Update the cart View      
                 addItemInRedo(tempCartID , "add");            
             break;
@@ -219,18 +212,18 @@ function removeItemFromRedo(){
 $(document).ready(function(){
 
 
-    $('#undoBtn').prop('disabled', true);
-    $('#redoBtn').prop('disabled', true);
+    $('#undoBtn').prop('disabled', true);       // In start disable the undo button as Undo array will be empty
+    $('#redoBtn').prop('disabled', true);       // In start disable the redo button
 
 
     $('#undoBtn').click(function(){
 
-        removeItemFromUndo();
+        removeItemFromUndo();                   // Unexecute the last performed action
     })
 
     $('#redoBtn').click(function(){
 
-        removeItemFromRedo();
+        removeItemFromRedo();                   // Unexecute the last performed action done as a result of Undo
     })
 
 

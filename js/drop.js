@@ -4,7 +4,7 @@
 // Version     : 1.0
 // Copyright   : (c) Reserved
 // Date Created: 18th Febraury, 2019
-// Last updated: 
+// Last updated: 23rd March, 2019
 // Description : Implements dragndrop functionality, some functions are taken from
 //               Bar2 example   
 // Requires    : index.html, jquery API 
@@ -21,9 +21,10 @@
  * 6.  sumCartTotal() 
  * 7.  addCartItemListeners()
  * 8.  removeCartItemListeners()
- * 9.  allowDrop(ev)
- * 10. drag(ev)
- * 11. drop(ev)
+ * 9.  emptyCartView()
+ * 10.  allowDrop(ev)
+ * 11. drag(ev)
+ * 12. drop(ev)
  */
 
 let CART;
@@ -98,14 +99,14 @@ function drop(ev) {
         quantity: 1
     }
     
-    addOrPlusItemInCart(data);     
+    addOrPlusItemInCart(data);                          // Adds/Plus item in the cart array
 
-    drawCartView();
+    drawCartView();                                     // Draws/adds all the Cart items on the page
 
    
 
     let backgroundColor = $(nodeID).css('background');  // store original background
-    $(nodeID).css('background', 'SpringGreen');              // change element background
+    $(nodeID).css('background', 'SpringGreen');         // change element background
      setTimeout(function() {
         $(nodeID).css('background', backgroundColor);   // change it back after ...
      }, 600);  
@@ -116,7 +117,11 @@ function drop(ev) {
 
 }
 
-
+/**
+ * This function gets all the items price and quantity
+ * from the cart (stored in sessionStorage) and based 
+ * on these values, calculates the total price of the cart.
+ */
 function sumCartTotal(){
 
     let sum = 0;
@@ -209,6 +214,12 @@ function addOrPlusItemInCart(data, addInUndo = true){
 }
 
 
+/**
+ * 
+ * @param {} cartItemID: Id of the Cart Item (HTML ID) 
+ * @param {*} addInUndo, True/False, Weather to add in Undo OR Not  
+ * Description: This function increaments the quantity of a given cart item id. 
+ */
 function plusQuantityOfItemInCart(cartItemID, addInUndo = true){
 
     let cartTemp = JSON.parse(sessionStorage.getItem(CART));
@@ -232,8 +243,12 @@ function plusQuantityOfItemInCart(cartItemID, addInUndo = true){
 }
 
 
-
-
+/**
+ * 
+ * @param {} cartItemID: Id of the Cart Item (HTML ID) 
+ * @param {*} addInUndo, True/False, Weather to add in Undo OR Not  
+ * Description: This function decreaments the quantity of a given cart item id. 
+ */
 function minusQuantityOfItemInCart(cartItemID, addInUndo = true){
 
     let cartTemp = JSON.parse(sessionStorage.getItem(CART));
@@ -258,6 +273,13 @@ function minusQuantityOfItemInCart(cartItemID, addInUndo = true){
     }    
 }
 
+
+/**
+ * 
+ * @param {} cartItemID: Id of the Cart Item (HTML ID) 
+ * @param {*} addInUndo, True/False, Weather to add in Undo OR Not  
+ * Description: This function removes the quantity of a given cart item id. 
+ */
 function removeItemFromCart(cartItemID,addInUndo = true){
 
     let menuID; 
@@ -297,6 +319,11 @@ function removeItemFromCart(cartItemID,addInUndo = true){
     return data;
 }
 
+
+/**
+ * This function clears the cart array in session storage 
+ * and also empties the cart in the view.
+ */
 function emptyCartView(){
 
     removeCartItemListeners();
@@ -316,7 +343,14 @@ function emptyCartView(){
 
 }
 
-
+/**
+ * Description: This function does 5 tasks
+ * 1. Removes all old listeners (add/minus/remove button) associated with cart items
+ * 2. Creates Cart View (HTML) from the cart (stored in session storage)
+ * 3. Adds new listeners (add/minus/remove button)
+ * 4. Updates total Sum, and shows on the view
+ * 5. Updates the user Credit, and shows on the view 
+ */
 
 function drawCartView(){
 
@@ -368,6 +402,10 @@ function drawCartView(){
 }
 
 
+/**
+ * This function removes all the buttons listeners
+ * associated with cart items in the view
+ */
 function removeCartItemListeners(){
 
     $(".cartItemsPlusButton").off("click");
@@ -384,7 +422,7 @@ function addCartItemListeners(){
         let cartID = $(this).parent().parent().attr('id');
        
         removeItemFromCart(cartID);
-        drawCartView();
+        drawCartView();                     // Draws all the Cart items on the page
 
     })
 
@@ -394,7 +432,7 @@ function addCartItemListeners(){
         let cartID = $(this).parent().parent().attr('id');
         
         plusQuantityOfItemInCart(cartID);
-        drawCartView();
+        drawCartView();                      // Draws all the Cart items on the page
        
     })
 
@@ -406,7 +444,7 @@ function addCartItemListeners(){
 
         if($(nodeID).data("quantity") >= 2){
             minusQuantityOfItemInCart(cartID);
-            drawCartView();
+            drawCartView();                  // Draws all the Cart items on the page
         }  
 
     })
@@ -414,7 +452,7 @@ function addCartItemListeners(){
     /*Listens if empty button of cart item is clicked.*/
     $('#emptyCartBtn').on('click', function(){
        
-        emptyCartView();
+        emptyCartView();                    // Clear all the cart items
 
     })
 
