@@ -157,7 +157,6 @@ function addOrPlusItemInCart(data, addInUndo = true){
     
     }
     
-    console.log(data);
     let menuID = data.id;
     let itemQuantity = data.quantity;
     
@@ -206,8 +205,8 @@ function addOrPlusItemInCart(data, addInUndo = true){
         addItemInUndo(data ,action, true);
     }
     
-    console.log("add or plus items in cart: \n" );
-    console.log(cartTemp);
+    //console.log("add or plus items in cart: \n" );
+    //console.log(cartTemp);
 
     return data;
 

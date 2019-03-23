@@ -29,8 +29,8 @@ if ( localStorage.getItem('Database') === null)  {
 }
 else {
         DB = JSON.parse(localStorage.getItem('Database'));
-        console.log ("Not Null");
-        console.log(DB);
+        // console.log ("Not Null");
+        // console.log(DB);
        // localStorage.removeItem('Database');
 }
 

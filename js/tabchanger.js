@@ -68,7 +68,6 @@ $(document).ready(function(){
 			$("#one").css('background', 'darkturquoise');
 		}
 		else{
-			console.log("hey")
 			$("#checkoutWarningText").show();
 			$("#checkoutWarningText").fadeOut(300)
 										.fadeIn(300)

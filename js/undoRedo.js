@@ -34,8 +34,8 @@ else {
  */
 function  addItemInUndo(data, recAction, clearRedo = false) {
 
-    console.log("Data In Undo");
-    console.log (data);
+    //console.log("Data In Undo");
+    //console.log (data);
     let undoObject = {
         id: data.id,
         quantity: data.quantity,
@@ -178,7 +178,7 @@ function removeItemFromRedo(){
           break;
 
         case "remove":
-                tempCartID = addOrPlusItemInCart(data, false);            // Adds the item back in cart         
+                tempCartID = addOrPlusItemInCart(data, false);           // Adds the item back in cart         
                 drawCartView();                                         // Redraw & Update the cart View
                 addItemInUndo(tempCartID, "add");            
           break;

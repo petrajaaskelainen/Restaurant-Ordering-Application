@@ -17,15 +17,12 @@ $(document).ready(function(){
 	$("#checkoutbtn").click(function(){
     
     if(sessionStorage.getItem('cart-staff') !== null && JSON.parse(sessionStorage.getItem('cart-staff')).items.length >= 1 ){
-			//$("#progress").show();
-			$("#menu").hide();
-			$("#confirmPurchase").show();
-		
-		
-			//$("#two").css('background', '#2b2b2b');
-			//$("#one").css('background', 'darkturquoise');
+
+			$("#menu").hide();							// Hide Menu Section
+			$("#confirmPurchase").show();		// Show Confirm Purchase Section on the same location/Space
+	
 		}
-		else{
+		else{ // Blink "Cart is Empty" on the page
 			$("#checkoutWarningText").show();
 			$("#checkoutWarningText").fadeOut(300)
 										.fadeIn(300)
@@ -45,6 +42,7 @@ $(document).ready(function(){
 	//When user clicks confirmbtn, the confirm purchase is hidden and the orderplaced is shown.		
 	$("#confirmbtn").click(function(){
 
+		
     if(sessionStorage.getItem('cart-staff') !== null && JSON.parse(sessionStorage.getItem('cart-staff')).items.length >= 1 ){
 
 			let cartTemp = JSON.parse(sessionStorage.getItem('cart-staff'))
@@ -75,13 +73,12 @@ $(document).ready(function(){
 				"beer_ids_quantity":  beer_ids_quantity_Temp
 			}
 			
-			saveNewTransaction(newTransacObj);
-			emptyCartView();
+			saveNewTransaction(newTransacObj);											// Save in database
+			emptyCartView();																				// Update Cart View and make it empty
 		}
 
-		$("#orderPlaced").show();	
-		$("#confirmPurchase").hide();
-		//$("#cartcontent").hide();
+		$("#orderPlaced").show();																	// Show order Place section
+		$("#confirmPurchase").hide();															// Hide other sections
 		$("#checkout").hide();
 	
   });
@@ -90,10 +87,7 @@ $(document).ready(function(){
 	$("#backtomenu").click(function(){
 		
 		$("#cartcontent").show();
-		//$("#progress").hide();
-		//$("#logoutbtn").hide();
 		$("#menu").show();
-		//$("#login").show();
     $("#orderPlaced").hide();
     $("#checkout").show();	
     $("#checkoutCartPriceValue").text("0" + " kr."); 
@@ -102,25 +96,19 @@ $(document).ready(function(){
   });
   
 
-  // Back Button
+  // Back Button, show Menu and hide confirm purchase section
 	$("#backbtn").click(function(){
-	
-		//$("#progress").show();
 		$("#menu").show();
 		$("#confirmPurchase").hide();
-		
-		
-		//$("#two").css('background', 'darkturquoise');
-		//$("#one").css('background', '#2b2b2b');
-
-		
+	
 	});
 
+	// Not Using/ No login button
   $("#login").click(function(){
 		$("#cartcontent").hide();
-		//$("#orderPlaced").hide();	
   });
 
+	// When Purchase History is clicked, show transactions
   $("#historyTab").click(function(){
     
     let trans =  allTransactions();     // Get from Database (Model)
@@ -135,14 +123,11 @@ $(document).ready(function(){
 
   });
 
-  
-
-
   	
 });
 
 
-
+// Draw Transactions table
 function drawPurchaseHistory(trans){
 
 
