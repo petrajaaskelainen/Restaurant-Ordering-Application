@@ -54,7 +54,7 @@ $(document).ready(function(){
 	
 	}); 
 
-	// Checkout Button
+	//When user clicks checkoutbtn, the menu is hidden and the confirmpurchase is shown.	
 	$("#checkoutbtn").click(function(){
 	
 		
@@ -67,7 +67,7 @@ $(document).ready(function(){
 			$("#two").css('background', '#2b2b2b');
 			$("#one").css('background', 'darkturquoise');
 		}
-		else{
+		else{ // Show Cart warning Message 
 			$("#checkoutWarningText").show();
 			$("#checkoutWarningText").fadeOut(300)
 										.fadeIn(300)
@@ -86,14 +86,12 @@ $(document).ready(function(){
 		
 	});
 
-	// Back Button
+  	// Back Button, show Menu and hide confirm purchase section
 	$("#backbtn").click(function(){
 	
 		//$("#progress").show();
 		$("#menu").show();
 		$("#confirmPurchase").hide();
-		
-		
 		$("#two").css('background', 'darkturquoise');
 		$("#one").css('background', '#2b2b2b');
 
@@ -150,6 +148,7 @@ $(document).ready(function(){
 	
 	});	
 
+	//When user clicks backtomenu, the menu and ordering tab are shown and the orderplaced is hidden.	
 	$("#backtomenu").click(function(){
 		
 		$("#cartcontent").show();
