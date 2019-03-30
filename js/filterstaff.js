@@ -29,7 +29,7 @@ function sortBy(id){
     }
     currentValue=$('#'+id).text()
     //console.log(currentValue)
-    if(currentValue.indexOf('⇧') == -1 && currentValue.indexOf('⇩') == -1){
+    if(currentValue.indexOf('⇧') === -1 && currentValue.indexOf('⇩') === -1){
         currentValue= currentValue+" ⇧";
     }
     //console.log(currentValue)
@@ -37,44 +37,46 @@ function sortBy(id){
     oldText=currentValue.slice(0,len)
     
     if (id.includes('name')) {
-    check = oldNameOrder == 'd';
-        if(check){
-    $('#'+id).html(oldText+'&#8679');
-    sortByName('ascending');
-    oldNameOrder='a'
+     
+        if(oldNameOrder === 'd'){
+                $('#'+id).html(oldText+'&#8679');
+                sortByName('ascending');
+                oldNameOrder='a'
         }
         else{
-            $('#'+id).html(oldText+'&#8681');
-            oldNameOrder='d'
-            sortByName('descending');
+            
+                $('#'+id).html(oldText+'&#8681');
+                oldNameOrder='d'
+                sortByName('descending');
         }
     }
     else if(id.includes('price')){
-         check = oldPriceOrder == 'd';
-        if(check){
-    $('#'+id).html(oldText+'&#8679');
-    sortByName('ascending');
-    oldPriceOrder='a'
+         
+        if(oldPriceOrder === 'd'){
+            $('#'+id).html(oldText+'&#8679');
+            sortByPrice('ascending');
+            oldPriceOrder='a'
         }
         else{
             $('#'+id).html(oldText+'&#8681');
             oldPriceOrder='d'
             sortByPrice('descending');
         }   
-            }
+    }
     else if(id.includes('alcohol')){
-         check = oldAlcoholOrder == 'd';
-        if(check){
-    $('#'+id).html(oldText+'&#8679');
-    sortByAlcohol('ascending');
-    oldAlcoholOrder='a'
+         
+        
+        if(oldAlcoholOrder === 'd'){
+            $('#'+id).html(oldText+'&#8679');
+            sortByAlcohol('ascending');
+            oldAlcoholOrder='a'
         }
         else{
             $('#'+id).html(oldText+'&#8681');
             oldAlcoholOrder='d'
             sortByAlcohol('descending');
         }   
-            }
+    }
     
     }
 function sortByName(parameter){
@@ -101,13 +103,14 @@ function sortByPrice(parameter){
     if(parameter == 'ascending'){
          
         divList.sort(function(a, b){ 
-            return (''+$(a).data("cart-listing-price"))-($(b).data("cart-listing-price"));                        
-                                   });
+            return (''+ $(a).data("cart-listing-price"))-($(b).data("cart-listing-price"));
+        });
         
     }
         else{
-           divList.sort(function(a, b){ return(''+ $(b).data("cart-listing-price"))-($(a).data("cart-listing-price"))
-                                      }); 
+           divList.sort(function(a, b){ 
+               return(''+ $(b).data("cart-listing-price"))-($(a).data("cart-listing-price"))
+            }); 
         }
         
     $("#menulist").html(divList);
@@ -117,7 +120,7 @@ function sortByAlcohol(parameter){
     //console.log(parameter)
     if(parameter == 'ascending'){
          
-        divList.sort(function(a, b){ return $(a).data("cart-listing-alcohol").slice(0,-1)-$(b).data("cart-listing-alcohol").slice(0,-1)                            });
+        divList.sort(function(a, b){ return $(a).data("cart-listing-alcohol").slice(0,-1)-$(b).data("cart-listing-alcohol").slice(0,-1) });
         
     }
         else{

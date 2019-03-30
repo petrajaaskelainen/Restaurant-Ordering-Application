@@ -43,7 +43,9 @@ $(document).ready(function(){
             out += '<div id="' + "menuitem" + pad2(i) + '" class="menuItemList"  draggable="true" ondragstart="drag(event)"' 
                     + 'data-cart-listing-price="' + arr[i].price + '" ' 
                     + 'data-cart-listing-id="' + arr[i].id + '" ' 
-                    + 'data-cart-listing-name="' + arr[i].name + '" >'
+                    + 'data-cart-listing-name="' + arr[i].name + '" '
+                    + 'data-cart-listing-alcohol="' + arr[i].alcohol + '" '
+                    + 'data-cart-listing-origin="' + arr[i].origin + '" >'
                     + '<span class="name">' + arr[i].name + '</span>'
                     + '<span class="alcoholStrength">' + arr[i].alcohol + '</span>'
                     + '<span class="origin">' + arr[i].origin + '</span>'
@@ -55,7 +57,9 @@ $(document).ready(function(){
                 out += '<div id="' + "menuitem" + pad2(i) + '" class="menuItemList"  draggable="true" ondragstart="drag(event)"' 
                     + 'data-cart-listing-price="' + arr[i].price + '" ' 
                     + 'data-cart-listing-id="' + arr[i].id + '" ' 
-                    + 'data-cart-listing-name="' + arr[i].name + '" >'
+                    + 'data-cart-listing-name="' + arr[i].name + '" '
+                    + 'data-cart-listing-alcohol="' + arr[i].alcohol + '" '
+                    + 'data-cart-listing-origin="' + arr[i].origin + '" >'
                     + '<span class="name">' + arr[i].name + '</span>'
                     + '<span class="alcoholStrength">' + arr[i].alcohol + '</span>'
                     + '<span class="origin">' + arr[i].origin + '</span>'
@@ -87,6 +91,7 @@ $(document).ready(function(){
 
 $("#checkoutTotal").text("Total: " + 0 + "kr.");
 
+// Not using, Ridhi made filter.js, and that file is now sorting
 function sortByLowPrice(){
     var divList = $(".menuItemList");
     divList.sort(function(a, b){ return $(a).data("cart-listing-price")-$(b).data("cart-listing-price")});

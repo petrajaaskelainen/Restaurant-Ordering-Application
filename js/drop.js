@@ -286,7 +286,7 @@ function removeItemFromCart(cartItemID,addInUndo = true){
     let toRemoveItemIndex;
     let cartTemp = JSON.parse(sessionStorage.getItem(CART));
 
-    console.log("cartID Remove Function:")
+    //console.log("cartID Remove Function:")
     //console.log(cartID);
 
     cartTemp.items.forEach((items, index, array) => {
@@ -300,14 +300,14 @@ function removeItemFromCart(cartItemID,addInUndo = true){
             menuID = items.menuItemID;
             quantity = items.quantity;
             toRemoveItemIndex = index;
-            console.log("index" + index );
+            //console.log("index" + index );
         }
       
     });
 
     cartTemp.items.splice(toRemoveItemIndex, 1);
-    console.log("Remove items in cart: \n" );
-    console.log(cartTemp);
+   // console.log("Remove items in cart: \n" );
+    //console.log(cartTemp);
     sessionStorage.setItem(CART, JSON.stringify(cartTemp));
     
     let data = {id: menuID, quantity:quantity};
@@ -368,8 +368,8 @@ function drawCartView(){
         var cartPrice = cart.items[i].price;
         var cartQuantity = cart.items[i].quantity;
    
-        out += '<div id="' + cartID + '" class="menuItemList cartItemsList menuItemDrop" ' 
-                + 'data-cart-listing-price="' + cartPrice + '" ' 
+        out += '<div id="' + cartID + '" class="cartItemList menuItemDrop" ' 
+                + 'data-listing-price="' + cartPrice + '" ' 
                 + 'data-quantity="' + cartQuantity + '" >'
                 + '<span class="name">' + cartName + '</span>'
                 + '<span class="cartPlusButtonSpan">' + "<button class='cartItemsPlusButton'>"+ "+"+'</button>' +'</span>'

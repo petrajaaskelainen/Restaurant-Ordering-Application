@@ -19,6 +19,9 @@ $(document).ready(function(){
         $('#nameSelector').change(function(){
         changeName();
     })
+    $('#countrySelector').change(function(){
+        changeOrigin();
+    })
      
 });
  
@@ -61,6 +64,42 @@ function sortByName(parameter){
         
     $("#menulist").html(divList);
 }
+
+function changeOrigin(){    
+
+    var currentValue=document.getElementById('countrySelector').value;
+    
+    if(currentValue == 'Default'){
+            
+    }
+    else if(currentValue == 'ascending'){ 
+        sortByName('ascending');
+    }
+    else{
+        sortByName('descending');
+    }
+        
+}
+
+
+function sortByOrigin(parameter){
+
+    var divList = $(".menuItemList");
+    
+    if(parameter == 'ascending'){
+        
+        divList.sort(function(a, b){ 
+            return ('' +  $(a).data("cart-listing-origin")).localeCompare( $(b).data("cart-listing-origin"));
+        });
+    }
+    else{
+        divList.sort(function(a, b){ 
+            return ('' +  $(b).data("cart-listing-origin")).localeCompare( $(a).data("cart-listing-origin"));
+        }); 
+    }
+        
+    $("#menulist").html(divList);
+}
         
 function changeAlcohol(){    
        var currentValue=document.getElementById('alcoholStrengthSelector').value;
@@ -83,11 +122,11 @@ function sortByAlcohol(parameter){
     //console.log(parameter)
     if(parameter == 2){
          
-        divList.sort(function(a, b){ return $(a).data("cart-listing-alcohol").slice(0,-1)-$(b).data("cart-listing-alcohol").slice(0,-1)                            });
+        divList.sort(function(a, b){ return $(a).data("cart-listing-alcohol").slice(0,-1)-$(b).data("cart-listing-alcohol").slice(0,-1)});
         
     }
         else{
-           divList.sort(function(a, b){ return $(b).data("cart-listing-alcohol").slice(0,-1)-$(a).data("cart-listing-alcohol").slice(0,-1)}); 
+            divList.sort(function(a, b){ return $(b).data("cart-listing-alcohol").slice(0,-1)-$(a).data("cart-listing-alcohol").slice(0,-1)});
         }
         
     $("#menulist").html(divList);
